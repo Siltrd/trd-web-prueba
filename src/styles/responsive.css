@@ -148,9 +148,7 @@
 
 /* === Estilos para dispositivos de 768px de ancho o menor (móviles) === */
 @media (max-width: 768px) {
-  html, body {
-    overflow-x: hidden;
-  }
+  
 
   .container {
     display: block;
@@ -172,7 +170,7 @@
   }
 
   .right-column {
-    display: none;
+    display: block;
   }
 
   .mobile-photo-wrapper {
