@@ -1,0 +1,57 @@
+/* === Estilos para la sección Manifiesto === */
+.seccion-manifiesto {
+  width: 100%;
+  padding: 50px 20px;
+  background-color: #f2e8dc; /* Color de fondo suave */
+  color: #1e364d; /* Color de texto */
+  text-align: center;
+}
+
+.seccion-manifiesto h2 {
+  font-size: 2.5em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.seccion-manifiesto p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.seccion-manifiesto .block-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.seccion-manifiesto .block-buttons button {
+  padding: 12px 30px;
+  background-color: #f57c00;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.seccion-manifiesto .block-buttons button:hover {
+  background-color: #fff;
+  color: #f57c00;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .seccion-manifiesto h2 {
+    font-size: 2em;
+  }
+
+  .seccion-manifiesto p {
+    font-size: 1.1em;
+  }
+
+  .seccion-manifiesto .block-buttons {
+    flex-direction: column;
+  }
+}

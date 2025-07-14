@@ -1,0 +1,8 @@
+@import './global.css';   /* Estilos globales */
+@import './base.css';     /* Estilos base y reset */
+@import './header.css';   /* Estilos del header */
+@import './footer.css';   /* Estilos del footer */
+@import './layout.css';   /* Estilos de disposición */
+@import './hero.css';     /* Estilos de la sección Hero */
+@import './buttons.css';  /* Estilos de los botones */
+@import './responsive.css'; /* Media queries */

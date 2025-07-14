@@ -1,0 +1,32 @@
+/* === Estilos base para los botones TRD === */
+.block-buttons button {
+  padding: 10px 60px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #f57c00; /* Fondo naranja */
+  color: #fff; /* Texto blanco */
+  border: 2px solid transparent; /* Borde transparente */
+  border-radius: 999px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  /* Centrado y forma */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Dimensiones mínimas */
+  min-width: 180px;
+  height: 44px;
+
+  /* Espaciado: eliminar margen para controlar con gap */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Efecto hover */
+.block-buttons button:hover {
+  background-color: #fff; /* Fondo blanco */
+  color: #f57c00; /* Texto naranja */
+  border: 2px solid #7c7f58; /* Borde verde oliva */
+}
