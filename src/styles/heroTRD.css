@@ -1,0 +1,462 @@
+/* Estilos generales para el Hero */
+.hero__section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f9f3ed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alineamos hacia arriba para respetar el margen superior */
+  padding: 0 5vw; 
+  box-sizing: border-box;
+  overflow-x: hidden;
+  
+}
+
+.hero__wrapper {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.hero__visuals-wrapper {
+  position: relative;
+  width: 100%;
+  height: 1100px;
+  overflow:visible;
+}
+
+.hero__left-column {
+  width: clamp(320px, 35vw, 475px);
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px; 
+ 
+  margin: 0 0 0 110px; 
+  box-sizing: border-box;
+}
+
+.hero__right-column {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.hero__foto {
+  position: absolute;
+  top: clamp(-380px, -23vw, -180px); /* Escala vertical adaptable */
+  left: 58%;
+  transform: translateX(-50%);
+  width: clamp(960px, 77.5vw, 1235px); /* 1235px era tu tamaño visual ideal */
+  height: auto;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2;
+  display: block;
+}
+
+.hero__mobile-foto-wrapper {
+  display: none; /* Oculta por defecto */
+}
+
+
+.hero__text-box {
+  width: 100%;
+  z-index: 3;
+  box-sizing: border-box;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.hero__box1 {
+  font-size: clamp(48px, 1.5vw, 50px);  /* Escala entre 24 y 36 */
+  line-height: 1.2;
+  font-weight: bold;
+  margin-top: 160px; /* Espacio superior para compensar el header */
+  word-break: break-word;
+  hyphens: auto;
+  margin-bottom: 30px;
+}
+
+.hero__box2 {
+  font-size: clamp(14px, 1.4vw, 18px);  /* Escala entre 14 y 18 */
+  line-height: 1.5;
+  margin-bottom: 35px;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.hero__box3 {
+  font-size: clamp(14px, 1.4vw, 18px);  /* Escala entre 14 y 18 */
+  line-height: 1.5;
+  margin-bottom: 45px;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.hero__box5 {
+  font-size: clamp(14px, 1.4vw, 18px);  /* Escala entre 14 y 18 */
+  line-height: 1.5;
+  font-weight: bold;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.hero__box-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  z-index: 3;
+}
+
+.hero__box-buttons button {
+  background-color: #f57c00;
+  color: #fff;
+  padding: 12px 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  height: clamp(36px, 5vh, 42px); /* Altura de los botones */
+  width: clamp(140px, 30vw, 220px); /* Anchura de los botones */
+  font-size: clamp(14px, 1vw, 16px); /* Se adapta a pantalla */
+}
+
+.hero__box-buttons button:hover {
+  background-color: #fff;
+  color: #7c7f58; /* Borde verde oliva */
+  border: 1px solid #7c7f58; /* Borde verde oliva */
+}
+
+.hero__checkmark {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding-left: 20px; /* Espacio entre el checkmark y el texto */
+}
+
+.hero__checkmark img {
+  margin-right: 4px;
+  margin-left: -25px;
+  width: 27px; /* Ajustamos el tamaño del checkmark */
+  height: 24px;
+}
+
+
+/* 1. Entre 1201px y 1399px */
+@media (min-width: 1201px) and (max-width: 1399px) {
+  .hero__left-column {
+    margin-left: clamp(40px, 5vw, 80px);
+  }
+
+  .hero__right-column {
+    margin-right: clamp(20px, 5vw, 40px);
+  }
+
+  .hero__foto {
+    top: clamp(-380px, -24vw, -180px); /*arriba */
+    width: clamp(980px, 81vw, 1235px); /* más grande, sin deformarse */
+    height: auto;
+    left: 68%;
+  }
+}
+
+/* 2. Hasta 1200px */
+@media (max-width: 1200px) {
+  .hero__left-column {
+    margin-left: clamp(-20px, -15vw, -15px);
+    margin-top: clamp(5px, -15vh, -110px);
+  }
+
+  .hero__right-column {
+    margin-right: clamp(-160px, -10vw, -150px);
+    margin-top: clamp(-600px, -16vh, -720px);
+  }
+
+  .hero__foto {
+    width: clamp(980px, 100vw, 1200px);
+    height: auto;
+    top: clamp(140px, 14.5vw, 200px);
+    left: 63%;
+  }
+
+  .hero__box-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: clamp(12px, 2vw, 16px);
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero__box-buttons button {
+    font-size: clamp(16px, 1.5vw, 18px);
+    padding: clamp(10px, 2vh, 14px) clamp(24px, 4vw, 30px);
+    width: clamp(240px, 42vw, 500px);
+    white-space: nowrap;
+    flex-shrink: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    line-height: 1.2;
+  }
+
+  .hero__box1 {
+    font-size: clamp(38px, 8vw, 48px);
+  }
+
+  .hero__box2 {
+    font-size: clamp(18px, 2vw, 20px);
+  }
+
+  .hero__box3 {
+    font-size: clamp(16px, 1vw, 18px);
+  }
+
+  .hero__box5 {
+    font-size: clamp(14px, 1.2vw, 18px);
+  }
+}
+
+/* 3. Hasta 1024px */
+@media (max-width: 1024px) {
+  .hero__left-column {
+    margin-left: clamp(-30px, -3vw, -20px);
+  }
+
+  .hero__right-column {
+    margin-left: clamp(20px, 4vw, 30px);
+  }
+
+  .hero__box1 {
+    font-size: clamp(26px, 4vw, 32px);
+  }
+
+  .hero__box2 {
+    font-size: clamp(14px, 2vw, 19px);
+  }
+
+  .hero__box3 {
+    font-size: clamp(12px, 1vw, 14px);
+    line-height: 1.3; /* menor interlineado */
+    margin-bottom: 25px; /* opcional: menos espacio inferior */
+  }
+
+  .hero__checkmark {
+    font-size: 0.85rem; /* texto más pequeño */
+    margin-bottom: 6px;
+    padding-left: 16px;
+  }
+
+  .hero__checkmark img {
+    width: 20px;
+    height: 18px;
+    margin-left: -20px;
+    margin-right: 4px;
+  }
+
+  .hero__box-buttons button {
+    padding: clamp(8px, 2vh, 10px) clamp(200px, 70vw, 220px);
+    font-size: clamp(16px, 2vw, 20px);
+  }
+
+  .hero__box5 {
+    font-size: clamp(14px, 2vw, 18px);
+  }
+
+  .hero__foto {
+    top: clamp(40px, 20vw, 70px);
+    width: clamp(780px, 140vw, 1200px);
+    height: auto;
+    left: 75%;
+  }
+}
+
+
+  /* 4. Entre 770px y 900px */
+@media (min-width: 770px) and (max-width: 900px) {
+  .hero__left-column {
+    margin-top: 4px;
+    margin-left: clamp(-30px, -3vw, -20px);
+    width: clamp(260px, 38vw, 480px);
+  }
+
+  .hero__right-column {
+    margin-top: clamp(-200px, -20vw, -160px);
+    margin-left: clamp(-60px, -6vw, -45px);
+  }
+
+  .hero__foto {
+    width: clamp(1024px, 105vw, 1200px);
+    top: clamp(-160px, 9vw, -850px);
+    left: 75%;
+  }
+
+  .hero__box1 {
+    font-size: clamp(32px, 3.5vw, 38px);
+  }
+
+  .hero__box2 {
+    font-size: clamp(18.5px, 2vw, 21px);
+  }
+
+  .hero__box3 {
+    margin-bottom: 10px;
+    font-size: clamp(14px, 2vw, 18px);
+  }
+
+  .hero__box-buttons button {
+    width: clamp(240px, 50vw, 550px);
+    padding: 12px clamp(40px, 15vw, 170px);
+    font-size: clamp(15px, 2vw, 18px);
+    margin-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  .hero__box5 {
+    font-size: clamp(12px, 2vw, 16px);
+    margin-top: -20px;
+  }
+
+   .hero__checkmark {
+    font-size: 1rem; /* texto más pequeño */
+    margin-bottom: 6px;
+    padding-left: 16px;
+  }
+
+  .hero__checkmark img {
+    width: 24px;
+    height: 24px;
+    margin-left: -23px;
+    margin-right: 4px;
+  }
+}
+
+
+/* 5. Movil 768px  */
+@media (max-width: 768px) {
+   .hero__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+  }
+
+  .hero__left-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    z-index: 3;
+  }
+
+  .hero__box1 {
+    order: 1;
+    font-size: clamp(28px, 6vw, 38px);
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 85px;
+  }
+
+  .hero__box2 {
+    order: 2;
+    font-size: clamp(16px, 4vw, 18px);
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .hero__box3 {
+    /*order: 3;*/
+    display: none;
+  }
+
+  .hero__box-buttons {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .hero__box-buttons button {
+    width: clamp(280px, 90vw, 590px);
+    padding: clamp(12px, 1vh, 16px) clamp(40px, 10vw, 60px);
+    font-size: clamp(18px, 1.5vw, 24px);
+  }
+
+  .hero__box5 {
+    order: 4;
+    font-size: clamp(14px, 4vw, 18px);
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .hero__right-column {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 0;
+    width: 100%;
+    margin-top: -40px; /* Subimos la imagen cerca de los botones */
+    position:absolute;
+    top: 120px;
+  }
+    
+  .hero__foto {
+    width: clamp(300px, 90vw, 550px);
+    height: auto;
+    border-radius: 50%;
+    /*display: block;
+    position: static;
+    margin: 0 auto;*/
+  }
+
+
+  .hero__mobile-foto-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px auto 30px; /* ajusta según necesites */
+    z-index: 1;
+    order: 4;
+}
+
+  .hero__mobile-foto {
+    width: clamp(520px, 90vw, 600px);
+    height: auto;
+    border-radius: 50%;
+}
+
+  }
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  
+    
+
+    

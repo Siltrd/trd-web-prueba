@@ -1,22 +1,14 @@
-// src/App.jsx
 import React from 'react';
-import './styles/index.css';
-
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Main from './components/Main';
-import TestPage from './pages/TestPage';
+import Header from './components/Header'; // Importa el Header
+import HeroTRD from './components/HeroTRD'; // Importa el HeroTRD
+import Footer from './components/Footer'; // Importa el Footer
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Header />
-
-      <Main />
-
-      <Footer>
-        <p>&copy; 2025 TRD. Todos los derechos reservados.</p>
-      </Footer>
+      <HeroTRD />
+      <Footer /> {/* Agrega el Footer aquí */}
     </div>
   );
 }

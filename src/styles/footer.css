@@ -6,6 +6,6 @@ footer {
   padding: 20px 0; /* Espaciado vertical */
   text-align: center; /* Alineación central del texto */
   position: static; /* Posición estática (por defecto) */
-  z-index: 0; /* Z-index para el control de capas, no es necesario a menos que haya un conflicto */
+  z-index: 0; /* Z-index para el control de capas */
   box-sizing: border-box; /* Incluye padding y border en el cálculo del tamaño */
 }
