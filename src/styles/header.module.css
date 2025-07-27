@@ -1,35 +1,42 @@
 /* === Header fijo y escalable === */
-header {
-  height: clamp(80px, 10vh, 100px);
+.header {
+  height: clamp(80px, 10vh, 100px); /* Se mantiene la altura estándar */
   width: 100%;
-  background-color: transparent;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: transparent; /* Fondo transparente inicialmente */
+  transition: background-color 0.5s ease-in-out, box-shadow 0.3s ease-in-out; /* Transición más suave */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 clamp(20px, 5vw, 60px);
+  padding: clamp(16px, 3vw, 32px) clamp(20px, 5vw, 60px); /* Asegurando que el padding no cambie abruptamente */
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
+  /*box-sizing: border-box;  Asegura que el contenido se mantenga bien alineado */
 }
 
-header.scrolled {
-  background-color: #f9f3ed;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+.headerScrolled {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Ajustamos la sombra para darle un toque más suave */
 }
 
 /* === Logo === */
 .logo img {
-  width: clamp(150px, 20vw, 250px);
+  width: clamp(150px, 20vw, 250px); /* El tamaño del logo sigue siendo adaptable */
   height: auto;
+  display: block;
+  padding-top: 4px; /* O bien ↓ */
+  /* margin-bottom: 4px; */
 }
 
 .logo {
   height: auto;
+  display: inline-block;
   padding: clamp(10px, 2vw, 40px);
   will-change: filter;
-  transition: filter 300ms;
+  transition: filter 300ms ease;
+  position: relative;
+  z-index: 101;
 }
 
 .logo:hover {
@@ -37,7 +44,7 @@ header.scrolled {
 }
 
 /* === Menú escritorio === */
-.header-nav {
+.headerNav {
   display: flex;
   gap: clamp(8px, 1.5vw, 20px);
   margin-left: auto;
@@ -46,7 +53,7 @@ header.scrolled {
   align-items: center;
 }
 
-.header-nav button {
+.headerNav button {
   padding: clamp(6px, 1vh, 10px) clamp(20px, 3vw, 32px);
   font-size: clamp(14px, 1vw, 16px);
   font-weight: bold;
@@ -58,18 +65,18 @@ header.scrolled {
   transition: all 0.3s ease;
 }
 
-.header-nav button:hover {
+.headerNav button:hover {
   color: #f57c00;
   border: 2px solid #f57c00;
   background-color: transparent;
 }
 
 /* === Dropdown escritorio === */
-.header-nav .dropdown {
+.headerNav .dropdown {
   position: relative;
 }
 
-.header-nav .dropdown-content {
+.headerNav .dropdownContent {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-5px);
@@ -85,13 +92,13 @@ header.scrolled {
   flex-direction: column;
 }
 
-.header-nav .dropdown:hover .dropdown-content {
+.headerNav .dropdown:hover .dropdownContent {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.header-nav .dropdown-content a {
+.headerNav .dropdownContent a {
   text-decoration: none;
   color: #4A6D7C;
   font-weight: 500;
@@ -100,12 +107,12 @@ header.scrolled {
   transition: color 0.2s ease;
 }
 
-.header-nav .dropdown-content a:hover {
+.headerNav .dropdownContent a:hover {
   color: #f57c00;
 }
 
 /* === Menú hamburguesa === */
-.menu-hamburger {
+.menuHamburger {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -114,9 +121,11 @@ header.scrolled {
   height: 30px;
   cursor: pointer;
   z-index: 101;
+  /*position: absolute;
+  right: 20px;  Asegura que se alinee a la derecha */
 }
 
-.menu-hamburger div {
+.menuHamburger div {
   width: 100%;
   height: 3px;
   background-color: #f57c00;
@@ -124,20 +133,20 @@ header.scrolled {
   transition: 0.4s;
 }
 
-.menu-hamburger.open div:nth-child(1) {
+.menuHamburger.open div:nth-child(1) {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.menu-hamburger.open div:nth-child(2) {
+.menuHamburger.open div:nth-child(2) {
   opacity: 0;
 }
 
-.menu-hamburger.open div:nth-child(3) {
+.menuHamburger.open div:nth-child(3) {
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* === Overlay menú mobile === */
-.menu-mobile-overlay {
+.menuMobileOverlay {
   position: absolute;
   top: 100%;
   left: 0;
@@ -153,13 +162,13 @@ header.scrolled {
   z-index: 100;
 }
 
-.menu-mobile-overlay.open {
+.menuMobileOverlay.open {
   max-height: 500px;
   transform: scaleY(1);
   pointer-events: auto;
 }
 
-.menu-mobile-nav {
+.menuMobileNav {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,8 +176,8 @@ header.scrolled {
   padding: 1rem 0;
 }
 
-.menu-mobile-nav .menu-link,
-.menu-mobile-nav .dropdown-button {
+.menuMobileNav .menuLink,
+.menuMobileNav .dropdownButton {
   all: unset;
   display: block;
   width: 90%;
@@ -183,14 +192,14 @@ header.scrolled {
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.menu-mobile-nav .menu-link:hover,
-.menu-mobile-nav .dropdown-button:hover {
+.menuMobileNav .menuLink:hover,
+.menuMobileNav .dropdownButton:hover {
   color: #f57c00;
   background-color: #f2e8dc;
 }
 
 /* === Dropdown mobile === */
-.menu-mobile-nav .dropdown {
+.menuMobileNav .dropdown {
   width: 100%;
   position: relative;
   display: flex;
@@ -198,7 +207,7 @@ header.scrolled {
   align-items: center;
 }
 
-.menu-mobile-nav .dropdown-content {
+.menuMobileNav .dropdownContent {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -208,11 +217,11 @@ header.scrolled {
   padding: 0.5rem 0;
 }
 
-.menu-mobile-nav .dropdown.open .dropdown-content {
+.menuMobileNav .dropdown.open .dropdownContent {
   display: flex;
 }
 
-.menu-mobile-nav .dropdown-content a {
+.menuMobileNav .dropdownContent a {
   color: #4A6D7C;
   text-decoration: none;
   font-size: 14px;
@@ -220,23 +229,23 @@ header.scrolled {
   transition: color 0.2s ease;
 }
 
-.menu-mobile-nav .dropdown-content a:hover {
+.menuMobileNav .dropdownContent a:hover {
   color: #f57c00;
 }
 
 /* === Media queries === */
 @media (max-width: 1024px) {
-  .header-nav {
+  .headerNav {
     display: none;
   }
 
-  .menu-hamburger {
+  .menuHamburger {
     display: flex;
   }
 }
 
 @media (min-width: 1025px) {
-  .menu-hamburger {
+  .menuHamburger {
     display: none !important;
   }
 }

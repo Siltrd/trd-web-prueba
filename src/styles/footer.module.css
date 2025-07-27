@@ -1,0 +1,118 @@
+.footer {
+  width: 100%;
+  background-color: #f9f9f9;
+  color: #1e364d;
+  padding: 6vh 5vw 6vh; 
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-top: none;
+  position: relative; /* Para poder posicionar el logo con absolute */
+  margin-top: 5vh;  /* Añade más aire arriba de manera escalable */
+  margin-bottom: 0;  /* Añade más aire abajo de manera escalable */
+}
+
+.footer .logo {
+  position: absolute;
+  left: 12vh; /* Ajusta este valor para colocar el logo donde desees */
+  top: 3vh; /* Ajusta este valor si deseas mover el logo verticalmente */
+  width: 16em; /* Ajusta el tamaño del logo */
+  height: auto; /* Mantiene las proporciones */
+}
+
+.footerNav {
+  display: flex;
+  gap: 2vw;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footerNav li {
+  display: flex;
+  align-items: center; /* Para alinear los iconos con el texto */
+  gap: 1.5rem; /* Aumenta esta distancia si los iconos están demasiado pegados al texto */
+}
+
+/* ✅ Botones alineados horizontalmente y con estilo */
+.footerButton {
+  background: none;
+  border: none;
+  color: #1e364d;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.3s ease;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.footerButton:hover {
+  color: #f57c00;
+}
+
+footer p {
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+  color: #7c7f58;
+  margin-top: 1rem;
+}
+
+.whatsappFooter {
+  margin-top: 4vh;
+  margin-bottom: 1.5vh;
+  text-align: center;
+}
+
+.whatsappFooter a {
+  background-color: #25D366;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.whatsappFooter a:hover {
+  background-color: #128C7E;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 18vh 15vw;
+  }
+
+  /* Ajuste para centrar el logo */
+  .logo {
+    text-align: center; /* Centra el logo */
+    margin-bottom: 2vh; /* Ajusta el espacio debajo del logo */
+    width: 30vw; /* Ajusta el tamaño del logo según el viewport */
+  }
+
+  /* Ajuste para reducir el espacio debajo de "Derechos reservados" */
+  .footer p {
+    margin-top: 1vh; /* Menos espacio encima del texto */
+  }
+
+  /* Ajuste para la separación entre los botones */
+  .footerNav {
+    display: flex;
+    flex-direction: column; /* Los botones se apilan verticalmente */
+    align-items: center;
+    gap: 0.3rem;  /* Menos espacio entre los botones, ajusta si es necesario */
+  }
+
+  .whatsappFooter {
+    margin-top: 1vh; /* Menos espacio entre el botón de WhatsApp y los demás elementos */
+  }
+}

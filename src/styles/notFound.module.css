@@ -1,0 +1,25 @@
+.notFound {
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Arial', sans-serif;
+}
+
+.notFound h1 {
+  font-size: 3rem;
+  color: #e74c3c;
+}
+
+.notFound p {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.notFound a {
+  font-size: 1.2rem;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.notFound a:hover {
+  text-decoration: underline;
+}

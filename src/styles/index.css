@@ -8,4 +8,5 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f3ed;
+  overflow-x: hidden; /* ← AGREGAR ESTO para prevenir scroll horizontal */
 }

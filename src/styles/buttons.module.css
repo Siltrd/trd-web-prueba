@@ -1,0 +1,53 @@
+/* === Estilos base para los botones TRD === */
+.block-buttons button {
+  padding: clamp(10px, 2vw, 14px) clamp(40px, 6vw, 60px);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 600;
+  background-color: #f57c00; /* Fondo naranja */
+  color: #fff; /* Texto blanco */
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 180px;
+  height: clamp(40px, 5.5vh, 48px);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Efecto hover */
+.block-buttons button:hover {
+  background-color: #fff;
+  color: #f57c00;
+  border: 2px solid #7c7f58;
+}
+
+/* === Botón alternativo con gradiente, para formularios o secciones suaves === */
+.btn-principal {
+  padding: clamp(10px, 2vw, 14px);
+  border: none;
+  border-radius: 999px;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  background: linear-gradient(135deg, #f7a400, #f2e8dc);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+/* Hover del botón alternativo */
+.btn-principal:hover {
+  background: linear-gradient(135deg, #f2e8dc, #f7a400);
+  color: #f7a400;
+  border: 2px solid #7c7f58;
+}
+
+&:focus {
+  outline: 2px dashed #7c7f58;
+  outline-offset: 4px;
+}
