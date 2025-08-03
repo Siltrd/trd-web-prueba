@@ -1,0 +1,30 @@
+/* === layout.module.css === */
+
+/* Contenedor principal del layout */
+.layout {
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;  /* Asegura que ocupe todo el ancho disponible */
+}
+
+/* Contenedor para secciones con márgenes visuales */
+.sectionContent {
+  width: 100%;
+  padding: clamp(20px, 5vw, 60px);  /* Usar 'clamp()' para mayor flexibilidad */
+}
+
+/* Contenedor para secciones de pantalla completa */
+.wrapperFullWidth {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  overflow-x: hidden; /* Solo si es necesario */
+  position: relative; /* Solo si es necesario */
+}
+
+/* Padding horizontal estándar reutilizable */
+.sectionPadding {
+  padding-left: clamp(20px, 5vw, 60px);
+  padding-right: clamp(20px, 5vw, 60px);
+  width: 100%;
+}

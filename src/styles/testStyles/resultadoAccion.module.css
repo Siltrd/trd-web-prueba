@@ -1,0 +1,35 @@
+.resultadoContainer {
+  padding: 2rem;
+  background-color: #f9f3ed;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resultadoTitle {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: #1e364d;
+  margin-bottom: 1rem;
+}
+
+.resultadoDescription {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.botonTRD {
+  background-color: #b0a58d;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.botonTRD:hover {
+  background-color: #7c7f58;
+}

@@ -1,43 +1,39 @@
+/* Footer principal */
 .footer {
   width: 100%;
   background-color: #f9f9f9;
   color: #1e364d;
-  padding: 6vh 5vw 6vh; 
+  padding: 9vh 1vw 3vh;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  border-top: none;
-  position: relative; /* Para poder posicionar el logo con absolute */
-  margin-top: 5vh;  /* Añade más aire arriba de manera escalable */
-  margin-bottom: 0;  /* Añade más aire abajo de manera escalable */
+  position: relative;
+  margin-top: 5vh;
+  margin-bottom: 0;
 }
 
-.footer .logo {
+.footerLogo {
   position: absolute;
-  left: 12vh; /* Ajusta este valor para colocar el logo donde desees */
-  top: 3vh; /* Ajusta este valor si deseas mover el logo verticalmente */
-  width: 16em; /* Ajusta el tamaño del logo */
-  height: auto; /* Mantiene las proporciones */
+  left: clamp(2rem, 5vw, 12vh);
+  top: clamp(2rem, 5vh, 6vh);
+  width: clamp(9em, 14vw, 13em);
+  height: auto;
 }
 
 .footerNav {
   display: flex;
   gap: 2vw;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 20vh;
 }
 
-.footerNav li {
-  display: flex;
-  align-items: center; /* Para alinear los iconos con el texto */
-  gap: 1.5rem; /* Aumenta esta distancia si los iconos están demasiado pegados al texto */
-}
-
-/* ✅ Botones alineados horizontalmente y con estilo */
-.footerButton {
+.footerNav button,
+.footerNav .dropdownContent a {
   background: none;
   border: none;
   color: #1e364d;
@@ -49,10 +45,40 @@
   min-width: 100px;
   text-align: center;
   font-weight: bold;
+  padding: 10px 20px;
 }
 
-.footerButton:hover {
+.footerNav button:hover,
+.footerNav .dropdownContent a:hover {
   color: #f57c00;
+  background-color: transparent;
+}
+
+.footerNav .dropdown {
+  position: relative;
+}
+
+.footerNav .dropdownContent {
+  position: absolute;
+  background-color: #f9f3ed;
+  min-width: 180px;
+  z-index: 1;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footerNav .dropdownContent a {
+  color: #4a6d7c;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footerNav .dropdownContent a:hover {
+  color: #f57c00;
+  background-color: transparent;
 }
 
 footer p {
@@ -83,36 +109,47 @@ footer p {
   background-color: #128C7E;
 }
 
+/* Media query general móvil */
 @media (max-width: 768px) {
   .footer {
-    display: flex;
-    flex-direction: column;
+    padding: 8vh 5vw 3vh;
     align-items: center;
     justify-content: flex-start;
-    padding: 18vh 15vw;
   }
 
-  /* Ajuste para centrar el logo */
-  .logo {
-    text-align: center; /* Centra el logo */
-    margin-bottom: 2vh; /* Ajusta el espacio debajo del logo */
-    width: 30vw; /* Ajusta el tamaño del logo según el viewport */
+  .footerLogo {
+    position: static;
+    margin-bottom: 2vh;
+    width: 50vw;
+    max-width: 190px;
   }
 
-  /* Ajuste para reducir el espacio debajo de "Derechos reservados" */
-  .footer p {
-    margin-top: 1vh; /* Menos espacio encima del texto */
-  }
-
-  /* Ajuste para la separación entre los botones */
   .footerNav {
-    display: flex;
-    flex-direction: column; /* Los botones se apilan verticalmente */
+    flex-direction: column;
     align-items: center;
-    gap: 0.3rem;  /* Menos espacio entre los botones, ajusta si es necesario */
+    gap: 1.5rem;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .footerButton {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
   }
 
   .whatsappFooter {
-    margin-top: 1vh; /* Menos espacio entre el botón de WhatsApp y los demás elementos */
+    margin-top: 2vh;
+  }
+
+  .footer p {
+    margin-top: 2rem;
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
+    text-align: center;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footerNav {
+    padding-left: clamp(10em, 15vw, 18em); /* evita que los botones se metan sobre el logo */
+  }
+}
+

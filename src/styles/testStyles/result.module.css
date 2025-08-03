@@ -1,0 +1,46 @@
+.homeWrapper {
+  padding: 2rem;
+}
+
+.resultadoCard {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tituloPrincipal {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #1e364d;
+  margin-bottom: 1rem;
+}
+
+.subtituloTRD {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #7c7f58;
+}
+
+.separador {
+  margin: 2rem 0;
+  border-top: 1px solid #ccc;
+}
+
+.botonTRD {
+  background-color: #b0a58d;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.botonTRD:hover {
+  background-color: #7c7f58;
+}

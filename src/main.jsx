@@ -1,13 +1,21 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'; // ✅ Import correcto
+import { BrowserRouter } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
+import authConfig from './auth_config';
 import './styles/index.css';
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter> {/* ✅ Esto activa React Router */}
-      <App />
-    </BrowserRouter>
+    <Auth0Provider
+      domain={authConfig.domain}
+      clientId={authConfig.clientId}
+      authorizationParams={authConfig.authorizationParams}
+    >
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Auth0Provider>
   </StrictMode>
 );

@@ -1,0 +1,17 @@
+/* src/styles/auth.module.css */
+.authBtn {
+  background-color: #f57c00;
+  color: #ffffff;
+  border: none;
+  padding: clamp(0.4rem, 1vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.authBtn:hover {
+  background-color: #e86f00;
+  transform: scale(1.03);
+}

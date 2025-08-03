@@ -1,22 +1,47 @@
+// src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 import styles from '../styles/header.module.css';
 import logo from '../assets/images/trd-logo.svg';
 
-const Header = () => {
+const Header = ({ isTestLayout }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [recursosOpen, setRecursosOpen] = useState(false);
+  const [productosOpen, setProductosOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  const { isAuthenticated, isLoading } = useAuth0();
   const location = useLocation();
   const navigate = useNavigate();
 
+  const isMobile = windowWidth <= 767;
+  const isTablet = windowWidth > 767 && windowWidth <= 1024;
+
   const handleScroll = () => {
-    setScrolled(window.scrollY > 0);
+    setScrolled(window.scrollY > 0); // Cambia a `true` si el scroll es mayor a 0
+  };
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+
+    if (window.innerWidth > 1024) {
+      setMenuOpen(false);
+      setRecursosOpen(false);
+      setProductosOpen(false);
+    }
   };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const toggleMenu = () => {
@@ -25,69 +50,122 @@ const Header = () => {
 
   const handleInicioClick = () => {
     if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'auto' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       navigate('/');
     }
+    setMenuOpen(false);
   };
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}>
+    <header
+      className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}
+      style={{
+        backgroundColor: isTestLayout ? '#ffffff' : (scrolled ? '#ffffff' : 'transparent'), // Se activa blanco con scroll
+        position: 'fixed',
+        width: '100%',
+        top: 0,
+        left: 0,
+        padding: '1rem 2rem',
+        zIndex: 100,
+        boxShadow: scrolled || isTestLayout ? '0 4px 12px rgba(0, 0, 0, 0.1)' : 'none', // Sombra activa con scroll o en test
+      }}
+    >
       <div className={styles.logo} onClick={handleInicioClick} style={{ cursor: 'pointer' }}>
         <img src={logo} alt="TRD Logo" />
       </div>
 
-      {/* Menú escritorio */}
-      <nav className={styles.headerNav}>
-        <button onClick={handleInicioClick}>Inicio</button>
-        <Link to="/fundadora"><button>Fundadora</button></Link>
-        <Link to="/test"><button>Test</button></Link>
-
-        <div className={styles.dropdown}>
-          <button>Recursos</button>
-          <div className={styles.dropdownContent}>
-            <a href="#">PDF descargables</a>
-            <a href="#">Ejercicios</a>
-          </div>
-        </div>
-
-        <Link to="/contacto"><button>Contacto</button></Link>
-      </nav>
-
-      {/* Menú hamburguesa (mobile) */}
-      <div
-        className={`${styles.menuHamburger} ${menuOpen ? styles.open : ''}`}
-        onClick={toggleMenu}
-      >
-        <div></div><div></div><div></div>
-      </div>
-
-      {/* Menú móvil */}
-      <div className={`${styles.menuMobileOverlay} ${menuOpen ? styles.open : styles.closed}`}>
-        <nav className={styles.menuMobileNav}>
-          <button className={styles.menuLink} onClick={() => { handleInicioClick(); toggleMenu(); }}>
-            Inicio
-          </button>
-          <Link to="/fundadora" onClick={toggleMenu}>
-            <button className={styles.menuLink}>Fundadora</button>
-          </Link>
-          <Link to="/test" onClick={toggleMenu}>
-            <button className={styles.menuLink}>Test</button>
-          </Link>
+      {/* Menú de escritorio y tablet horizontal */}
+      {!isMobile && (
+        <nav className={styles.headerNav}>
+          <Link to="/sobre-mi"><button>Sobre mí</button></Link>
 
           <div className={styles.dropdown}>
-            <button className={styles.menuLink}>Recursos</button>
+            <button className={styles.dropbtn}>Recursos Gratuitos</button>
             <div className={styles.dropdownContent}>
-              <a href="#">PDF descargables</a>
-              <a href="#">Ejercicios</a>
+              <Link to="/otros-tests">Tests Gratuitos</Link>
+              <a href="#" onClick={(e) => e.preventDefault()}>PDFs Descargables</a>
+              <a href="#" onClick={(e) => e.preventDefault()}>Ejercicios</a>
             </div>
           </div>
 
-          <Link to="/contacto" onClick={toggleMenu}>
-            <button className={styles.menuLink}>Contacto</button>
-          </Link>
+          <div className={styles.dropdown}>
+            <button className={styles.dropbtn}>Productos Premium</button>
+            <div className={styles.dropdownContent}>
+              <button onClick={() => alert('¡Productos Premium próximamente disponible!')}>
+                Próximamente
+              </button>
+            </div>
+          </div>
+
+          {/* Botones Login/Logout */}
+          {!isLoading && (
+            isAuthenticated ? <LogoutButton /> : <LoginButton />
+          )}
         </nav>
-      </div>
+      )}
+
+      {/* Icono hamburguesa solo en móvil */}
+      {isMobile && (
+        <div
+          className={`${styles.menuHamburger} ${menuOpen ? styles.open : ''}`}
+          onClick={toggleMenu}
+        >
+          <div></div><div></div><div></div>
+        </div>
+      )}
+
+      {/* Menú móvil funcional */}
+      {isMobile && (
+        <div className={`${styles.menuMobileOverlay} ${menuOpen ? styles.open : styles.closed}`}>
+          <nav className={styles.menuMobileNav}>
+            <button className={styles.menuLink} onClick={handleInicioClick}>Inicio</button>
+
+            <Link to="/sobre-mi" onClick={() => setMenuOpen(false)}>
+              <button className={styles.menuLink}>Sobre mi</button>
+            </Link>
+
+            <div className={styles.dropdown}>
+              <button
+                className={styles.menuLink}
+                onClick={() => setRecursosOpen(!recursosOpen)}
+              >
+                Recursos Gratuitos
+              </button>
+              {recursosOpen && (
+                <div className={styles.dropdownContent}>
+                  <Link to="/otros-tests" onClick={() => setMenuOpen(false)}>
+                    Tests Gratuitos
+                  </Link>
+                  <a href="#" onClick={(e) => e.preventDefault()}>PDFs Descargables</a>
+                  <a href="#" onClick={(e) => e.preventDefault()}>Ejercicios</a>
+                </div>
+              )}
+            </div>
+
+            <div className={styles.dropdown}>
+              <button
+                className={styles.menuLink}
+                onClick={() => setProductosOpen(!productosOpen)}
+              >
+                Productos Premium
+              </button>
+              {productosOpen && (
+                <div className={styles.dropdownContent}>
+                  <button
+                    onClick={() => {
+                      alert('¡Productos Premium próximamente disponible!');
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Próximamente
+                  </button>
+                </div>
+              )}
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };

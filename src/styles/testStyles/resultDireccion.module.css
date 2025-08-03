@@ -1,0 +1,71 @@
+/* Contenedor principal */
+.resultContainer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #fff;  /*Fondo TRD*/
+  min-height: 100vh;
+  font-family: 'Manrope', sans-serif;
+} 
+
+/* Sección de resultados */
+.resultSection {
+  background-color: #f6f5f2;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  max-width: 720px;
+  width: 100%;
+  color: #2f2f2f;
+}
+
+/* Títulos */
+.resultTitle {
+  font-size: 1.75rem;
+  color: #1e364d; /* Texto principal TRD */
+  margin-bottom: 1.5rem;
+}
+
+/* Subtítulos */
+.resultSubTitle {
+  font-size: 1.25rem;
+  color: #3c5a46;
+  margin-bottom: 0.5rem;
+}
+
+/* Texto general */
+.resultText {
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* Separador */
+.resultSeparator {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2rem 0;
+}
+
+/* Botón de acción */
+.resultButton {
+  background-color: #f57c00; /* Naranja TRD */
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.resultButton:hover {
+  background-color: #7c7f58; /* Verde oliva TRD */
+}
+
+/* Estilos de texto en la frase */
+.resultFrase {
+  font-style: italic;
+  color: #3c5a46;
+  margin-top: 1rem;
+}

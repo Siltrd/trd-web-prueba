@@ -1,36 +1,54 @@
+/* Definición de variables CSS para la altura del header y otros tamaños */
+:root {
+  --header-height: 100px; /* Altura dinámica para el header */
+  --logo-width: clamp(150px, 20vw, 250px); /* Ancho dinámico para el logo */
+  --font-size-button: clamp(14px, 2vw, 16px); /* Tamaño dinámico para los botones */
+}
+
 /* === Header fijo y escalable === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .header {
-  height: clamp(80px, 10vh, 100px); /* Se mantiene la altura estándar */
+  height: var(--header-height);  /* Altura dinámica usando la variable */
   width: 100%;
-  background-color: transparent; /* Fondo transparente inicialmente */
-  transition: background-color 0.5s ease-in-out, box-shadow 0.3s ease-in-out; /* Transición más suave */
+  background-color: transparent;
+  transition: background-color 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: clamp(16px, 3vw, 32px) clamp(20px, 5vw, 60px); /* Asegurando que el padding no cambie abruptamente */
+  padding: clamp(5px, 1vw, 10px) clamp(20px, 5vw, 60px);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  /*box-sizing: border-box;  Asegura que el contenido se mantenga bien alineado */
+  animation: fadeIn 0.5s ease-in-out; /* Aplica la animación al header */
 }
 
+/* Estilo cuando el header está desplazado */
 .headerScrolled {
   background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Ajustamos la sombra para darle un toque más suave */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* === Logo === */
+/* Estilo para el logo */
 .logo img {
-  width: clamp(150px, 20vw, 250px); /* El tamaño del logo sigue siendo adaptable */
+  width: var(--logo-width);  /* Usa la variable para el tamaño flexible */
   height: auto;
   display: block;
-  padding-top: 4px; /* O bien ↓ */
-  /* margin-bottom: 4px; */
+  padding-top: 4px;
 }
 
+/* Contenedor del logo */
 .logo {
-  height: auto;
   display: inline-block;
   padding: clamp(10px, 2vw, 40px);
   will-change: filter;
@@ -43,19 +61,22 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-/* === Menú escritorio === */
+/* === Menú de navegación escritorio === */
 .headerNav {
   display: flex;
-  gap: clamp(8px, 1.5vw, 20px);
-  margin-left: auto;
-  z-index: 30;
-  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
+  gap: clamp(12px, 2vw, 28px);
+  margin-left: auto;
+  padding-right: clamp(10px, 2vw, 40px);
+  max-width: 100%;
 }
 
+/* Estilo de los botones del menú de navegación */
 .headerNav button {
+  font-size: var(--font-size-button);
   padding: clamp(6px, 1vh, 10px) clamp(20px, 3vw, 32px);
-  font-size: clamp(14px, 1vw, 16px);
   font-weight: bold;
   background-color: transparent;
   color: #1e364d;
@@ -67,11 +88,11 @@
 
 .headerNav button:hover {
   color: #f57c00;
-  border: 2px solid #f57c00;
+  border: 1px solid #f57c00;
   background-color: transparent;
 }
 
-/* === Dropdown escritorio === */
+/* Estilo para los botones de dropdown */
 .headerNav .dropdown {
   position: relative;
 }
@@ -84,7 +105,7 @@
   position: absolute;
   background-color: #f9f3ed;
   min-width: 180px;
-  z-index: 25;
+  z-index: 1;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 1rem;
@@ -111,18 +132,18 @@
   color: #f57c00;
 }
 
-/* === Menú hamburguesa === */
+/* === Menú hamburguesa (móvil) === */
 .menuHamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  background: transparent;
+  border: none;
   width: 30px;
   height: 30px;
   cursor: pointer;
   z-index: 101;
-  /*position: absolute;
-  right: 20px;  Asegura que se alinee a la derecha */
 }
 
 .menuHamburger div {
@@ -145,7 +166,7 @@
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* === Overlay menú mobile === */
+/* === Overlay menú móvil === */
 .menuMobileOverlay {
   position: absolute;
   top: 100%;
@@ -168,37 +189,43 @@
   pointer-events: auto;
 }
 
+/* === Menú móvil === */
 .menuMobileNav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 0;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.menuMobileNav .menuLink,
-.menuMobileNav .dropdownButton {
+.menuMobileNav .menuLink {
   all: unset;
-  display: block;
-  width: 90%;
-  max-width: 320px;
+  display: inline-block;
   text-align: center;
   padding: 12px 20px;
   font-size: clamp(14px, 4vw, 18px);
   font-weight: 600;
   color: #1e364d;
-  border-radius: 30px;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   transition: color 0.3s ease, background-color 0.3s ease;
+  margin: 0;
 }
 
-.menuMobileNav .menuLink:hover,
-.menuMobileNav .dropdownButton:hover {
+.menuMobileNav .menuLink:hover {
   color: #f57c00;
-  background-color: #f2e8dc;
 }
 
-/* === Dropdown mobile === */
+.menuMobileNav a {
+  text-decoration: none;
+}
+
+/* === Dropdown móvil === */
 .menuMobileNav .dropdown {
   width: 100%;
   position: relative;
@@ -208,7 +235,7 @@
 }
 
 .menuMobileNav .dropdownContent {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
@@ -233,8 +260,8 @@
   color: #f57c00;
 }
 
-/* === Media queries === */
-@media (max-width: 1024px) {
+/* === Móvil vertical: solo hamburguesa === */
+@media (max-width: 767px) {
   .headerNav {
     display: none;
   }
@@ -242,10 +269,36 @@
   .menuHamburger {
     display: flex;
   }
+
+  .menuMobileOverlay {
+    display: block;
+  }
+
+  /* Ajustamos el margen superior para móviles */
+  .testPageContainer {
+    margin-top: var(--header-height);  /* Usamos la variable para mantener consistencia */
+  }
 }
 
-@media (min-width: 1025px) {
-  .menuHamburger {
-    display: none !important;
+/* === Desde 768px en adelante: solo botones, sin hamburguesa === */
+@media (min-width: 768px) {
+  .headerNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: clamp(12px, 2vw, 32px);
+    padding-right: clamp(20px, 5vw, 60px);
+    white-space: nowrap;
+  }
+
+  .menuHamburger,
+  .menuMobileOverlay {
+    display: none;
+  }
+
+  /* Aseguramos que el espacio se mantenga en todas las resoluciones */
+  .testPageContainer {
+    margin-top: var(--header-height);  /* Espaciado dinámico */
   }
 }

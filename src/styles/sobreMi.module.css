@@ -20,11 +20,12 @@
   font-weight: 700;
   color: #7c7f58;
   margin-bottom: 1rem;
+  line-height: 1.3;
 }
 
 .introHighlight {
-  color: #f57c00;
-  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  color: #1e364d;
+  font-size: clamp(1.1rem, 1.2vw, 1.25rem);
   font-style: italic;
   font-weight: 500;
 }
@@ -107,7 +108,7 @@
 .ctaFinalButton {
   background-color: #f57c00;
   color: white;
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding: 12px 28px;
   border-radius: 999px;
   text-decoration: none;
@@ -119,4 +120,75 @@
   background-color: white;
   color: #f57c00;
   border: 2px solid #7c7f58;
+}
+
+
+@media screen and (max-width: 767px) {
+  .aboutContainer {
+    padding: 8vh 5vw;
+    font-size: clamp(0.9rem, 4vw, 1rem);
+  }
+
+  /* Hero título + subtítulo */
+  .aboutHero {
+    margin-bottom: 4vh;
+  }
+
+  .aboutHero h1 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    margin-top: 12vw;
+  }
+
+  .introHighlight {
+    font-size: clamp(1rem, 3.5vw, 1.15rem);
+  }
+
+  /* Contenedor principal en dos columnas */
+  .aboutSection {
+    flex-direction: column;
+    gap: 5vw;
+    justify-content: center;
+  }
+
+  /* Columna izquierda: foto */
+  .aboutLeftColumn {
+    width: 100%;
+    align-items: center;
+  }
+
+  .photoContainer {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .photoCaption {
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+  }
+
+  /* Columna derecha: texto editorial */
+  .aboutRightColumn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .aboutBlock p {
+    margin-bottom: 1rem;
+  }
+
+  /* Última sección CTA */
+  .aboutCtaFinal {
+    margin-top: 3vh;
+  }
+
+  .ctaFinalText {
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
+  }
+
+  .ctaFinalButton {
+    font-size: 0.9rem;
+    padding: 10px 24px;
+  }
 }

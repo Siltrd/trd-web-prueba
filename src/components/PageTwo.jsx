@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/pageTwo.module.css';
+import layout from '../styles/layout.module.css';
 import fotoProvisoria2 from '../assets/images/fotoProvisoria2.jpg';
 import checkmark from '../assets/images/checkmark-bco.png';
 
@@ -17,7 +18,7 @@ const PageTwo = () => {
   }, []);
 
   return (
-    <div className={styles.pageTwo}>
+    <div className={`${styles.pageTwo} ${layout.wrapperFullWidth}`}>
       <div className={styles.pageTwoContent}>
         <div className={styles.pageTwoLeftColumn}>
           <div className={styles.photoWrapper}>
@@ -44,7 +45,7 @@ const PageTwo = () => {
             </div>
 
             <p>
-              Ivy Soul es la creadora de TRD – Túnica de Realidad, una plataforma de transformación personal que integra pensamiento crítico, dirección interna y un modelo propio de trabajo profundo. Diseñado para quienes no buscan respuestas externas, sino la capacidad real de dirigir su vida con propósito.
+              Ivy Soul es la creadora de TRD – Túnica de Realidad, una plataforma de transformación personal que fusiona pensamiento crítico, autoliderazgo y un modelo propio de trabajo profundo. Diseñado para quienes buscan tomar el control de su vida y dirigirla con propósito, en lugar de depender de respuestas externas.
             </p>
 
             <div className={styles.checkItem}>
@@ -52,7 +53,7 @@ const PageTwo = () => {
               <div>
                 <h3 className={styles.checkTitle}>Un puente entre el saber y la transformación real</h3>
                 <p>
-                  Con una trayectoria que integra derecho, coaching estratégico, PNL, mindfulness y disciplinas somáticas, Ivy articula ciencia contemporánea y transformación interior aplicada, impulsando cambios reales — en lo emocional, lo profesional y lo esencial.
+                  Con una trayectoria que integra abogacía, coaching estratégico, PNL, mindfulness, meditación, yoga y disciplinas somáticas, Ivy articula ciencia contemporánea y transformación interior aplicada, impulsando cambios profundos — en lo emocional, profesional y  esencial.
                 </p>
               </div>
             </div>
@@ -72,7 +73,7 @@ const PageTwo = () => {
               <div>
                 <h3 className={styles.checkTitle}>Una guía, no un gurú</h3>
                 <p>
-                  Sin atajos ni promesas vacías, Ivy guía con herramientas aplicables, dirección clara y un enfoque ético que impulsa transformación real.
+                  Sin atajos ni promesas vacías, Ivy guía con herramientas aplicables, dirección clara y un enfoque ético que impulsa una transformación real.
                 </p>
               </div>
             </div>

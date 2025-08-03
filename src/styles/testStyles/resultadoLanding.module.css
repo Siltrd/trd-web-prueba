@@ -1,0 +1,51 @@
+/* Contenedor principal */
+.homeWrapper {
+  padding: 2rem;
+}
+
+/* Sección de resultado */
+.homeSection {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Título principal */
+.tituloPrincipal {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #1e364d;
+  margin-bottom: 1rem;
+}
+
+/* Subtítulo */
+.subtituloTRD {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #7c7f58;
+}
+
+/* Separador */
+.separador {
+  margin: 2rem 0;
+  border-top: 1px solid #ccc;
+}
+
+/* Estilo de los botones */
+.botonTRD {
+  background-color: #b0a58d;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.botonTRD:hover {
+  background-color: #7c7f58;
+}

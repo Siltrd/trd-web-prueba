@@ -1,0 +1,36 @@
+.resultadoContainer {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resultadoTitle {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: #1e364d;
+  margin-bottom: 1rem;
+}
+
+.resultadoDescription {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.botonTRD {
+  background-color: #f57c00; /* Naranja */
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.botonTRD:hover {
+  background-color: #7c7f58; /* Verde oliva */
+}

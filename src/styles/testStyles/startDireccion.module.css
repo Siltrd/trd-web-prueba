@@ -1,0 +1,42 @@
+.startContainer {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.startCard {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  max-width: 680px;
+  width: 100%;
+}
+
+.startTitle {
+  margin-bottom: 1.5rem;
+  color: #1e364d; /* Texto principal TRD */
+  font-size: 1.8rem;
+}
+
+.startDescription {
+  margin-bottom: 2.5rem;
+  color: #3c5a46; /* Verde oliva TRD */
+}
+
+.botonTRD {
+  background-color: #f57c00; /* Naranja TRD */
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.botonTRD:hover {
+  background-color: #7c7f58; /* Verde oliva TRD */
+}
