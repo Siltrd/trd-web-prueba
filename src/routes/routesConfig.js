@@ -1,22 +1,18 @@
-import HeroTRD from '../components/HeroTRD';
+import HeroTDR from '../components/HeroTDR';
 import PageTwo from '../components/PageTwo';
 import ContactPage from '../pages/ContactPage';
 import NotFound from '../pages/NotFound';
-import CallbackPage from '../pages/CallbackPage';
-import TestLanding from '../pages/TestLanding';
 
 export const routes = [
   {
     path: '/',
     element: (
       <>
-        <HeroTRD />
+        <HeroTDR />
         <PageTwo />
       </>
     )
   },
-  { path: '/otros-tests', element: <TestLanding /> },
   { path: '/contacto', element: <ContactPage /> },
-  { path: '/callback', element: <CallbackPage /> },
   { path: '*', element: <NotFound /> }
 ];

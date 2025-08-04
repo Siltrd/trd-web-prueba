@@ -1,73 +1,58 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import questions from '../data/questions_direccion.js';
+import questions from '../data/questions_direccion';
 import styles from '../styles/testStyles/quiz_direccion.module.css';
 
 const QuizDireccion = () => {
+  const navigate = useNavigate();
+  const totalQuestions = questions.length;
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [fade, setFade] = useState(true);
-  const navigate = useNavigate();
+  const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
-    console.log('Componente QuizDireccion montado');
-  }, []); // Solo se ejecuta una vez cuando el componente se monta
+    if (isCompleted) {
+      const result = calculateResult(answers);
+      navigate('/test-direccion/result', { state: { result } });
+    }
+  }, [isCompleted, answers, navigate]);
 
-  // Manejo de la respuesta del usuario
   const handleAnswer = (tags) => {
-    setFade(false);
-    
-    // Usamos una función de actualización de estado basada en el valor previo
-    setAnswers((prevAnswers) => {
-      const updatedAnswers = [...prevAnswers, ...tags];
-      console.log('🔍 Updated answers:', updatedAnswers); // Verificar las respuestas actualizadas
+    if (currentQuestion >= totalQuestions) return;
 
-      const next = currentQuestion + 1;
-      if (next < questions.length) {
-        setCurrentQuestion(next);
+    setFade(false);
+    setTimeout(() => {
+      setAnswers((prev) => [...prev, ...tags]);
+
+      if (currentQuestion + 1 < totalQuestions) {
+        setCurrentQuestion((prev) => prev + 1);
         setFade(true);
       } else {
-        // Calcular el resultado final y navegar a la página de resultados
-        const result = calculateResult(updatedAnswers);
-        console.log('🔍 Calculated result:', result); // Verificar el resultado calculado
-
-        // Navegar a la página de resultados, pasando el resultado como estado
-        navigate('/test-direccion/result', {
-          state: { result },
-        });
+        setIsCompleted(true);
       }
-
-      return updatedAnswers; // Actualizar el estado con las nuevas respuestas
-    });
+    }, 200);
   };
 
-  // Calcular el resultado basado en las respuestas
   const calculateResult = (tags) => {
     const count = { A: 0, C: 0, D: 0 };
-
     tags.forEach((tag) => {
-      if (count[tag] !== undefined) {
-        count[tag]++;
-      }
+      if (count[tag] !== undefined) count[tag]++;
     });
 
     const max = Math.max(count.A, count.C, count.D);
     const keysWithMax = Object.keys(count).filter((k) => count[k] === max);
 
-    if (keysWithMax.length === 3) return 'transicion'; // Empate entre tres respuestas
-    if (keysWithMax.length === 2) return 'friccion_interna'; // Empate entre dos
+    if (keysWithMax.length === 3) return 'transicion';
+    if (keysWithMax.length === 2) return 'friccion'; // ← corregido para coincidir con tu archivo de resultados
 
-    const dominante = keysWithMax[0];
-    const mapaResultados = {
-      A: 'fuga',
-      C: 'bucle',
-      D: 'pausa',
-    };
-
-    return mapaResultados[dominante] || 'contradiccion'; // Resultado por defecto
+    const mapa = { A: 'fuga', C: 'bucle', D: 'pausa' };
+    return mapa[keysWithMax[0]] || 'contradiccion';
   };
 
-  // Obtener la pregunta actual
+  if (isCompleted || currentQuestion >= totalQuestions) return null;
+
   const current = questions[currentQuestion];
 
   return (
@@ -80,15 +65,7 @@ const QuizDireccion = () => {
         }}
       >
         <h2 className={styles.question}>{current.question}</h2>
-
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '1.2rem',
-          }}
-        >
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.2rem' }}>
           {current.options.map((option, index) => (
             <button
               key={index}

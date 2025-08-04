@@ -16,11 +16,11 @@
 
 .startTitle {
   margin-bottom: 1.5rem;
-  color: #1e364d; /* Texto principal TRD */
+  color: #1e364d; /* Texto principal TDR */
 }
 
-.botonTRD {
-  background-color: #f57c00; /* Naranja TRD */
+.botonTDR {
+  background-color: #f57c00; /* Naranja TDR */
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -31,6 +31,6 @@
   transition: background-color 0.3s;
 }
 
-.botonTRD:hover {
-  background-color: #7c7f58; /* Verde oliva TRD */
+.botonTDR:hover {
+  background-color: #7c7f58; /* Verde oliva TDR */
 }

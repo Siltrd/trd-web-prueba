@@ -1,12 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from '../styles/heroTRD.module.css';
+import styles from '../styles/heroTDR.module.css';
 import layout from '../styles/layout.module.css';
 import checkmark from '../assets/images/checkmark-bco.png';
 import fotoProvisoria from '../assets/images/fotoProvisoria.jpg';
 import fotoMovil from '../assets/images/foto-movil.png';
 
-const HeroTRD = () => {
+const HeroTDR = () => {
   return (
     <section className={classNames(styles.hero__section, layout.wrapperFullWidth)}>
       <div className={styles.hero__wrapper}>
@@ -30,17 +30,17 @@ const HeroTRD = () => {
             </div>
             <div className={styles.hero__checkmark}>
               <img src={checkmark} alt="Checkmark" />
-              Reconecta con tu dirección interna, tanto en lo personal como en lo profesional.
+              Desafía las creencias limitantes y abre camino a nuevas oportunidades con claridad y propósito.
             </div>
             <div className={styles.hero__checkmark}>
               <img src={checkmark} alt="Checkmark" />
-              Desafía las creencias limitantes y abre camino a nuevas oportunidades con claridad y propósito.
+              Reconecta con tu dirección interna, tanto en lo personal como en lo profesional.
             </div>
           </div>
 
           {/* Botones */}
           <div className={styles.hero__boxButtons}>
-            <button>Empezar mi viaje</button>
+            <button>Comienza tu viaje de transformación</button>
             <button>Recursos gratuitos</button>
           </div>
 
@@ -51,7 +51,7 @@ const HeroTRD = () => {
 
           {/* Box5: Descripción adicional */}
           <div className={classNames(styles.hero__textBox, styles.hero__box5)}>
-            TRD es una plataforma integral que potencia tu transformación personal y profesional mediante un enfoque claro, estructurado y profundamente alineado con tu propósito.
+            TDR es una plataforma integral que potencia tu transformación personal y profesional mediante un enfoque claro, estructurado y profundamente alineado con tu propósito.
           </div>
         </div>
 
@@ -66,4 +66,4 @@ const HeroTRD = () => {
   );
 };
 
-export default HeroTRD;
+export default HeroTDR;

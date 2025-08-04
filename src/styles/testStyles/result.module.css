@@ -18,7 +18,7 @@
   margin-bottom: 1rem;
 }
 
-.subtituloTRD {
+.subtituloTDR {
   font-size: 1.25rem;
   font-weight: 600;
   color: #7c7f58;
@@ -29,7 +29,7 @@
   border-top: 1px solid #ccc;
 }
 
-.botonTRD {
+.botonTDR {
   background-color: #b0a58d;
   color: white;
   border: none;
@@ -41,6 +41,6 @@
   transition: background-color 0.3s;
 }
 
-.botonTRD:hover {
+.botonTDR:hover {
   background-color: #7c7f58;
 }

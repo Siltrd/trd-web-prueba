@@ -1,6 +1,6 @@
 {
-  "name": "TRD - Túnica de Realidad",
-  "short_name": "TRD",
+  "name": "TDR - Túnica de Realidad",
+  "short_name": "TDR",
   "description": "Herramientas de introspección y desarrollo personal.",
   "start_url": "/",
   "display": "standalone",

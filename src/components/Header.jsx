@@ -1,11 +1,7 @@
-// src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
 import styles from '../styles/header.module.css';
-import logo from '../assets/images/trd-logo.svg';
+import logo from '../assets/images/tdr-logo.svg';
 
 const Header = ({ isTestLayout }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,8 +9,8 @@ const Header = ({ isTestLayout }) => {
   const [recursosOpen, setRecursosOpen] = useState(false);
   const [productosOpen, setProductosOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado simulado de autenticación
 
-  const { isAuthenticated, isLoading } = useAuth0();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -61,18 +57,18 @@ const Header = ({ isTestLayout }) => {
     <header
       className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}
       style={{
-        backgroundColor: isTestLayout ? '#ffffff' : (scrolled ? '#ffffff' : 'transparent'), // Se activa blanco con scroll
+        backgroundColor: isTestLayout ? '#ffffff' : (scrolled ? '#ffffff' : 'transparent'),
         position: 'fixed',
         width: '100%',
         top: 0,
         left: 0,
         padding: '1rem 2rem',
         zIndex: 100,
-        boxShadow: scrolled || isTestLayout ? '0 4px 12px rgba(0, 0, 0, 0.1)' : 'none', // Sombra activa con scroll o en test
+        boxShadow: scrolled || isTestLayout ? '0 4px 12px rgba(0, 0, 0, 0.1)' : 'none',
       }}
     >
       <div className={styles.logo} onClick={handleInicioClick} style={{ cursor: 'pointer' }}>
-        <img src={logo} alt="TRD Logo" />
+        <img src={logo} alt="TDR Logo" />
       </div>
 
       {/* Menú de escritorio y tablet horizontal */}
@@ -81,7 +77,7 @@ const Header = ({ isTestLayout }) => {
           <Link to="/sobre-mi"><button>Sobre mí</button></Link>
 
           <div className={styles.dropdown}>
-            <button className={styles.dropbtn}>Recursos Gratuitos</button>
+            <button className={styles.dropbtn}>Accede a más recursos</button>
             <div className={styles.dropdownContent}>
               <Link to="/otros-tests">Tests Gratuitos</Link>
               <a href="#" onClick={(e) => e.preventDefault()}>PDFs Descargables</a>
@@ -98,10 +94,7 @@ const Header = ({ isTestLayout }) => {
             </div>
           </div>
 
-          {/* Botones Login/Logout */}
-          {!isLoading && (
-            isAuthenticated ? <LogoutButton /> : <LoginButton />
-          )}
+          
         </nav>
       )}
 

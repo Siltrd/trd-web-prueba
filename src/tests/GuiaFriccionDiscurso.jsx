@@ -7,7 +7,7 @@ const Friccion = () => {
     <main className="home-container" style={{ padding: '3rem 2rem' }}>
       <section className="producto-landing" style={{ maxWidth: '720px', margin: '0 auto' }}>
         <h1 style={{ fontSize: '2rem', color: '#1e364d', marginBottom: '1rem' }}>
-          Guía TRD · Aprovechá tu fricción
+          Guía TDRs · Aprovechá tu fricción
         </h1>
 
         <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem' }}>
@@ -47,11 +47,11 @@ const Friccion = () => {
         <div style={{ marginTop: '2rem' }}>
           <a
             href={`https://wa.me/5491157041750?text=${encodeURIComponent(
-              'Hola TRD, quiero acceder a la guía "Fricción productiva". ¿Cómo seguimos?'
+              'Hola TDR, quiero acceder a la guía "Fricción productiva". ¿Cómo seguimos?'
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="boton-trd"
+            className="boton-tdr"
           >
             Quiero acceder a esta guía
           </a>

@@ -5,7 +5,7 @@ import useAccessToken from '../hooks/useAccessToken';
 import { useNavigate } from 'react-router-dom';
 
 const Perfil = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading, error } = useAuth0();
   const token = useAccessToken();
   const navigate = useNavigate();
 
@@ -15,6 +15,16 @@ const Perfil = () => {
       navigate('/');
     }
   }, [isLoading, isAuthenticated, navigate]);
+
+  // Manejo de errores
+  if (error) {
+    return (
+      <div style={{ padding: '2rem', color: 'red' }}>
+        <h2>Error al cargar el perfil</h2>
+        <p>{error.message}</p>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return <div>Cargando perfil...</div>;
@@ -30,7 +40,9 @@ const Perfil = () => {
       />
       <p><strong>Nombre:</strong> {user.name}</p>
       <p><strong>Email:</strong> {user.email}</p>
-      <p><strong>Token:</strong> {token ? token.slice(0, 20) + '...' : 'Cargando...'}</p>
+
+      {/* Mostrar token solo si es necesario */}
+      <p><strong>Token:</strong> {token ? `${token.slice(0, 20)}...` : 'Cargando...'}</p>
     </div>
   );
 };

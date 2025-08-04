@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/testDireccion.module.css';
 
@@ -9,7 +9,7 @@ const TestDireccion = () => {
   return (
     <main className={styles.testDireccionContainer}>
       <Helmet>
-        <title>Test de Dirección Interna - TRD</title>
+        <title>Test de Dirección Interna - TDR</title>
         <meta
           name="description"
           content="Descubrí qué te está bloqueando y cómo reconectar con tu dirección interna. Este test simbólico te guía desde el estancamiento hacia la claridad."

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import styles from '../styles/footer.module.css';
-import logo from '../assets/images/trd-logo.svg';
+import logo from '../assets/images/tdr-logo.svg';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       {/* Logo en el margen izquierdo */}
       <div className={styles.footerLogo}>
-        <img src={logo} alt="TRD Logo" />
+        <img src={logo} alt="TDR Logo" />
       </div>
 
       <div className={styles.footerNav}>
@@ -39,7 +39,7 @@ const Footer = () => {
             aria-expanded={openDropdown === 'recursos'}
             aria-controls="recursosDropdown"
           >
-            Recursos Gratuitos
+            Accede a más recursos
           </button>
           {openDropdown === 'recursos' && (
             <div id="recursosDropdown" className={styles.dropdownContent}>
@@ -79,7 +79,7 @@ const Footer = () => {
 
       <div className={styles.whatsappFooter}>
         <a
-          href="https://wa.me/5491157041750?text=Hola,%20quisiera%20más%20información%20sobre%20TRD"
+          href="https://wa.me/5491157041750?text=Hola,%20quisiera%20más%20información%20sobre%20TDR"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contactar por WhatsApp"
@@ -88,7 +88,7 @@ const Footer = () => {
         </a>
       </div>
 
-      <p>© 2025 TRD - Todos los derechos reservados.</p>
+      <p>© 2025 TDR - Todos los derechos reservados.</p>
     </footer>
   );
 };

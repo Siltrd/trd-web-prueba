@@ -5,7 +5,7 @@ const results = {
     imagen: 'Sos como un arco cargado: si no soltás, te vas a desgastar. Pero si apuntás con claridad, vas a generar dirección real.',
     coste: 'El conflicto no resuelto te hace girar en círculos. Gastás energía vital en sostener una posición ambigua. Y mientras tanto, la claridad no llega sola.',
     cta: {
-      titulo: 'Guía TRD: Aprovechá tu fricción',
+      titulo: 'Guía TDR: Aprovechá tu fricción',
       descripcion: 'Una hoja editable con 3 focos + un ejemplo real + una pregunta que corta la inercia.',
       frase: 'No se trata de elegir entre impulso o duda. Se trata de convertir esa fricción en dirección.',
       precio: '$9',
@@ -18,8 +18,8 @@ const results = {
     imagen: 'Sos como una casa después de una tormenta: el techo está, las paredes siguen firmes, pero adentro todavía hay cosas que ordenar.',
     coste: 'Si ignorás esta pausa, el cuerpo va a hablar más fuerte. Si la culpás, te vaciás más. Esta quietud contiene información.',
     cta: {
-      titulo: 'Kit TRD: Rearmar desde el silencio',
-      descripcion: 'Incluye audio TRD, hoja editable y opción de mini sesión con descuento.',
+      titulo: 'Kit TDR: Rearmar desde el silencio',
+      descripcion: 'Incluye audio TDR, hoja editable y opción de mini sesión con descuento.',
       frase: 'No se sale corriendo de una pausa. Se atraviesa con presencia.',
       precio: '$5',
       acceso: 'Acceso inmediato al audio + hoja editable'
@@ -31,7 +31,7 @@ const results = {
     imagen: 'Sos como un traje bien planchado que ya no te queda cómodo.',
     coste: 'Seguir funcionando así tiene un precio: la desconexión. Podés sostener lo externo, pero perdés intimidad con tu deseo.',
     cta: {
-      titulo: 'Guía TRD: Lo que hacés vs lo que sos',
+      titulo: 'Guía TDR: Lo que hacés vs lo que sos',
       descripcion: 'Hoja editable, check visual y pregunta clave para decidir un nuevo movimiento.',
       frase: 'No hace falta romper todo. Pero sí dejar de repetir lo que ya no te representa.',
       precio: '$9',
@@ -44,8 +44,8 @@ const results = {
     imagen: 'Sos como una brújula que gira todo el tiempo, pero no marca el norte.',
     coste: 'El exceso de reflexión no te está protegiendo: te está paralizando.',
     cta: {
-      titulo: 'Kit TRD: Una sola decisión',
-      descripcion: 'Filtro TRD, audio guía y ejercicio simbólico de corte.',
+      titulo: 'Kit TDR: Una sola decisión',
+      descripcion: 'Filtro TDR, audio guía y ejercicio simbólico de corte.',
       frase: 'Pensar no es el problema. El problema es no mover lo que ya sabés.',
       precio: '$6',
       acceso: 'Acceso inmediato al kit + descarga imprimible'
@@ -57,7 +57,7 @@ const results = {
     imagen: 'Sos como una flecha que ya salió del arco, pero sin un blanco claro.',
     coste: 'La acción sin dirección desgasta.',
     cta: {
-      titulo: 'Cuaderno TRD: Alinéalas todas',
+      titulo: 'Cuaderno TDR: Alinéalas todas',
       descripcion: 'Hoja editable, ejercicio simbólico y micro práctica diaria.',
       frase: 'La acción verdadera no cansa. Lo que cansa es moverse sin dirección.',
       precio: '$7',
@@ -70,11 +70,11 @@ const results = {
     imagen: 'Sos como alguien que ya está en la puerta, con la mano en el picaporte, pero sin atreverse a abrir.',
     coste: 'Este miedo te mantiene en la ilusión de que todavía no es momento. Pero lo cierto es que el momento no va a venir.',
     cta: {
-      titulo: 'Carta TRD: El precio de tu cambio',
+      titulo: 'Carta TDR: El precio de tu cambio',
       descripcion: 'Carta editable + guía simbólica para nombrar el miedo sin forzarlo.',
       frase: 'El miedo no se niega. Se nombra, se escucha y se atraviesa.',
       precio: '$5',
-      acceso: 'Acceso inmediato a la carta interactiva + hoja ritual TRD'
+      acceso: 'Acceso inmediato a la carta interactiva + hoja ritual TDR'
     }
   },
   fuga: {
@@ -83,7 +83,7 @@ const results = {
     imagen: 'Sos como una manguera con presión, pero llena de pequeñas fugas: sale agua, pero no hay impacto.',
     coste: 'El cansancio no viene de hacer demasiado, sino de hacer sin cerrar. Y eso erosiona tu autoestima.',
     cta: {
-      titulo: 'Plan TRD: Foco en 3 bloques',
+      titulo: 'Plan TDR: Foco en 3 bloques',
       descripcion: 'Hoja editable semanal, audio y check emocional para medir avance.',
       frase: 'Tenés energía. Solo falta aprender a dirigirla.',
       precio: '$7',
@@ -96,8 +96,8 @@ const results = {
     imagen: 'Sos como un coche en marcha con freno de mano puesto.',
     coste: 'Este freno no se ve, pero te retiene. Y cuanto más te forzás, más se agarra.',
     cta: {
-      titulo: 'Ejercicio TRD: Soltá el freno',
-      descripcion: 'Técnica de desbloqueo con anclaje simbólico TRD.',
+      titulo: 'Ejercicio TDR: Soltá el freno',
+      descripcion: 'Técnica de desbloqueo con anclaje simbólico TDR.',
       frase: 'No hay avance real si el cuerpo no se siente seguro.',
       precio: '$5',
       acceso: 'Acceso directo al ejercicio + PDF imprimible de seguimiento'
@@ -109,7 +109,7 @@ const results = {
     imagen: 'Sos como un río partido en dos cauces que todavía no logran unirse.',
     coste: 'No hay descanso real cuando vivís partido. Desde fuera todo parece normal. Adentro hay fractura silenciosa.',
     cta: {
-      titulo: 'Sesión 1:1 TRD: Contradecir para unificar',
+      titulo: 'Sesión 1:1 TDR: Contradecir para unificar',
       descripcion: 'Sesión online con hoja simbólica de integración.',
       frase: 'Nombrar la contradicción es el primer acto de coherencia.',
       precio: '$65',
@@ -122,7 +122,7 @@ const results = {
   imagen: 'Sos como un pasillo sin luz: sabés que hay salida, pero aún no ves lo que viene.',
   coste: 'Si no le das tiempo real a este proceso, vas a construir desde lo viejo sin darte cuenta.',
   cta: {
-    titulo: 'Guía TRD: Pasar del puente a la puerta',
+    titulo: 'Guía TDR: Pasar del puente a la puerta',
     descripcion: 'Hoja editable, audio simbólico y práctica para cerrar etapa y elegir con conciencia.',
     frase: 'La transición no es confusión: es reconfiguración profunda.',
     precio: '$6',

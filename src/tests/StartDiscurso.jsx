@@ -13,7 +13,7 @@ const StartDiscurso = () => {
         </h1>
         <button
           onClick={() => navigate('/test-discurso/quiz')}
-          className={styles.botonTRD}
+          className={styles.botonTDR}
         >
           Iniciar test
         </button>

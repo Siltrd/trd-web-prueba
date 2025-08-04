@@ -11,7 +11,7 @@
 /* Título */
 .resultadoTitle {
   font-size: clamp(1.5rem, 5vw, 2rem);
-  color: #1e364d; /* Texto: Color principal TRD */
+  color: #1e364d; /* Texto: Color principal TDR */
   margin-bottom: 1rem;
 }
 
@@ -23,7 +23,7 @@
 }
 
 /* Botón */
-.botonTRD {
+.botonTDR {
   background-color: #f57c00; /* Naranja */
   color: white;
   border: none;
@@ -35,7 +35,7 @@
   transition: background-color 0.3s;
 }
 
-.botonTRD:hover {
+.botonTDR:hover {
   background-color: #7c7f58; /* Verde oliva para hover */
 }
 

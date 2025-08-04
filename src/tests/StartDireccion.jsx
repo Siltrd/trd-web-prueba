@@ -14,7 +14,7 @@ const StartDireccion = () => {
         <p className={styles.startDescription}>
           Este test simbólico revela si estás en pausa, dispersión o contradicción interna. Sin juicio. Solo claridad.
         </p>
-        <button onClick={() => navigate('/test-direccion/quiz')} className={styles.botonTRD}>
+        <button onClick={() => navigate('/test-direccion/quiz')} className={styles.botonTDR}>
           Empezar ahora
         </button>
       </div>

@@ -40,7 +40,7 @@
 
 /* Hover del botón */
 .button:hover {
-  background-color: #f57c00; /* Verde oliva TRD */
+  background-color: #f57c00; /* Verde oliva TDR */
   color: #fff;
-  border: 2px solid #f57c00; /* Naranja TRD */
+  border: 2px solid #f57c00; /* Naranja TDR */
 }

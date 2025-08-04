@@ -19,7 +19,7 @@
   line-height: 1.6;
 }
 
-.botonTRD {
+.botonTDR {
   background-color: #b0a58d;
   color: white;
   border: none;
@@ -31,6 +31,6 @@
   transition: background-color 0.3s;
 }
 
-.botonTRD:hover {
+.botonTDR:hover {
   background-color: #7c7f58;
 }

@@ -27,6 +27,7 @@ const AboutMe = () => {
               src={fotoAboutMe}
               alt="Foto de Ivy Soul"
               className={styles.profilePhoto}
+              loading="lazy" // Lazy loading aplicado
             />
           </div>
           <p className={styles.photoCaption}>
@@ -47,7 +48,7 @@ const AboutMe = () => {
               Con los años, ese acompañamiento se transformó en un camino consciente y profundo. Hoy, ver a una persona reconocer su verdadero ser y actuar desde esa autenticidad es lo que me llena de propósito y satisfacción.
             </p>
             <p>
-              TRD nace de mi propio proceso de transformación. No es un método rígido ni una promesa vacía, sino una plataforma viva y dinámica. Una invitación a habitar la realidad tal como es, con todos sus desafíos y su belleza.
+              TDR nace de mi propio proceso de transformación. No es un método rígido ni una promesa vacía, sino una plataforma viva y dinámica. Una invitación a habitar la realidad tal como es, con todos sus desafíos y su belleza.
             </p>
             <div>
               <p>
@@ -58,7 +59,7 @@ const AboutMe = () => {
               </p>
             </div>
             <p>
-              TRD es para quienes saben que no hay atajos, pero eligen cambiar de verdad: con dirección, presencia y visión.
+              TDR es para quienes saben que no hay atajos, pero eligen cambiar de verdad: con dirección, presencia y visión.
             </p>
           </div>
         </div>
@@ -70,7 +71,7 @@ const AboutMe = () => {
           Si estás listo para un cambio real, este es el lugar para comenzar.
         </p>
         <Link to="/otros-tests" className={styles.ctaFinalButton}>
-          Empezar mi camino →
+          Descubre tu primer paso
         </Link>
       </section>
     </div>

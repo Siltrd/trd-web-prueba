@@ -22,7 +22,7 @@ const ResultadoLanding = ({ resultado }) => {
 
           <hr className={styles.separador} />
 
-          <h3 className={styles.subtituloTRD}>{resultado.cta.titulo}</h3>
+          <h3 className={styles.subtituloTDR}>{resultado.cta.titulo}</h3>
           <p>{resultado.cta.descripcion}</p>
 
           {resultado.cta.frase && (
@@ -38,7 +38,7 @@ const ResultadoLanding = ({ resultado }) => {
             href={resultado.cta.link}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.botonTRD}
+            className={styles.botonTDR}
           >
             Ir al siguiente paso
           </a>

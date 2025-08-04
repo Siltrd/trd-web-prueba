@@ -5,15 +5,12 @@ const ScrollToTop = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'auto', // o 'smooth' si prefieres desplazamiento suave
-      });
-    }, 0); // Espera al siguiente ciclo de renderizado
-
-    return () => clearTimeout(timeout);
-  }, [location.pathname, location.key]); // Dependencias: cambia cuando la ruta o clave cambian
+    // Desplazamiento suave hacia la parte superior
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',  // Cambié 'auto' a 'smooth' para un scroll suave
+    });
+  }, [location.pathname, location.key]); // Dependencias: se ejecuta cada vez que la ruta cambia
 
   return null;
 };

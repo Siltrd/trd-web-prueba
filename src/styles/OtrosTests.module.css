@@ -1,8 +1,3 @@
-/* 
-  Todo el contenido del archivo se encuentra comentado aquí.
-  Todo lo que esté dentro de estos delimitadores no será ejecutado.
-  
-
 .testPageContainer {
   background-color: #f9f3ed;
   color: #1e364d;
@@ -45,8 +40,11 @@
   border-radius: 16px;
   padding: clamp(20px, 5vw, 40px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  max-width: 440px;
-  flex: 1;
+    width: clamp(300px, 40vw, 440px); /* Ancho escalable */
+  height: clamp(280px, 50vh, 361px); /* Alto escalable */
+
+  /*max-width: 440px; */
+  /*flex: 1;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,4 +79,3 @@
   color: #f57c00;
   border: 1px solid #7c7f58;
 }
-*/

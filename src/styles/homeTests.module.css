@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding: 3rem;
-  background-color: var(--color-crema); /* Fondo suave */
+  background-color: var(--color-crema);  /*Fondo suave */
 }
 
 h1 {

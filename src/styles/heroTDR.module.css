@@ -29,7 +29,6 @@
   height: auto;
   overflow: visible;
   margin-bottom: clamp(100px, 6vh, 20px); /* recorta aire visual de la imagen */
-
 }
 
 .hero__leftColumn {
@@ -41,7 +40,7 @@
   padding-left: clamp(40px, 3vw, 10px); 
   box-sizing: border-box;
   margin-left: clamp(10px, 9vw, 200px); 
-  margin-bottom: 6vw;
+  margin-bottom: 12vw;
 }
 
 .hero__rightColumn {
@@ -70,8 +69,6 @@
   display: block;
 }
 
-
-
 .hero__mobileFotoWrapper {
   display: none;
 }
@@ -99,7 +96,6 @@
   line-height: 1.5;
   margin-bottom: 30px;
 }
-
 
 .hero__box3 {
   font-size: clamp(14px, 1.5vw, 18px);
@@ -136,8 +132,8 @@
   border-radius: 30px;
   cursor: pointer;
   border: none;
-  height: clamp(40px, 3vh, 48px);
-  width: clamp(110px, 20vw, 520px);
+  height: clamp(45px, 3vh, 52px);
+  width: clamp(120px, 20vw, 510px);
   font-size: clamp(14px, 2vw, 16px);
   font-weight: bold;
   display: flex;

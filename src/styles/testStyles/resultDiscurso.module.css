@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   padding: 2rem;
-  background-color: #fff;  /*Fondo TRD*/
+  background-color: #fff;  /*Fondo TDR*/
   min-height: 100vh;
   font-family: 'Manrope', sans-serif;
 } 
@@ -22,7 +22,7 @@
 /* Títulos */
 .resultTitle {
   font-size: 1.75rem;
-  color: #1e364d; /* Texto principal TRD */
+  color: #1e364d; /* Texto principal TDR */
   margin-bottom: 1.5rem;
 }
 
@@ -48,7 +48,7 @@
 
 /* Botón de acción */
 .resultButton {
-  background-color: #f57c00; /* Naranja TRD */
+  background-color: #f57c00; /* Naranja TDR */
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -60,7 +60,7 @@
 }
 
 .resultButton:hover {
-  background-color: #7c7f58; /* Verde oliva TRD */
+  background-color: #7c7f58; /* Verde oliva TDR */
 }
 
 /* Estilos de texto en la frase */

@@ -12,7 +12,7 @@ const results = {
       "Escuchar también es una forma de comunicar."
     ],
     cta: {
-      titulo: "Guía TRD · Afiná tu acción",
+      titulo: "Guía TDR · Afiná tu acción",
       descripcion: "Hoja editable + audio de foco para condensar tu energía en un solo mensaje potente.",
       frase: "La fuerza sin dirección se diluye; la acción con foco vende.",
       precio: "$7",
@@ -33,7 +33,7 @@ const results = {
       "No expliques tanto: lo que es claro, no necesita defensa."
     ],
     cta: {
-      titulo: "Kit TRD · Potenciá tu pausa",
+      titulo: "Kit TDR · Potenciá tu pausa",
       descripcion: "Audio guiado + plantilla de síntesis para ordenar tu mensaje sin perder profundidad.",
       frase: "El silencio comunica cuando está bien enmarcado.",
       precio: "$6",
@@ -54,7 +54,7 @@ const results = {
       "La claridad vende más que la perfección. Empezá por ahí."
     ],
     cta: {
-      titulo: "Guía TRD · Quitá el camuflaje",
+      titulo: "Guía TDR · Quitá el camuflaje",
       descripcion: "Plantilla paso a paso para detectar imitaciones y reescribir tu mensaje en versión auténtica.",
       frase: "Lo genuino conecta. Siempre.",
       precio: "$9",
@@ -75,7 +75,7 @@ const results = {
       "Escuchate más allá de las palabras que usás."
     ],
     cta: {
-      titulo: "Guía TRD · Integrá tu fricción",
+      titulo: "Guía TDR · Integrá tu fricción",
       descripcion: "Hoja editable + ejemplo real + pregunta de corte para canalizar tu tensión en dirección.",
       frase: "La fricción es energía atrapada. Dirigila.",
       precio: "$9",
@@ -96,7 +96,7 @@ const results = {
       "Tu voz necesita tiempo. Escuchala entera."
     ],
     cta: {
-      titulo: "Guía TRD · Estás en transición",
+      titulo: "Guía TDR · Estás en transición",
       descripcion: "Mapa editable para ordenar lo que ya sabés y lo que aún no decidiste + audio de anclaje.",
       frase: "No sos incoherente. Estás redefiniéndote.",
       precio: "$5",

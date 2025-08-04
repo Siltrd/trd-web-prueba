@@ -1,3 +1,4 @@
+// src/pages/ResultDiscurso.jsx
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import results from '../data/results_discurso.js';
@@ -6,6 +7,7 @@ import styles from '../styles/testStyles/resultDiscurso.module.css'; // Importar
 const ResultDiscurso = () => {
   const location = useLocation();
   const [resultKey, setResultKey] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // Estado de carga
 
   useEffect(() => {
     if (location.state?.result) {
@@ -14,9 +16,11 @@ const ResultDiscurso = () => {
     } else {
       console.warn('⚠️ No se recibió resultado desde test discurso');
     }
+    setIsLoading(false); // Después de obtener el resultado, marca como cargado
   }, [location]);
 
-  if (!resultKey || !results[resultKey]) {
+  // Si el resultado está cargando, mostrar mensaje
+  if (isLoading) {
     return (
       <div className={styles.resultContainer}>
         <p style={{ fontSize: '1.1rem', color: '#444' }}>Cargando resultado...</p>
@@ -24,8 +28,17 @@ const ResultDiscurso = () => {
     );
   }
 
+  // Si no hay resultado, mostrar mensaje de error
+  if (!resultKey || !results[resultKey]) {
+    return (
+      <div className={styles.resultContainer}>
+        <p style={{ fontSize: '1.1rem', color: '#444' }}>El resultado no está disponible.</p>
+      </div>
+    );
+  }
+
   const resultado = results[resultKey];
-  const mensaje = `Hola TRD, acabo de hacer el test y mi resultado fue: "${resultado.estilo}". Me interesa acceder a la guía que me corresponde. ¿Podés indicarme cómo seguir?`;
+  const mensaje = `Hola TDR, acabo de hacer el test y mi resultado fue: "${resultado.estilo}". Me interesa acceder a la guía que me corresponde. ¿Podés indicarme cómo seguir?`;
 
   return (
     <main className={styles.resultContainer}>
