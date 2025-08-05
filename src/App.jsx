@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Layouts y componentes
@@ -13,7 +13,7 @@ import PageTwo from './components/PageTwo';
 // Lazy Pages
 const SobreMi = React.lazy(() => import('./pages/SobreMi'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
-const OtrosTests = React.lazy(() => import('./pages/OtrosTests'));  // Página con ambos tests
+const OtrosTests = React.lazy(() => import('./pages/OtrosTests'));
 const TestDireccion = React.lazy(() => import('./pages/TestDireccion'));
 const TestDiscurso = React.lazy(() => import('./pages/TestDiscurso'));
 
@@ -24,11 +24,53 @@ const ResultDireccion = React.lazy(() => import('./tests/ResultDireccion'));
 const ResultDiscurso = React.lazy(() => import('./tests/ResultDiscurso'));
 
 function App() {
+  const [access, setAccess] = useState(false);
+  const correctPassword = "trd2025"; // 🔐 Cambiá esta contraseña si lo deseás
+
+  if (!access) {
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          backgroundColor: "#f9f3ed",
+          fontFamily: "Inter, sans-serif",
+          padding: "2rem"
+        }}
+      >
+        <h2 style={{ marginBottom: "1rem", textAlign: "center" }}>Sitio en construcción</h2>
+        <input
+          type="password"
+          placeholder="Contraseña"
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && e.target.value === correctPassword) {
+              setAccess(true);
+            }
+          }}
+          style={{
+            padding: "0.8rem",
+            fontSize: "1rem",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            width: "100%",
+            maxWidth: "320px",
+            textAlign: "center"
+          }}
+        />
+        <p style={{ marginTop: "1rem", fontSize: "0.9rem", color: "#555" }}>
+          Ingresá la clave para acceder
+        </p>
+      </div>
+    );
+  }
+
   return (
     <>
       <ScrollToTop />
       <Routes>
-
         {/* Layout general */}
         <Route element={<Layout />}>
           <Route
