@@ -1,4 +1,3 @@
-// src/pages/SobreMi.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/sobreMi.module.css';
@@ -27,7 +26,7 @@ const AboutMe = () => {
               src={fotoAboutMe}
               alt="Foto de Ivy Soul"
               className={styles.profilePhoto}
-              loading="lazy" // Lazy loading aplicado
+              loading="lazy"
             />
           </div>
           <p className={styles.photoCaption}>
@@ -35,31 +34,42 @@ const AboutMe = () => {
           </p>
         </div>
 
-        {/* Texto editorial completo */}
+        {/* Texto editorial */}
         <div className={styles.aboutRightColumn}>
           <div className={styles.aboutBlock}>
             <p>
-              Desde siempre, mi inquietud fue comprender el comportamiento humano, una necesidad profunda, vital e intelectual. Acompañar a otros surgió de manera natural, como una extensión de mi forma de habitar este mundo. Observaba, escuchaba, sentía. Con frecuencia, encontraba palabras que ayudaban a los demás a verse, aunque yo misma aún no lograba verme por completo.
+              Desde siempre, mi inquietud fue comprender el comportamiento humano, una necesidad
+              profunda, vital e intelectual. Acompañar a otros surgió de manera natural, como una
+              extensión de mi forma de habitar este mundo. Observaba, escuchaba, sentía. Con
+              frecuencia, encontraba palabras que ayudaban a los demás a verse, aunque yo misma
+              aún no lograba verme por completo.
             </p>
             <p>
-              Lo que comenzó como una búsqueda personal, hoy inspira a una comunidad decidida a cambiar. Porque el cambio real es posible. Para quienes eligen hacerlo.
+              Lo que comenzó como una búsqueda personal, hoy inspira a una comunidad decidida a
+              cambiar. Porque el cambio real es posible. Para quienes eligen hacerlo.
             </p>
             <p>
-              Con los años, ese acompañamiento se transformó en un camino consciente y profundo. Hoy, ver a una persona reconocer su verdadero ser y actuar desde esa autenticidad es lo que me llena de propósito y satisfacción.
+              Con los años, ese acompañamiento se transformó en un camino consciente y profundo.
+              Hoy, ver a una persona reconocer su verdadero ser y actuar desde esa autenticidad es lo
+              que me llena de propósito y satisfacción.
             </p>
             <p>
-              TDR nace de mi propio proceso de transformación. No es un método rígido ni una promesa vacía, sino una plataforma viva y dinámica. Una invitación a habitar la realidad tal como es, con todos sus desafíos y su belleza.
+              TDR nace de mi propio proceso de transformación. No es un método rígido ni una
+              promesa vacía, sino una plataforma viva y dinámica. Una invitación a habitar la realidad
+              tal como es, con todos sus desafíos y su belleza.
             </p>
             <div>
               <p>
                 He creado <strong>REAL</strong>, un método claro y profundo: <strong>Reconocer, Escuchar, Alinear, Liberar.</strong>
               </p>
               <p>
-                Un proceso que integra la introspección y la acción, diseñado para guiarte en cada paso hacia una vida auténtica, alineada con tu propósito y habitando el presente.
+                Un proceso que integra la introspección y la acción, diseñado para guiarte en cada
+                paso hacia una vida auténtica, alineada con tu propósito y habitando el presente.
               </p>
             </div>
             <p>
-              TDR es para quienes saben que no hay atajos, pero eligen cambiar de verdad: con dirección, presencia y visión.
+              TDR es para quienes saben que no hay atajos, pero eligen cambiar de verdad: con
+              dirección, presencia y visión.
             </p>
           </div>
         </div>
@@ -70,7 +80,8 @@ const AboutMe = () => {
         <p className={styles.ctaFinalText}>
           Si estás listo para un cambio real, este es el lugar para comenzar.
         </p>
-        <Link to="/otros-tests" className={styles.ctaFinalButton}>
+        {/* ✅ Ruta absoluta al test activo */}
+        <Link to="/test-direccion" className={styles.ctaFinalButton}>
           Descubre tu primer paso
         </Link>
       </section>

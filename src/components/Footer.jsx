@@ -22,7 +22,7 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      {/* Logo en el margen izquierdo */}
+      {/* Logo izquierda */}
       <div className={styles.footerLogo}>
         <img src={logo} alt="TDR Logo" />
       </div>
@@ -31,7 +31,7 @@ const Footer = () => {
         <button className={styles.footerButton} onClick={handleInicioClick}>Inicio</button>
         <Link to="/sobre-mi"><button className={styles.footerButton}>Sobre mí</button></Link>
 
-        {/* Botón "Recursos Gratuitos" con toggle */}
+        {/* Recursos */}
         <div className={styles.dropdown}>
           <button
             className={styles.dropbtn}
@@ -43,14 +43,16 @@ const Footer = () => {
           </button>
           {openDropdown === 'recursos' && (
             <div id="recursosDropdown" className={styles.dropdownContent}>
-              <Link to="/otros-tests" onClick={() => setOpenDropdown(null)}>Tests Gratuitos</Link>
+              {/* ✅ Links correctos */}
+              <Link to="/test-direccion" onClick={() => setOpenDropdown(null)}>Test Dirección</Link>
+              <Link to="/test-discurso" onClick={() => setOpenDropdown(null)}>Test Discurso</Link>
               <a href="#" onClick={(e) => { e.preventDefault(); setOpenDropdown(null); }}>PDFs Descargables</a>
               <a href="#" onClick={(e) => { e.preventDefault(); setOpenDropdown(null); }}>Ejercicios</a>
             </div>
           )}
         </div>
 
-        {/* Botón "Productos Premium" con toggle */}
+        {/* Premium */}
         <div className={styles.dropdown}>
           <button
             className={styles.dropbtn}

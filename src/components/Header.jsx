@@ -9,7 +9,6 @@ const Header = ({ isTestLayout }) => {
   const [recursosOpen, setRecursosOpen] = useState(false);
   const [productosOpen, setProductosOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado simulado de autenticación
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -17,13 +16,10 @@ const Header = ({ isTestLayout }) => {
   const isMobile = windowWidth <= 767;
   const isTablet = windowWidth > 767 && windowWidth <= 1024;
 
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 0); // Cambia a `true` si el scroll es mayor a 0
-  };
+  const handleScroll = () => setScrolled(window.scrollY > 0);
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
-
     if (window.innerWidth > 1024) {
       setMenuOpen(false);
       setRecursosOpen(false);
@@ -40,9 +36,7 @@ const Header = ({ isTestLayout }) => {
     };
   }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   const handleInicioClick = () => {
     if (location.pathname === '/') {
@@ -51,6 +45,12 @@ const Header = ({ isTestLayout }) => {
       navigate('/');
     }
     setMenuOpen(false);
+  };
+
+  const closeAllMenus = () => {
+    setMenuOpen(false);
+    setRecursosOpen(false);
+    setProductosOpen(false);
   };
 
   return (
@@ -71,7 +71,7 @@ const Header = ({ isTestLayout }) => {
         <img src={logo} alt="TDR Logo" />
       </div>
 
-      {/* Menú de escritorio y tablet horizontal */}
+      {/* Menú de escritorio / tablet horizontal */}
       {!isMobile && (
         <nav className={styles.headerNav}>
           <Link to="/sobre-mi"><button>Sobre mí</button></Link>
@@ -79,7 +79,9 @@ const Header = ({ isTestLayout }) => {
           <div className={styles.dropdown}>
             <button className={styles.dropbtn}>Accede a más recursos</button>
             <div className={styles.dropdownContent}>
-              <Link to="/otros-tests">Tests Gratuitos</Link>
+              {/* ✅ Rutas absolutas al lugar correcto */}
+              <Link to="/test-direccion">Test Dirección</Link>
+              <Link to="/test-discurso">Test Discurso</Link>
               <a href="#" onClick={(e) => e.preventDefault()}>PDFs Descargables</a>
               <a href="#" onClick={(e) => e.preventDefault()}>Ejercicios</a>
             </div>
@@ -93,8 +95,6 @@ const Header = ({ isTestLayout }) => {
               </button>
             </div>
           </div>
-
-          
         </nav>
       )}
 
@@ -108,14 +108,14 @@ const Header = ({ isTestLayout }) => {
         </div>
       )}
 
-      {/* Menú móvil funcional */}
+      {/* Menú móvil */}
       {isMobile && (
         <div className={`${styles.menuMobileOverlay} ${menuOpen ? styles.open : styles.closed}`}>
           <nav className={styles.menuMobileNav}>
             <button className={styles.menuLink} onClick={handleInicioClick}>Inicio</button>
 
-            <Link to="/sobre-mi" onClick={() => setMenuOpen(false)}>
-              <button className={styles.menuLink}>Sobre mi</button>
+            <Link to="/sobre-mi" onClick={closeAllMenus}>
+              <button className={styles.menuLink}>Sobre mí</button>
             </Link>
 
             <div className={styles.dropdown}>
@@ -127,11 +127,11 @@ const Header = ({ isTestLayout }) => {
               </button>
               {recursosOpen && (
                 <div className={styles.dropdownContent}>
-                  <Link to="/otros-tests" onClick={() => setMenuOpen(false)}>
-                    Tests Gratuitos
-                  </Link>
-                  <a href="#" onClick={(e) => e.preventDefault()}>PDFs Descargables</a>
-                  <a href="#" onClick={(e) => e.preventDefault()}>Ejercicios</a>
+                  {/* ✅ Rutas absolutas + cierran el overlay */}
+                  <Link to="/test-direccion" onClick={closeAllMenus}>Test Dirección</Link>
+                  <Link to="/test-discurso" onClick={closeAllMenus}>Test Discurso</Link>
+                  <a href="#" onClick={(e) => { e.preventDefault(); closeAllMenus(); }}>PDFs Descargables</a>
+                  <a href="#" onClick={(e) => { e.preventDefault(); closeAllMenus(); }}>Ejercicios</a>
                 </div>
               )}
             </div>
@@ -148,7 +148,7 @@ const Header = ({ isTestLayout }) => {
                   <button
                     onClick={() => {
                       alert('¡Productos Premium próximamente disponible!');
-                      setMenuOpen(false);
+                      closeAllMenus();
                     }}
                   >
                     Próximamente

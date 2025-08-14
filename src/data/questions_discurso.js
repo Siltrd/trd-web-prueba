@@ -1,74 +1,103 @@
+// src/data/questions_discurso.js
+
 const questions = [
   {
-    question: "¿Qué frase se parece más a tu forma de expresarte?",
+    question: "Cuando hablo en público...",
     options: [
-      { text: "Voy al grano, rápido y claro", tags: ["A"] },
-      { text: "Me tomo mi tiempo, me gusta dejarlo reposar", tags: ["C"] },
-      { text: "A veces no se entiende si estoy hablando en serio", tags: ["D"] }
+      { text: "Soy directo y claro", tags: ["A"] },
+      { text: "Soy pausado y reflexivo", tags: ["C"] },
+      { text: "Adapto mi tono a lo que creo que gustará", tags: ["D"] },
+      { text: "Cambio según el público, pero me mantengo fiel", tags: ["B"] }
     ]
   },
   {
-    question: "Cuando hablás de lo que hacés, ¿qué te pasa más seguido?",
+    question: "Al explicar mi idea...",
     options: [
-      { text: "Lo cuento con energía, como si fuera un impulso", tags: ["A"] },
-      { text: "Lo pienso mucho antes de decirlo", tags: ["C"] },
-      { text: "Me doy cuenta de que no estoy diciendo lo más importante", tags: ["D"] }
+      { text: "Transmito energía", tags: ["A"] },
+      { text: "Analizo cada palabra", tags: ["C"] },
+      { text: "Evito mostrar demasiado de mí", tags: ["D"] },
+      { text: "Busco conexión genuina", tags: ["B"] }
     ]
   },
   {
-    question: "¿Cuál de estas frases te resulta más incómoda?",
+    question: "Lo que más me critican es...",
     options: [
-      { text: "Tenés que mostrarte más auténtico", tags: ["D"] },
-      { text: "Eso no se entiende bien", tags: ["C"] },
-      { text: "Bajá un cambio, no hace falta tanta intensidad", tags: ["A"] }
+      { text: "Demasiada intensidad", tags: ["A"] },
+      { text: "Extenderme demasiado", tags: ["C"] },
+      { text: "Parecer poco auténtico", tags: ["D"] },
+      { text: "No siempre llegar al punto", tags: ["B"] }
     ]
   },
   {
-    question: "¿Qué sentís cuando terminás de hablar de lo que hacés?",
+    question: "Cuando termino de hablar...",
     options: [
-      { text: "Que me faltó algo importante", tags: ["D"] },
-      { text: "Que dije demasiado", tags: ["C"] },
-      { text: "Que estuve bien, pero podría haber conectado mejor", tags: ["A"] }
+      { text: "Dejo una idea clara", tags: ["A"] },
+      { text: "Siento que fui muy extenso", tags: ["C"] },
+      { text: "Creo que no mostré mi esencia", tags: ["D"] },
+      { text: "Siento que podría haber conectado más", tags: ["B"] }
     ]
   },
   {
-    question: "¿Qué te cuesta más?",
+    question: "Lo que más me cuesta es...",
     options: [
-      { text: "Encontrar las palabras que suenen verdaderas", tags: ["D"] },
-      { text: "No sobreexplicar", tags: ["C"] },
-      { text: "No parecer exagerado o intenso", tags: ["A"] }
+      { text: "No sonar brusco", tags: ["A"] },
+      { text: "Evitar sobreexplicar", tags: ["C"] },
+      { text: "No esconderme tras un tono ajeno", tags: ["D"] },
+      { text: "Ser claro y emocional a la vez", tags: ["B"] }
     ]
   },
   {
-    question: "¿Qué te sale más natural cuando hablás?",
+    question: "Lo más natural para mí es...",
     options: [
-      { text: "Siento que impulso lo que digo con fuerza, aunque a veces atropello", tags: ["A"] },
-      { text: "Suelo hablar mientras ordeno lo que pienso", tags: ["C"] },
-      { text: "Me adapto al tono que funciona, aunque no siempre me representa", tags: ["D"] }
+      { text: "Hablar con fuerza", tags: ["A"] },
+      { text: "Pensar mientras hablo", tags: ["C"] },
+      { text: "Acomodarme al tono del otro", tags: ["D"] },
+      { text: "Conectar antes de argumentar", tags: ["B"] }
     ]
   },
   {
-    question: "¿Qué frase se parece más a lo que te pasa hoy al comunicar?",
+    question: "Mi discurso actual es...",
     options: [
-      { text: "Sé lo que hago, pero explicarlo me cuesta", tags: ["C"] },
-      { text: "Lo que digo funciona, pero a veces siento que no me refleja", tags: ["D"] },
-      { text: "Mi discurso y mis acciones están alineados, pero no terminan de conectar del todo", tags: ["A"] }
+      { text: "Claro pero intenso", tags: ["A"] },
+      { text: "Organizado pero largo", tags: ["C"] },
+      { text: "Correcto pero ajeno", tags: ["D"] },
+      { text: "Genuino pero disperso", tags: ["B"] }
     ]
   },
   {
-    question: "¿Qué te dijeron más de una vez sobre cómo hablás?",
+    question: "Lo que más me dicen es...",
     options: [
-      { text: "Que no se entiende del todo lo que hago", tags: ["D"] },
-      { text: "Que me pierdo en explicaciones largas o en detalles", tags: ["C"] },
-      { text: "Que soy demasiado directo y eso a veces choca", tags: ["A"] }
+      { text: "Que soy demasiado directo", tags: ["A"] },
+      { text: "Que doy demasiada vuelta", tags: ["C"] },
+      { text: "Que no muestro mi verdadero yo", tags: ["D"] },
+      { text: "Que mezclo demasiadas ideas", tags: ["B"] }
     ]
   },
   {
-    question: "¿Qué te gustaría que te deje este test?",
+    question: "Con este test quiero...",
     options: [
-      { text: "Saber por qué mi mensaje no conecta con lo que realmente hago", tags: ["D"] },
-      { text: "Afinar mi forma de comunicar sin perder lo que soy", tags: ["A"] },
-      { text: "Encontrar una forma más clara y propia de decir lo que quiero decir", tags: ["C"] }
+      { text: "Afinar mi comunicación", tags: ["A"] },
+      { text: "Aprender a sintetizar", tags: ["C"] },
+      { text: "Mostrar más autenticidad", tags: ["D"] },
+      { text: "Encontrar mi estilo propio", tags: ["B"] }
+    ]
+  },
+  {
+    question: "Al improvisar...",
+    options: [
+      { text: "Me lanzo con energía", tags: ["A"] },
+      { text: "Pienso mucho antes", tags: ["C"] },
+      { text: "Uso fórmulas seguras", tags: ["D"] },
+      { text: "Busco empatía inmediata", tags: ["B"] }
+    ]
+  },
+  {
+    question: "Hoy mi comunicación es...",
+    options: [
+      { text: "Impactante pero intensa", tags: ["A"] },
+      { text: "Cuidada pero lenta", tags: ["C"] },
+      { text: "Correcta pero sin esencia", tags: ["D"] },
+      { text: "Cálida pero algo dispersa", tags: ["B"] }
     ]
   }
 ];

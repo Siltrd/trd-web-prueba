@@ -1,58 +1,103 @@
+// src/data/questions_direccion.js
+
 const questions = [
   {
-    question: "Cuando hablás de lo que querés lograr, sentís que…",
+    question: "¿Qué describe mejor tu presente?",
     options: [
-      { text: "Cambiás de idea cada semana", tags: ["C", "D"] },
-      { text: "Sabés lo que querés, pero no lo hacés", tags: ["C", "A", "D"] },
-      { text: "Te da miedo que sea un error", tags: ["C"] }
+      { text: "Tengo claro mi objetivo y avanzo", tags: ["A"] },
+      { text: "Sé lo que quiero y ajusto el camino sobre la marcha", tags: ["B"] },
+      { text: "Siento que todo cambia y me cuesta adaptarme", tags: ["C"] },
+      { text: "Evito tomar decisiones importantes", tags: ["D"] }
     ]
   },
   {
-    question: "Cuando alguien te pregunta “¿cómo vas con eso que ibas a hacer?”, lo que más aparece es…",
+    question: "Cuando aparece un obstáculo...",
     options: [
-      { text: "Un nudo en el estómago: no hice nada concreto", tags: ["D", "C"] },
-      { text: "Frustración: lo pienso todo pero no arranco", tags: ["C", "A"] },
-      { text: "Justificación: “no es el momento todavía”", tags: ["D", "C"] }
+      { text: "Busco soluciones rápidas", tags: ["A"] },
+      { text: "Analizo opciones antes de actuar", tags: ["B"] },
+      { text: "Me frustra y me detengo", tags: ["C"] },
+      { text: "Lo minimizo y sigo como si nada", tags: ["D"] }
     ]
   },
   {
-    question: "¿Dónde sentís que está el mayor obstáculo hoy?",
+    question: "¿Cómo gestionas tu energía diaria?",
     options: [
-      { text: "En la cabeza: pienso demasiado", tags: ["C"] },
-      { text: "En las emociones: hay algo que me frena", tags: ["D"] },
-      { text: "En el cuerpo y rutinas: no consigo espacio ni energía", tags: ["A"] }
+      { text: "Planifico y ejecuto", tags: ["A"] },
+      { text: "Sigo un plan flexible según las circunstancias", tags: ["B"] },
+      { text: "Tengo altibajos constantes", tags: ["C"] },
+      { text: "La dejo al azar", tags: ["D"] }
     ]
   },
   {
-    question: "Cuando no sabés qué hacer, lo más común es que…",
+    question: "Cuando piensas en tus metas...",
     options: [
-      { text: "Te distraigas esperando una señal clara", tags: ["A", "D"] },
-      { text: "Intentes algo, pero lo dejás a medias", tags: ["A", "C"] },
-      { text: "Avanzás igual, aunque sin estar del todo segura", tags: ["A"] }
+      { text: "Son claras y medibles", tags: ["A"] },
+      { text: "Las defino y las mejoro a medida que avanzo", tags: ["B"] },
+      { text: "Me resultan poco posibles de lograr", tags: ["C"] },
+      { text: "No las tengo definidas aún", tags: ["D"] }
     ]
   },
   {
-    question: "Al momento de actuar, lo que más te pesa es…",
+    question: "Si un plan falla...",
     options: [
-      { text: "Las dudas", tags: ["C"] },
-      { text: "Las excusas", tags: ["D"] },
-      { text: "El cansancio", tags: ["A"] }
+      { text: "Creo otro de inmediato", tags: ["A"] },
+      { text: "Reviso y cambio de estrategia", tags: ["B"] },
+      { text: "Pierdo motivación", tags: ["C"] },
+      { text: "Abandono el proyecto", tags: ["D"] }
     ]
   },
   {
-    question: "¿A quién sentís que le estás debiendo una respuesta o una prueba?",
+    question: "En tus relaciones...",
     options: [
-      { text: "A vos misma", tags: ["D"] },
-      { text: "A otra persona (pareja, familia, entorno)", tags: ["D"] },
-      { text: "A nadie, pero igual cargás algo invisible", tags: ["C", "D"] }
+      { text: "Me vinculo y me comunico con claridad", tags: ["A"] },
+      { text: "Cuido mis límites y tiempos", tags: ["B"] },
+      { text: "Siento distancia", tags: ["C"] },
+      { text: "Evito confrontar", tags: ["D"] }
     ]
   },
   {
-    question: "Si tu momento actual fuera una escena, sería…",
+    question: "Al tomar decisiones...",
     options: [
-      { text: "Una autopista sin señales", tags: ["C"] },
-      { text: "Un coche en marcha con freno de mano", tags: ["A"] },
-      { text: "Un cruce con niebla", tags: ["C"] }
+      { text: "Actúo con seguridad", tags: ["A"] },
+      { text: "Me tomo mi tiempo para decidir bien", tags: ["B"] },
+      { text: "Dudo demasiado", tags: ["C"] },
+      { text: "Prefiero que otros decidan", tags: ["D"] }
+    ]
+  },
+  {
+    question: "Cuando tengo que priorizar...",
+    options: [
+      { text: "Me enfoco en lo esencial", tags: ["A"] },
+      { text: "Comparo opciones y elijo con criterio", tags: ["B"] },
+      { text: "Me disperso fácilmente", tags: ["C"] },
+      { text: "Postergo para más adelante", tags: ["D"] }
+    ]
+  },
+  {
+    question: "¿Cómo enfrentas un cambio?",
+    options: [
+      { text: "Me adapto y avanzo", tags: ["A"] },
+      { text: "Lo analizo y después actúo", tags: ["B"] },
+      { text: "Me incomoda y me frena", tags: ["C"] },
+      { text: "Lo ignoro o evito", tags: ["D"] }
+    ]
+  },
+  {
+    question: "Cuando algo no sale como esperabas...",
+    options: [
+      { text: "Lo ajusto rápido", tags: ["A"] },
+      { text: "Reviso y pruebo de nuevo", tags: ["B"] },
+      { text: "Me siento bloqueado", tags: ["C"] },
+      { text: "Lo dejo de lado", tags: ["D"] }
+    ]
+  },
+  {
+    question: "Hoy, tu dirección de vida es...",
+    options: [
+      { text: "Clara y firme", tags: ["A"] },
+      { text: "Flexible pero definida", tags: ["B"] },
+      { text: "Confusa", tags: ["C"] },
+      { text: "Inexistente", tags: ["D"] }
     ]
   }
 ];

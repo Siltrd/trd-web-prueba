@@ -40,7 +40,7 @@ const HeroTDR = () => {
 
           {/* Botones */}
           <div className={styles.hero__boxButtons}>
-            <button>Comienza tu viaje de transformación</button>
+            <button>Comienza tu transformación</button>
             <button>Recursos gratuitos</button>
           </div>
 

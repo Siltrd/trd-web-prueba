@@ -6,6 +6,7 @@
 }
 
 .card {
+  position: relative;
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 1rem;
@@ -13,15 +14,20 @@
   max-width: 680px;
   width: 100%;
   text-align: center;
-  opacity: 1; /* Agregar animación más tarde */
   transition: opacity 0.35s ease-out, transform 0.35s ease-out;
 }
 
-
 .question {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   font-size: 1.35rem;
   color: #1e364d;
+}
+
+/* Opciones */
+.optionsWrapper {
+  display: grid;
+  gap: 14px;
+  place-items: center;
 }
 
 .button {
@@ -29,7 +35,6 @@
   max-width: 500px;
   padding: clamp(0.7rem, 2vh, 1rem) clamp(1.5rem, 4vw, 2rem);
   font-size: clamp(1rem, 1.2vw, 1.1rem);
-  border-radius: 0.8rem;
   border: 2px solid #7c7f58;
   background-color: #fff;
   color: #1e364d;
@@ -38,10 +43,35 @@
   transition: all 0.3s ease;
   border-radius: 2rem;
 }
-
-/* Hover del botón */
 .button:hover {
-  background-color: #f57c00; /* Verde oliva TDR */
+  background-color: #f57c00;  /* Naranja TDR */
   color: #fff;
-  border: 2px solid #f57c00; /* Naranja TDR */
+  border-color: #f57c00;
+}
+
+/* Barra de progreso */
+.progressBarWrap {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin: 8px 0 24px;
+}
+.progressBarTrack {
+  height: 6px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+.progressBarFill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #44503c, #7b876e);
+  transition: width .3s ease;
+}
+.progressLabel {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #2f3a45;
 }

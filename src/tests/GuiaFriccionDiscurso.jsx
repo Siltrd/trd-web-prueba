@@ -6,22 +6,30 @@ const Friccion = () => {
   return (
     <main className="home-container" style={{ padding: '3rem 2rem' }}>
       <section className="producto-landing" style={{ maxWidth: '720px', margin: '0 auto' }}>
-        <h1 style={{ fontSize: '2rem', color: '#1e364d', marginBottom: '1rem' }}>
-          Guía TDRs · Aprovechá tu fricción
+        <h1
+  style={{
+    fontSize: '2rem',
+    color: '...', // lo que ya tengas
+    fontWeight: '700',
+    fontFamily: 'Inter, sans-serif',
+  }}
+>
+
+          Guía TDR · Aprovecha tu fricción
         </h1>
 
         <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem' }}>
-          Cuando algo en vos quiere avanzar, pero otra parte tira del freno.
+          Cuando algo en ti quiere avanzar, pero otra parte tira del freno.
         </p>
 
         <hr style={{ border: 'none', borderTop: '1px solid #ccc', marginBottom: '2rem' }} />
 
         <div style={{ lineHeight: '1.7' }}>
-          <p><strong>Diagnóstico:</strong> Hay algo en vos que quiere avanzar, y otra parte que tira del freno. No estás inmóvil, pero tampoco en marcha plena. Vivís en un diálogo interno constante, una especie de ruido de fondo que te acompaña aunque no lo nombres. Esa tensión que te incomoda… también contiene energía. Tenés una chispa encendida. Solo falta dirigirla.</p>
+          <p><strong>Diagnóstico:</strong> Hay algo en ti que quiere avanzar, y otra parte que tira del freno. No estás inmóvil, pero tampoco en marcha plena. Vives en un diálogo interno constante, una especie de ruido de fondo que te acompaña aunque no lo nombres. Esa tensión que te incomoda… también contiene energía. Tienes una chispa encendida. Solo falta dirigirla.</p>
 
-          <p><strong>Imagen simbólica:</strong> Sos como un arco cargado: si no soltás, te vas a desgastar. Pero si apuntás con claridad, vas a generar dirección real.</p>
+          <p><strong>Imagen simbólica:</strong> Eres como un arco cargado: si no sueltas, te vas a desgastar. Pero si apuntas con claridad, vas a generar dirección real.</p>
 
-          <p><strong>Coste de no actuar:</strong> El conflicto no resuelto te hace girar en círculos. Gastás energía vital en sostener una posición ambigua. Y mientras tanto, la claridad no llega sola.</p>
+          <p><strong>Coste de no actuar:</strong> El conflicto no resuelto te hace girar en círculos. Gastas energía vital en sostener una posición ambigua. Y mientras tanto, la claridad no llega sola.</p>
         </div>
 
         <hr style={{ border: 'none', borderTop: '1px solid #ccc', margin: '2rem 0' }} />

@@ -1,11 +1,14 @@
+/* src/styles/global.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import './variables.css';
+@import './utilities.css';
 
 /* Reset total */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--fuente-principal) !important;
 }
 
 /* HTML base */
@@ -13,25 +16,25 @@ html, body, #root {
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
-  background-color: #f9f3ed;
-  color: #1e1e1e;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Aplicación forzada a elementos semánticos */
+/* Aplicación a elementos semánticos */
 h1, h2, h3, h4, h5, h6,
 p, a, span, button,
 strong, em, small,
 section, article, aside,
 input, textarea, select, label {
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--fuente-principal) !important;
 }
 
 /* Utilidad puntual */
 .use-inter {
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--fuente-principal) !important;
   font-weight: 700;
   font-style: normal;
 }

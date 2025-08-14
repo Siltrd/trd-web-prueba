@@ -1,0 +1,21 @@
+/* src/styles/variables.css */
+
+:root {
+  /* Colores TDR */
+  --color-fondo: #f9f3ed;
+  --color-texto: #1e1e1e;
+  --color-acento: #b0a58d;
+  --color-verde-oliva: #3c5a46;
+  --color-link: #6d7a5e;
+
+  /* Tipografía */
+  --fuente-principal: 'Inter', sans-serif;
+
+  /* Espaciado base */
+  --espaciado-sm: 0.5rem;
+  --espaciado-md: 1rem;
+  --espaciado-lg: 2rem;
+
+  /* Radios */
+  --radio-base: 0.5rem;
+}

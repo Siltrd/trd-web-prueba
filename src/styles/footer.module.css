@@ -39,7 +39,7 @@
   color: #1e364d;
   font-size: 1rem;
   cursor: pointer;
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;  
   transition: color 0.3s ease;
   display: inline-block;
   min-width: 100px;

@@ -12,14 +12,14 @@ const TestDireccion = () => {
         <title>Test de Dirección Interna - TDR</title>
         <meta
           name="description"
-          content="Descubrí qué te está bloqueando y cómo reconectar con tu dirección interna. Este test simbólico te guía desde el estancamiento hacia la claridad."
+          content="Descubre qué te está bloqueando y cómo reconectar con tu dirección interna. Este test simbólico te guía desde el estancamiento hacia la claridad."
         />
       </Helmet>
 
       <h1 className={styles.testTitle}>Test de Dirección Interna</h1>
 
       <p className={styles.testIntro}>
-        Si sentís que estás en un momento de confusión, estancamiento o que no sabés por dónde avanzar,
+        Si sientes que estás en un momento de confusión, estancamiento o que no sabes por dónde avanzar,
         este test puede ayudarte a detectar el obstáculo simbólico que hoy condiciona tus decisiones.
       </p>
 

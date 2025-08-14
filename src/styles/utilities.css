@@ -1,0 +1,53 @@
+/* src/styles/utilities.css */
+
+/* Tipografía rápida */
+.text-center {
+  text-align: center;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+/* Espaciado */
+.mt-sm {
+  margin-top: var(--espaciado-sm);
+}
+.mt-md {
+  margin-top: var(--espaciado-md);
+}
+.mt-lg {
+  margin-top: var(--espaciado-lg);
+}
+
+.mb-sm {
+  margin-bottom: var(--espaciado-sm);
+}
+.mb-md {
+  margin-bottom: var(--espaciado-md);
+}
+.mb-lg {
+  margin-bottom: var(--espaciado-lg);
+}
+
+/* Botón base */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-acento);
+  color: white;
+  border: none;
+  border-radius: var(--radio-base);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #998c73;
+}
