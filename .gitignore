@@ -1,4 +1,5 @@
 # Logs
+# Ignorar los archivos de log generados por npm, yarn y pnpm
 logs
 *.log
 npm-debug.log*
@@ -7,12 +8,21 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node modules
+# Ignorar la carpeta de dependencias que se instala con npm, yarn o pnpm
 node_modules
+
+# Build outputs
+# Ignorar los archivos generados al construir el proyecto
 dist
 dist-ssr
+
+# Local configuration
+# Ignorar configuraciones locales que no deben ser rastreadas
 *.local
 
 # Editor directories and files
+# Ignorar las configuraciones de editores comunes
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,4 +32,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-#.vercel
+
+# Ignorar la carpeta .vercel
+# Asegurarnos de que Vercel no sea rastreado en el repositorio
+.vercel/
