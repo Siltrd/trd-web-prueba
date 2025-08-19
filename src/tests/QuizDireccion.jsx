@@ -4,7 +4,7 @@ import questions from '../data/questions_direccion';
 import { calculateResultDireccion } from '../utils/calculateResultDireccion';
 import styles from '../styles/testStyles/quiz_direccion.module.css';
 
-const STORAGE_KEY = 'tdr_dir_answers_v2'; // bump para separar del formato anterior
+const STORAGE_KEY = 'tdr_dir_answers_v2';
 const RESULT_KEY = 'tdr_dir_result';
 const DEBUG = false;
 
@@ -13,10 +13,10 @@ const QuizDireccion = () => {
   const totalQuestions = questions.length;
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  // Guardamos objetos: { tag, points, qIndex }
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState([]); // { tag, points, qIndex }
   const [fade, setFade] = useState(true);
   const [isCompleted, setIsCompleted] = useState(false);
+  const [selectedIdx, setSelectedIdx] = useState(null); // ✅ feedback visual
   const clickingRef = useRef(false);
 
   // Restaurar progreso
@@ -32,7 +32,7 @@ const QuizDireccion = () => {
         }
       }
     } catch (error) {
-      console.error("Error al recuperar el progreso:", error);
+      console.error('Error al recuperar el progreso:', error);
     }
   }, [totalQuestions]);
 
@@ -41,7 +41,7 @@ const QuizDireccion = () => {
     try {
       sessionStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
     } catch (error) {
-      console.error("Error al guardar el progreso:", error);
+      console.error('Error al guardar el progreso:', error);
     }
   }, [answers]);
 
@@ -56,13 +56,14 @@ const QuizDireccion = () => {
     } catch (error) {
       console.error('Error al guardar el resultado:', error);
     }
-
     navigate('/test-direccion/result', { state: { result }, replace: true });
   }, [isCompleted, answers, navigate]);
 
-  const handleAnswer = (opt) => {
+  const handleAnswer = (opt, idx) => {
     if (clickingRef.current) return;
     clickingRef.current = true;
+
+    setSelectedIdx(idx); // ✅ marca selección
 
     const tag = Array.isArray(opt.tags) ? opt.tags[0] : (opt.tag ?? null);
     const points = (() => {
@@ -77,6 +78,13 @@ const QuizDireccion = () => {
 
     setFade(false);
     setTimeout(() => {
+      // blur global por si algún foco queda colgado en iOS
+      try {
+        if (document.activeElement && document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+      } catch {}
+
       setAnswers((prev) => [...prev, { tag, points, qIndex: currentQuestion }]);
 
       if (currentQuestion + 1 >= totalQuestions) {
@@ -86,8 +94,9 @@ const QuizDireccion = () => {
         setFade(true);
       }
 
+      setSelectedIdx(null); // ✅ resetea para la siguiente
       clickingRef.current = false;
-    }, 160);
+    }, 220); // leve delay para que se vea el highlight
   };
 
   if (isCompleted) return null;
@@ -97,9 +106,8 @@ const QuizDireccion = () => {
 
   return (
     <div className={styles.container}>
-      {/* key fuerza el remonte visual al cambiar de pregunta */}
       <div
-        key={`q-${currentQuestion}`}
+        key={`q-${currentQuestion}`} // fuerza remonte visual
         className={styles.card}
         style={{
           opacity: fade ? 1 : 0,
@@ -107,10 +115,8 @@ const QuizDireccion = () => {
           transition: 'opacity .2s ease, transform .2s ease',
         }}
       >
-        {/* Título de la pregunta */}
         <h2 className={styles.question}>{q.question}</h2>
 
-        {/* Barra de progreso */}
         <div className={styles.progressBarWrap} aria-hidden="true">
           <div className={styles.progressBarTrack}>
             <div className={styles.progressBarFill} style={{ width: `${progress}%` }} />
@@ -120,15 +126,15 @@ const QuizDireccion = () => {
           </span>
         </div>
 
-        {/* Opciones */}
         <div className={styles.optionsWrapper}>
           {q.options.map((opt, idx) => (
             <button
               key={idx}
               type="button"
-              onClick={(e) => { e.currentTarget.blur(); handleAnswer(opt); }}
+              onClick={(e) => { e.currentTarget.blur(); handleAnswer(opt, idx); }}
               onTouchEnd={(e) => e.currentTarget.blur()}
-              className={styles.button}
+              className={`${styles.button} ${idx === selectedIdx ? styles.selected : ''}`}
+              aria-pressed={idx === selectedIdx}
             >
               {opt.text}
             </button>

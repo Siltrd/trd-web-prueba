@@ -46,6 +46,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Estado seleccionado (visible en móvil y también en desktop al hacer click) */
+.selected {
+  background-color: #f57c00;  /* Naranja TDR */
+  color: #fff;
+  border-color: #f57c00;
+  transform: translateY(-1px);
+}
+
 /* ✅ Hover SOLO para dispositivos con hover real */
 :global(.has-hover) .button:hover {
   background-color: #f57c00;  /* Naranja TDR */

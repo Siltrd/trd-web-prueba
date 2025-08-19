@@ -5,19 +5,20 @@ import calculateResultDiscurso from '../utils/calculateResultDiscurso';
 import styles from '../styles/testStyles/quiz_discurso.module.css';
 
 const STORAGE_KEY = 'tdr_disc_answers_v1';
-const DEBUG = false; // poné true si querés ver conteos
+const DEBUG = false;
 
 const QuizDiscurso = () => {
   const navigate = useNavigate();
   const totalQuestions = questions.length;
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState([]); // 1 tag por pregunta (A|C|D)
+  const [answers, setAnswers] = useState([]); // guarda tags por pregunta (p.ej. ['A'])
   const [fade, setFade] = useState(true);
   const [isCompleted, setIsCompleted] = useState(false);
-  const clickingRef = useRef(false); // evita doble click
+  const [selectedIdx, setSelectedIdx] = useState(null); // ✅ feedback visual
+  const clickingRef = useRef(false);
 
-  // Restaurar progreso (1 tag por pregunta)
+  // Restaurar progreso
   useEffect(() => {
     try {
       const saved = sessionStorage.getItem(STORAGE_KEY);
@@ -25,7 +26,7 @@ const QuizDiscurso = () => {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed)) {
           setAnswers(parsed);
-          const qIndex = Math.min(parsed.length, totalQuestions); // siguiente pregunta
+          const qIndex = Math.min(parsed.length, totalQuestions);
           setCurrentQuestion(qIndex);
         }
       }
@@ -37,7 +38,7 @@ const QuizDiscurso = () => {
     try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(answers)); } catch {}
   }, [answers]);
 
-  // Finalizar → calcular, limpiar, navegar (mismo patrón que Dirección)
+  // Finalizar → calcular, limpiar, navegar
   useEffect(() => {
     if (!isCompleted) return;
     const result = calculateResultDiscurso(answers);
@@ -48,15 +49,24 @@ const QuizDiscurso = () => {
     navigate('/test-discurso/result', { state: { result }, replace: true });
   }, [isCompleted, answers, navigate]);
 
-  const handleAnswer = (tags) => {
+  const handleAnswer = (tags, idx) => {
     if (clickingRef.current) return;
     clickingRef.current = true;
+
+    setSelectedIdx(idx); // ✅ marca selección
 
     if (DEBUG) console.info('[TDR-DISC] click tags:', tags);
 
     setFade(false);
     setTimeout(() => {
-      setAnswers(prev => [...prev, ...tags]); // tags = [ 'A' ] | [ 'C' ] | [ 'D' ]
+      // blur global
+      try {
+        if (document.activeElement && document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+      } catch {}
+
+      setAnswers(prev => [...prev, ...tags]); // p.ej. ['A']
 
       if (currentQuestion + 1 >= totalQuestions) {
         setIsCompleted(true);
@@ -64,8 +74,10 @@ const QuizDiscurso = () => {
         setCurrentQuestion(prev => prev + 1);
         setFade(true);
       }
+
+      setSelectedIdx(null); // ✅ reset para la siguiente
       clickingRef.current = false;
-    }, 180);
+    }, 220);
   };
 
   if (isCompleted) return null;
@@ -75,9 +87,8 @@ const QuizDiscurso = () => {
 
   return (
     <div className={styles.container}>
-      {/* key fuerza el remonte visual al cambiar de pregunta */}
       <div
-        key={`q-${currentQuestion}`}
+        key={`q-${currentQuestion}`} // fuerza remonte visual
         className={styles.card}
         style={{
           opacity: fade ? 1 : 0,
@@ -85,10 +96,8 @@ const QuizDiscurso = () => {
           transition: 'opacity .2s ease, transform .2s ease',
         }}
       >
-        {/* Título */}
         <h2 className={styles.question}>{q.question}</h2>
 
-        {/* Barra de progreso */}
         <div className={styles.progressBarWrap} aria-hidden="true">
           <div className={styles.progressBarTrack}>
             <div className={styles.progressBarFill} style={{ width: `${progress}%` }} />
@@ -98,15 +107,15 @@ const QuizDiscurso = () => {
           </span>
         </div>
 
-        {/* Opciones */}
         <div className={styles.optionsWrapper}>
           {q.options.map((option, index) => (
             <button
               key={index}
               type="button"
-              onClick={(e) => { e.currentTarget.blur(); handleAnswer(option.tags); }}
+              onClick={(e) => { e.currentTarget.blur(); handleAnswer(option.tags, index); }}
               onTouchEnd={(e) => e.currentTarget.blur()}
-              className={styles.button}
+              className={`${styles.button} ${index === selectedIdx ? styles.selected : ''}`}
+              aria-pressed={index === selectedIdx}
             >
               {option.text}
             </button>
