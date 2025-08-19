@@ -30,6 +30,7 @@
   place-items: center;
 }
 
+/* === Botón de opción === */
 .button {
   width: 100%;
   max-width: 500px;
@@ -40,13 +41,33 @@
   color: #1e364d;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
   border-radius: 2rem;
+  transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
-.button:hover {
+
+/* ✅ Hover SOLO para dispositivos con hover real */
+:global(.has-hover) .button:hover {
   background-color: #f57c00;  /* Naranja TDR */
   color: #fff;
   border-color: #f57c00;
+  transform: translateY(-2px);
+}
+
+/* 👍 Feedback táctil sin “pegado” */
+.button:active {
+  transform: scale(0.98);
+}
+
+/* 🛡️ En táctiles, neutraliza cualquier :hover heredado */
+@media (hover: none) and (pointer: coarse) {
+  .button:hover {
+    background: inherit !important;
+    color: inherit !important;
+    border-color: inherit !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
 
 /* Barra de progreso */
@@ -57,12 +78,14 @@
   align-items: center;
   margin: 8px 0 24px;
 }
+
 .progressBarTrack {
   height: 6px;
   border-radius: 999px;
   background: #e5e7eb;
   overflow: hidden;
 }
+
 .progressBarFill {
   height: 100%;
   width: 0%;
@@ -70,37 +93,9 @@
   background: linear-gradient(90deg, #44503c, #7b876e);
   transition: width .3s ease;
 }
+
 .progressLabel {
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   color: #2f3a45;
-}
-/* Estilo base del botón de opción */
-.optionBtn {
-  /* tus estilos base */
-  border-radius: 999px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  -webkit-tap-highlight-color: transparent; /* mejora tap en iOS */
-}
-
-/* SOLO en dispositivos con hover real (desktop, trackpad) */
-@media (hover: hover) and (pointer: fine) {
-  .optionBtn:hover {
-    transform: translateY(-2px);
-    /* tus colores de hover aquí */
-  }
-}
-
-/* En táctiles, usa :active en lugar de :hover */
-@media (hover: none) and (pointer: coarse) {
-  .optionBtn:active {
-    transform: scale(0.98);
-    /* un leve darken si quieres */
-  }
-}
-
-/* Accesibilidad: foco visible para teclado sin romper móvil */
-.optionBtn:focus-visible {
-  outline: 2px solid rgba(0,0,0,0.3);
-  outline-offset: 2px;
 }

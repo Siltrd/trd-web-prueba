@@ -1,3 +1,4 @@
+// src/App.jsx
 import React, { Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
@@ -7,6 +8,9 @@ import ScrollToTop from './components/ScrollToTop';
 
 import HeroTDR from './components/HeroTDR';
 import PageTwo from './components/PageTwo';
+
+// ✅ detector de hover
+import useHoverCapability from './hooks/useHoverCapability';
 
 const SobreMi = React.lazy(() => import('./pages/SobreMi'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
@@ -19,6 +23,9 @@ const ResultDireccion = React.lazy(() => import('./tests/ResultDireccion'));
 const ResultDiscurso = React.lazy(() => import('./tests/ResultDiscurso'));
 
 export default function App() {
+  // 🔸 Activa/actualiza .has-hover / .no-hover en <html>
+  useHoverCapability();
+
   return (
     <>
       <ScrollToTop />
