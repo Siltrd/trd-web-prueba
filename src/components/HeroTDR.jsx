@@ -40,8 +40,20 @@ const HeroTDR = () => {
 
           {/* Botones */}
           <div className={styles.hero__boxButtons}>
-            <button>Comienza tu transformación</button>
-            <button>Recursos gratuitos</button>
+            <button
+              type="button"
+              onClick={(e) => e.currentTarget.blur()}
+              onTouchEnd={(e) => e.currentTarget.blur()}
+            >
+              Comienza tu transformación
+            </button>
+            <button
+              type="button"
+              onClick={(e) => e.currentTarget.blur()}
+              onTouchEnd={(e) => e.currentTarget.blur()}
+            >
+              Recursos gratuitos
+            </button>
           </div>
 
           {/* Foto móvil */}

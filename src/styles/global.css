@@ -38,3 +38,7 @@ input, textarea, select, label {
   font-weight: 700;
   font-style: normal;
 }
+/* Desactiva TODOS los :hover en pantallas táctiles */
+@media (hover: none) and (pointer: coarse) {
+  *:hover { /* no pongas estilos aquí */ }
+}

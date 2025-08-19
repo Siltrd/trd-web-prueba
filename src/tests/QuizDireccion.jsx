@@ -97,7 +97,9 @@ const QuizDireccion = () => {
 
   return (
     <div className={styles.container}>
+      {/* key fuerza el remonte visual al cambiar de pregunta */}
       <div
+        key={`q-${currentQuestion}`}
         className={styles.card}
         style={{
           opacity: fade ? 1 : 0,
@@ -123,7 +125,9 @@ const QuizDireccion = () => {
           {q.options.map((opt, idx) => (
             <button
               key={idx}
-              onClick={() => handleAnswer(opt)}
+              type="button"
+              onClick={(e) => { e.currentTarget.blur(); handleAnswer(opt); }}
+              onTouchEnd={(e) => e.currentTarget.blur()}
               className={styles.button}
             >
               {opt.text}
