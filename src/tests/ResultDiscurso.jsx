@@ -63,6 +63,24 @@ const ResultDiscurso = () => {
               <p className={styles.copy}>{data.coste}</p>
             </div>
           )}
+
+          {/* Renderizamos el bloque T·D·R */}
+          {data.tdr && (
+            <div className={styles.tdrGrid}>
+              <div className={styles.tdrItem}>
+                <h3 className={styles.tdrLabel}>Transforma</h3>
+                <p className={styles.tdrText}>{data.tdr.transform}</p>
+              </div>
+              <div className={styles.tdrItem}>
+                <h3 className={styles.tdrLabel}>Desafía</h3>
+                <p className={styles.tdrText}>{data.tdr.desafia}</p>
+              </div>
+              <div className={styles.tdrItem}>
+                <h3 className={styles.tdrLabel}>Reconecta</h3>
+                <p className={styles.tdrText}>{data.tdr.reconecta}</p>
+              </div>
+            </div>
+          )}
         </main>
 
         {/* Columna CTA sticky */}

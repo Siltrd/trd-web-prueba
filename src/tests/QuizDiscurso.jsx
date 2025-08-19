@@ -68,14 +68,6 @@ const QuizDiscurso = () => {
     }, 180);
   };
 
-  const resetTest = () => {
-    try { sessionStorage.removeItem(STORAGE_KEY); } catch {}
-    setAnswers([]);
-    setCurrentQuestion(0);
-    setIsCompleted(false);
-    setFade(true);
-  };
-
   if (isCompleted) return null;
 
   const q = questions[currentQuestion];
@@ -83,7 +75,9 @@ const QuizDiscurso = () => {
 
   return (
     <div className={styles.container}>
+      {/* key fuerza el remonte visual al cambiar de pregunta */}
       <div
+        key={`q-${currentQuestion}`}
         className={styles.card}
         style={{
           opacity: fade ? 1 : 0,
@@ -109,7 +103,9 @@ const QuizDiscurso = () => {
           {q.options.map((option, index) => (
             <button
               key={index}
-              onClick={() => handleAnswer(option.tags)}
+              type="button"
+              onClick={(e) => { e.currentTarget.blur(); handleAnswer(option.tags); }}
+              onTouchEnd={(e) => e.currentTarget.blur()}
               className={styles.button}
             >
               {option.text}
