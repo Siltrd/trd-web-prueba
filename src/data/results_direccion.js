@@ -15,15 +15,15 @@ const results = {
     short: {
       clave: 'Energía alta, falta de eje.',
       bullets: ['Mucho empuje', 'Se diluye en varias direcciones'],
-      cta_short: 'Convertí tensión en foco'
+      cta_short: 'Convierte tensión en foco'
     }
   },
 
   desconexion: {
     title: 'Desconexión interna',
-    diagnostico: 'Tus decisiones no parten de lo que realmente querés. Funcionás hacia afuera, pero no desde adentro.',
+    diagnostico: 'Tus decisiones no parten de lo que realmente quieres. Funcionas hacia afuera, pero no desde adentro.',
     imagen: 'Un traje que calza por fuera, pero no te pertenece.',
-    coste: 'Seguir decidiendo desde la desconexión erosiona claridad y autoestima; postergás lo propio mientras cumplís lo ajeno.',
+    coste: 'Seguir decidiendo desde la desconexión erosiona claridad y autoestima; postergas lo propio mientras cumples lo ajeno.',
     cta: {
       titulo: 'Kit TDR: Reconectar para decidir',
       descripcion: 'Audio de reconexión + hoja simbólica para volver al eje antes de elegir.',
@@ -34,32 +34,32 @@ const results = {
     short: {
       clave: 'Mucho “deber”, poco “quiero”.',
       bullets: ['Rumbo toma fuerza afuera', 'Lo propio queda para después'],
-      cta_short: 'Volvé a tu eje'
+      cta_short: 'Vuelve a tu eje'
     }
   },
 
   bucle: {
     title: 'Bucle reflexivo',
-    diagnostico: 'Sabés que necesitás moverte, pero das vueltas buscando certezas. El análisis reemplaza a la acción.',
+    diagnostico: 'Sabes que necesitas moverte, pero das vueltas buscando certezas. El análisis reemplaza a la acción.',
     imagen: 'Una brújula que gira sin marcar el norte.',
     coste: 'El exceso de reflexión no protege: paraliza. Las oportunidades pasan y la confianza se desgasta.',
     cta: {
       titulo: 'Kit TDR: Una sola decisión',
       descripcion: 'Filtro TDR + audio guía + ejercicio simbólico de corte para pasar del pensar al hacer.',
-      frase: 'Pensar no es el problema: el problema es no mover lo que ya sabés.',
+      frase: 'Pensar no es el problema: el problema es no mover lo que ya sabes.',
       precio: '$6',
       acceso: 'Acceso inmediato + PDF imprimible'
     },
     short: {
       clave: 'Mucho pensar, poca acción.',
       bullets: ['Certeza antes de actuar', 'Se enfría el deseo'],
-      cta_short: 'Elegí y mové una cosa'
+      cta_short: 'Elige y mueve una cosa'
     }
   },
 
   impulso: {
     title: 'Impulso desalineado',
-    diagnostico: 'Tienes energía e ideas, pero sin un blanco claro. Te movés rápido sin verificar si responde a tu deseo real.',
+    diagnostico: 'Tienes energía e ideas, pero sin un blanco claro. Te mueves rápido sin verificar si responde a tu deseo real.',
     imagen: 'Una flecha ya lanzada, pero sin objetivo definido.',
     coste: 'La acción sin dirección desgasta recursos y credibilidad. Mucho movimiento, poco avance.',
     cta: {
@@ -72,15 +72,15 @@ const results = {
     short: {
       clave: 'Rápido, sin blanco claro.',
       bullets: ['Ideas sobran', 'Falta un único eje'],
-      cta_short: 'Alineá impulso y rumbo'
+      cta_short: 'Alinea impulso y rumbo'
     }
   },
 
   miedo: {
     title: 'Miedo simbólico',
-    diagnostico: 'Sabés lo que querés y podrías hacerlo, pero una parte lo vive como riesgo alto. No al fracaso: al impacto del cambio.',
+    diagnostico: 'Sabes lo que quieres y podrías hacerlo, pero una parte lo vive como riesgo alto. No al fracaso: al impacto del cambio.',
     imagen: 'Mano en el picaporte, lista… pero sin abrir.',
-    coste: 'El “todavía no” se hace crónico. Perdés ventanas de oportunidad y el deseo se enfría.',
+    coste: 'El “todavía no” se hace crónico. Pierdes ventanas de oportunidad y el deseo se enfría.',
     cta: {
       titulo: 'Carta TDR: El precio de tu cambio',
       descripcion: 'Carta editable + guía simbólica para nombrar el miedo sin forzarlo y atravesarlo con cuidado.',
@@ -89,9 +89,9 @@ const results = {
       acceso: 'Acceso inmediato + hoja ritual'
     },
     short: {
-      clave: 'Sabés qué querés, algo frena.',
+      clave: 'Sabes qué quieres, algo frena.',
       bullets: ['Riesgo percibido alto', 'Se pospone el salto'],
-      cta_short: 'Nombrá el miedo y avanzá'
+      cta_short: 'Nombra el miedo y avanzá'
     }
   }
 };

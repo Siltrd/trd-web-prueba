@@ -51,7 +51,7 @@ const PageTwo = () => {
             </div>
 
             <p>
-              Ivy Soul es la creadora de TDR – Túnica de Realidad, una plataforma de transformación
+              TDR – Túnica de Realidad, es una plataforma de transformación
               personal que fusiona pensamiento crítico, autoliderazgo y un modelo propio de trabajo
               profundo. Diseñado para quienes buscan tomar el control de su vida y dirigirla con
               propósito, en lugar de depender de respuestas externas.
@@ -87,7 +87,7 @@ const PageTwo = () => {
               <div>
                 <h3 className={styles.checkTitle}>Una guía, no un gurú</h3>
                 <p>
-                  Sin atajos ni promesas vacías, Ivy guía con herramientas aplicables, dirección clara
+                  Sin atajos ni promesas vacías, una guía con herramientas aplicables, dirección clara
                   y un enfoque ético que impulsa una transformación real.
                 </p>
               </div>

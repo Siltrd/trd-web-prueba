@@ -14,12 +14,12 @@ const HeroTDR = () => {
         <div className={styles.hero__leftColumn}>
           {/* Box1: Título */}
           <div className={classNames(styles.hero__textBox, styles.hero__box1)}>
-            <p>Transforma tu Vida y tu Discurso</p>
+            <p>Transforma tu Vida y tu Comunicación</p>
           </div>
 
           {/* Box2: Descripción */}
           <div className={classNames(styles.hero__textBox, styles.hero__box2)}>
-            Descubre herramientas prácticas y una comunidad de apoyo que te ayudará a superar bloqueos y rediseñar tu vida, logrando un cambio real y significativo.
+            Descubre herramientas prácticas y una comunidad de apoyo que te ayudará a superar bloqueos. Rediseña tu vida, logrando un cambio real y significativo.
           </div>
 
           {/* Box3: Checkmarks */}

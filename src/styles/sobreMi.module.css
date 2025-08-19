@@ -12,7 +12,8 @@
 /* Hero título + subtítulo */
 .aboutHero {
   text-align: center;
-  margin-bottom: 6vh;
+  margin-bottom: clamp(1.25rem, 2.5vw, 2rem); /* antes: 6vh */
+  display: flow-root; /* evita colapso de márgenes descendentes */
 }
 
 .aboutHero h1 {
@@ -28,9 +29,19 @@
   font-size: clamp(1.1rem, 1.2vw, 1.25rem);
   font-style: italic;
   font-weight: 500;
+  margin: 0;               /* evita sumar margen al bloque */
+  padding-bottom: .25rem;  /* separa sin colapso */
 }
 
-/* Contenedor principal en dos columnas */
+/* Normaliza los <p> internos para no sumar hueco extra */
+.introHighlight p {
+  margin: 0 0 .5rem 0;
+}
+.introHighlight p:last-child {
+  margin-bottom: 0;
+}
+
+/* La sección siguiente no agrega “doble espacio” por arriba */
 .aboutSection {
   display: flex;
   gap: 3vw;
@@ -38,7 +49,34 @@
   align-items: flex-start;
   flex-wrap: wrap;
   margin-bottom: 5vh;
+  margin-top: 0;                    /* <-- añadido */
+  padding-top: clamp(.5rem, 1.2vw, 1rem); /* <-- añadido */
 }
+
+.realInline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .6rem;
+  margin: clamp(.75rem, 2vw, 1rem) 0 .5rem;
+}
+
+.realKicker {
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.realPart em {
+  font-style: normal;
+  font-weight: 800;
+  color: #7c7f58; /* tu verde suave */
+  margin-right: .05rem;
+}
+
+.sep { opacity: .5; }
+
+/* Reutiliza tu .realDesc anterior */
+.realDesc { margin: .25rem 0 0; }
 
 /* Columna izquierda: foto */
 .aboutLeftColumn {
