@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* Contenedor */
 .container {
   padding: 2rem;
   display: flex;
@@ -7,14 +7,14 @@
 
 .card {
   position: relative;
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,.05);
   max-width: 680px;
   width: 100%;
   text-align: center;
-  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  transition: opacity .35s ease-out, transform .35s ease-out;
 }
 
 .question {
@@ -30,11 +30,10 @@
   place-items: center;
 }
 
-/* === Botón de opción === */
 .button {
   width: 100%;
   max-width: 500px;
-  padding: clamp(0.7rem, 2vh, 1rem) clamp(1.5rem, 4vw, 2rem);
+  padding: clamp(.7rem, 2vh, 1rem) clamp(1.5rem, 4vw, 2rem);
   font-size: clamp(1rem, 1.2vw, 1.1rem);
   border: 2px solid #7c7f58;
   background-color: #fff;
@@ -44,41 +43,46 @@
   border-radius: 2rem;
   transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
   -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-/* ✅ Hover SOLO para dispositivos con hover real (desktop/trackpad) */
+/* Hover SOLO en dispositivos con hover real */
 :global(.has-hover) .button:hover {
-  background-color: #f57c00;   /* Naranja TDR */
+  background-color: #f57c00;
   color: #fff;
   border-color: #f57c00;
   transform: translateY(-2px);
 }
 
-/* 👍 Feedback táctil inmediato */
-.button:active {
-  transform: scale(0.98);
-}
-
-/* 🟧 Estado seleccionado (se activa en tap/click, no se hereda de pregunta a pregunta) */
+/* Estado seleccionado */
 .selected {
-  background-color: #f57c00;   /* mismo color que el hover */
+  background-color: #f57c00;
   color: #fff;
   border-color: #f57c00;
   transform: translateY(-1px);
 }
 
-/* 🛡️ En táctiles, neutraliza cualquier :hover heredado */
+/* Feedback táctil */
+.button:active {
+  transform: scale(.98);
+}
+
+/* Neutraliza hover/focus en táctiles */
 @media (hover: none) and (pointer: coarse) {
-  .button:hover {
+  .button:hover,
+  .button:focus,
+  .button:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
     background: inherit !important;
     color: inherit !important;
-    border-color: inherit !important;
+    border-color: #7c7f58 !important;
     transform: none !important;
     filter: none !important;
   }
 }
 
-/* Barra de progreso */
+/* Progreso */
 .progressBarWrap {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -86,14 +90,12 @@
   align-items: center;
   margin: 8px 0 24px;
 }
-
 .progressBarTrack {
   height: 6px;
   border-radius: 999px;
   background: #e5e7eb;
   overflow: hidden;
 }
-
 .progressBarFill {
   height: 100%;
   width: 0%;
@@ -101,7 +103,6 @@
   background: linear-gradient(90deg, #44503c, #7b876e);
   transition: width .3s ease;
 }
-
 .progressLabel {
   font-variant-numeric: tabular-nums;
   font-weight: 600;

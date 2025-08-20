@@ -16,7 +16,7 @@ const QuizDiscurso = () => {
   const [selectedIdx, setSelectedIdx] = useState(null);
   const clickingRef = useRef(false);
 
-  // Reset selección y foco al cambiar de pregunta
+  // Reset selección y foco al entrar a cada pregunta
   useEffect(() => {
     setSelectedIdx(null);
     setTimeout(() => {
@@ -28,47 +28,67 @@ const QuizDiscurso = () => {
     }, 0);
   }, [currentQuestion]);
 
+  // Navegar al resultado
   useEffect(() => {
-    if (isCompleted) {
-      const result = calculateResultDiscurso(answers);
-      navigate('/test-discurso/result', { state: { result } });
-    }
+    if (!isCompleted) return;
+    const result = calculateResultDiscurso(answers);
+    navigate('/test-discurso/result', { state: { result }, replace: true });
   }, [isCompleted, answers, navigate]);
 
   const handleAnswer = (tags, idx) => {
     if (clickingRef.current) return;
     clickingRef.current = true;
 
-    setSelectedIdx(idx);
+    setSelectedIdx(idx); // feedback visual
 
     setFade(false);
     setTimeout(() => {
+      // blur extra antes de cambiar
       try {
         if (document.activeElement && document.activeElement instanceof HTMLElement) {
           document.activeElement.blur();
         }
       } catch {}
 
-      setAnswers((prev) => [...prev, ...tags]);
+      setAnswers(prev => [...prev, ...tags]); // p.ej. ['A']
 
       if (currentQuestion + 1 >= totalQuestions) {
         setIsCompleted(true);
       } else {
-        setCurrentQuestion((prev) => prev + 1);
+        setCurrentQuestion(prev => prev + 1);
         setFade(true);
       }
 
       setSelectedIdx(null);
       clickingRef.current = false;
-    }, 200);
+    }, 260);
   };
 
   const q = questions[currentQuestion];
+  const progress = ((currentQuestion + 1) / totalQuestions) * 100;
 
   return (
-    <main className={styles.quizWrapper}>
-      <section className={`${styles.quizInner} ${fade ? styles.fadeIn : styles.fadeOut}`}>
+    <div className={styles.container}>
+      <div
+        key={`q-${currentQuestion}`}
+        className={styles.card}
+        style={{
+          opacity: fade ? 1 : 0,
+          transform: fade ? 'translateY(0) scale(1)' : 'translateY(5px) scale(0.98)',
+          transition: 'opacity .2s ease, transform .2s ease',
+        }}
+      >
         <h2 className={styles.question}>{q.question}</h2>
+
+        <div className={styles.progressBarWrap} aria-hidden="true">
+          <div className={styles.progressBarTrack}>
+            <div className={styles.progressBarFill} style={{ width: `${progress}%` }} />
+          </div>
+          <span className={styles.progressLabel}>
+            {currentQuestion + 1} / {totalQuestions}
+          </span>
+        </div>
+
         <div className={styles.optionsWrapper}>
           {q.options.map((option, index) => (
             <button
@@ -86,11 +106,8 @@ const QuizDiscurso = () => {
             </button>
           ))}
         </div>
-        <p className={styles.progress}>
-          Pregunta {currentQuestion + 1} de {totalQuestions}
-        </p>
-      </section>
-    </main>
+      </div>
+    </div>
   );
 };
 
