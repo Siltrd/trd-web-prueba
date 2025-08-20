@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import questions from '../data/questions_discurso';
-import { calculateResultDiscurso } from '../utils/calculateResultDiscurso';
+import * as disc from '../utils/calculateResultDiscurso';
+const calculateResultDiscurso = disc.default ?? disc.calculateResultDiscurso;
 import styles from '../styles/testStyles/quiz_discurso.module.css';
 
 const QuizDiscurso = () => {
