@@ -12,10 +12,10 @@ const QuizDiscurso = () => {
   const totalQuestions = questions.length;
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState([]); // p.ej. ['A']
+  const [answers, setAnswers] = useState([]); // ej: ['A']
   const [fade, setFade] = useState(true);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [selectedIdx, setSelectedIdx] = useState(null); // feedback visual
+  const [selectedIdx, setSelectedIdx] = useState(null);
   const clickingRef = useRef(false);
 
   // Restaurar progreso
@@ -38,7 +38,7 @@ const QuizDiscurso = () => {
     try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(answers)); } catch {}
   }, [answers]);
 
-  // Resetear selección al cambiar de pregunta
+  // Reset selección al cambiar de pregunta
   useEffect(() => {
     setSelectedIdx(null);
   }, [currentQuestion]);
@@ -58,20 +58,20 @@ const QuizDiscurso = () => {
     if (clickingRef.current) return;
     clickingRef.current = true;
 
-    setSelectedIdx(idx); // marca selección
+    setSelectedIdx(idx); // marca seleccionado
 
     if (DEBUG) console.info('[TDR-DISC] click tags:', tags);
 
     setFade(false);
     setTimeout(() => {
-      // blur global
+      // blur global (iOS)
       try {
         if (document.activeElement && document.activeElement instanceof HTMLElement) {
           document.activeElement.blur();
         }
       } catch {}
 
-      setAnswers(prev => [...prev, ...tags]); // p.ej. ['A']
+      setAnswers(prev => [...prev, ...tags]); // ej: ['A']
 
       if (currentQuestion + 1 >= totalQuestions) {
         setIsCompleted(true);
@@ -80,9 +80,9 @@ const QuizDiscurso = () => {
         setFade(true);
       }
 
-      setSelectedIdx(null); // seguridad extra
+      setSelectedIdx(null); // seguridad
       clickingRef.current = false;
-    }, 220);
+    }, 200);
   };
 
   if (isCompleted) return null;
@@ -93,7 +93,7 @@ const QuizDiscurso = () => {
   return (
     <div className={styles.container}>
       <div
-        key={`q-${currentQuestion}`} // fuerza remonte visual
+        key={`q-${currentQuestion}`}
         className={styles.card}
         style={{
           opacity: fade ? 1 : 0,

@@ -16,7 +16,7 @@ const QuizDireccion = () => {
   const [answers, setAnswers] = useState([]); // { tag, points, qIndex }
   const [fade, setFade] = useState(true);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [selectedIdx, setSelectedIdx] = useState(null); // feedback visual selección
+  const [selectedIdx, setSelectedIdx] = useState(null);
   const clickingRef = useRef(false);
 
   // Restaurar progreso
@@ -45,7 +45,7 @@ const QuizDireccion = () => {
     }
   }, [answers]);
 
-  // Resetear selección cada vez que cambia la pregunta (evita “pegado”)
+  // Reset selección al cambiar de pregunta
   useEffect(() => {
     setSelectedIdx(null);
   }, [currentQuestion]);
@@ -68,7 +68,7 @@ const QuizDireccion = () => {
     if (clickingRef.current) return;
     clickingRef.current = true;
 
-    setSelectedIdx(idx); // marca selección
+    setSelectedIdx(idx); // marca seleccionado
 
     const tag = Array.isArray(opt.tags) ? opt.tags[0] : (opt.tag ?? null);
     const points = (() => {
@@ -83,7 +83,7 @@ const QuizDireccion = () => {
 
     setFade(false);
     setTimeout(() => {
-      // blur global por si algún foco queda colgado en iOS
+      // blur global (iOS)
       try {
         if (document.activeElement && document.activeElement instanceof HTMLElement) {
           document.activeElement.blur();
@@ -99,9 +99,9 @@ const QuizDireccion = () => {
         setFade(true);
       }
 
-      setSelectedIdx(null); // seguridad extra
+      setSelectedIdx(null); // seguridad
       clickingRef.current = false;
-    }, 220);
+    }, 200);
   };
 
   if (isCompleted) return null;
@@ -112,7 +112,7 @@ const QuizDireccion = () => {
   return (
     <div className={styles.container}>
       <div
-        key={`q-${currentQuestion}`} // fuerza remonte visual
+        key={`q-${currentQuestion}`}
         className={styles.card}
         style={{
           opacity: fade ? 1 : 0,

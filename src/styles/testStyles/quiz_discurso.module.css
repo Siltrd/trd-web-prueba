@@ -46,25 +46,25 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Estado seleccionado (visible en móvil y también en desktop al hacer click) */
-.selected {
-  background-color: #f57c00;  /* Naranja TDR */
-  color: #fff;
-  border-color: #f57c00;
-  transform: translateY(-1px);
-}
-
-/* ✅ Hover SOLO para dispositivos con hover real */
+/* ✅ Hover SOLO para dispositivos con hover real (desktop/trackpad) */
 :global(.has-hover) .button:hover {
-  background-color: #f57c00;  /* Naranja TDR */
+  background-color: #f57c00;   /* Naranja TDR */
   color: #fff;
   border-color: #f57c00;
   transform: translateY(-2px);
 }
 
-/* 👍 Feedback táctil sin “pegado” */
+/* 👍 Feedback táctil inmediato */
 .button:active {
   transform: scale(0.98);
+}
+
+/* 🟧 Estado seleccionado (se activa en tap/click, no se hereda de pregunta a pregunta) */
+.selected {
+  background-color: #f57c00;   /* mismo color que el hover */
+  color: #fff;
+  border-color: #f57c00;
+  transform: translateY(-1px);
 }
 
 /* 🛡️ En táctiles, neutraliza cualquier :hover heredado */
