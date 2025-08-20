@@ -1,133 +1,95 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import questions from '../data/questions_discurso';
-import calculateResultDiscurso from '../utils/calculateResultDiscurso';
+import { calculateResultDiscurso } from '../utils/calculateResultDiscurso';
 import styles from '../styles/testStyles/quiz_discurso.module.css';
-
-const STORAGE_KEY = 'tdr_disc_answers_v1';
-const DEBUG = false;
 
 const QuizDiscurso = () => {
   const navigate = useNavigate();
   const totalQuestions = questions.length;
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState([]); // ej: ['A']
+  const [answers, setAnswers] = useState([]);
   const [fade, setFade] = useState(true);
   const [isCompleted, setIsCompleted] = useState(false);
   const [selectedIdx, setSelectedIdx] = useState(null);
   const clickingRef = useRef(false);
 
-  // Restaurar progreso
-  useEffect(() => {
-    try {
-      const saved = sessionStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) {
-          setAnswers(parsed);
-          const qIndex = Math.min(parsed.length, totalQuestions);
-          setCurrentQuestion(qIndex);
-        }
-      }
-    } catch { /* noop */ }
-  }, [totalQuestions]);
-
-  // Persistir progreso
-  useEffect(() => {
-    try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(answers)); } catch {}
-  }, [answers]);
-
-  // Reset selección al cambiar de pregunta
+  // Reset selección y foco al cambiar de pregunta
   useEffect(() => {
     setSelectedIdx(null);
+    setTimeout(() => {
+      try {
+        if (document.activeElement && document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+      } catch {}
+    }, 0);
   }, [currentQuestion]);
 
-  // Finalizar → calcular, limpiar, navegar
   useEffect(() => {
-    if (!isCompleted) return;
-    const result = calculateResultDiscurso(answers);
-    try {
-      sessionStorage.removeItem(STORAGE_KEY);
-      sessionStorage.setItem('tdr_disc_result', result);
-    } catch { /* noop */ }
-    navigate('/test-discurso/result', { state: { result }, replace: true });
+    if (isCompleted) {
+      const result = calculateResultDiscurso(answers);
+      navigate('/test-discurso/result', { state: { result } });
+    }
   }, [isCompleted, answers, navigate]);
 
   const handleAnswer = (tags, idx) => {
     if (clickingRef.current) return;
     clickingRef.current = true;
 
-    setSelectedIdx(idx); // marca seleccionado
-
-    if (DEBUG) console.info('[TDR-DISC] click tags:', tags);
+    setSelectedIdx(idx);
 
     setFade(false);
     setTimeout(() => {
-      // blur global (iOS)
       try {
         if (document.activeElement && document.activeElement instanceof HTMLElement) {
           document.activeElement.blur();
         }
       } catch {}
 
-      setAnswers(prev => [...prev, ...tags]); // ej: ['A']
+      setAnswers((prev) => [...prev, ...tags]);
 
       if (currentQuestion + 1 >= totalQuestions) {
         setIsCompleted(true);
       } else {
-        setCurrentQuestion(prev => prev + 1);
+        setCurrentQuestion((prev) => prev + 1);
         setFade(true);
       }
 
-      setSelectedIdx(null); // seguridad
+      setSelectedIdx(null);
       clickingRef.current = false;
     }, 200);
   };
 
-  if (isCompleted) return null;
-
   const q = questions[currentQuestion];
-  const progress = ((currentQuestion + 1) / totalQuestions) * 100;
 
   return (
-    <div className={styles.container}>
-      <div
-        key={`q-${currentQuestion}`}
-        className={styles.card}
-        style={{
-          opacity: fade ? 1 : 0,
-          transform: fade ? 'translateY(0) scale(1)' : 'translateY(5px) scale(0.98)',
-          transition: 'opacity .2s ease, transform .2s ease',
-        }}
-      >
+    <main className={styles.quizWrapper}>
+      <section className={`${styles.quizInner} ${fade ? styles.fadeIn : styles.fadeOut}`}>
         <h2 className={styles.question}>{q.question}</h2>
-
-        <div className={styles.progressBarWrap} aria-hidden="true">
-          <div className={styles.progressBarTrack}>
-            <div className={styles.progressBarFill} style={{ width: `${progress}%` }} />
-          </div>
-          <span className={styles.progressLabel}>
-            {currentQuestion + 1} / {totalQuestions}
-          </span>
-        </div>
-
         <div className={styles.optionsWrapper}>
           {q.options.map((option, index) => (
             <button
               key={index}
               type="button"
+              onMouseDown={(e) => e.preventDefault()}
+              onTouchStart={(e) => e.currentTarget.blur()}
               onClick={(e) => { e.currentTarget.blur(); handleAnswer(option.tags, index); }}
               onTouchEnd={(e) => e.currentTarget.blur()}
               className={`${styles.button} ${index === selectedIdx ? styles.selected : ''}`}
               aria-pressed={index === selectedIdx}
+              tabIndex={-1}
             >
               {option.text}
             </button>
           ))}
         </div>
-      </div>
-    </div>
+        <p className={styles.progress}>
+          Pregunta {currentQuestion + 1} de {totalQuestions}
+        </p>
+      </section>
+    </main>
   );
 };
 
