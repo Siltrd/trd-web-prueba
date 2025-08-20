@@ -16,7 +16,7 @@ const QuizDireccion = () => {
   const [answers, setAnswers] = useState([]); // { tag, points, qIndex }
   const [fade, setFade] = useState(true);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [selectedIdx, setSelectedIdx] = useState(null); // ✅ feedback visual
+  const [selectedIdx, setSelectedIdx] = useState(null); // feedback visual selección
   const clickingRef = useRef(false);
 
   // Restaurar progreso
@@ -45,6 +45,11 @@ const QuizDireccion = () => {
     }
   }, [answers]);
 
+  // Resetear selección cada vez que cambia la pregunta (evita “pegado”)
+  useEffect(() => {
+    setSelectedIdx(null);
+  }, [currentQuestion]);
+
   // Finalizar → calcular, limpiar, navegar
   useEffect(() => {
     if (!isCompleted) return;
@@ -63,7 +68,7 @@ const QuizDireccion = () => {
     if (clickingRef.current) return;
     clickingRef.current = true;
 
-    setSelectedIdx(idx); // ✅ marca selección
+    setSelectedIdx(idx); // marca selección
 
     const tag = Array.isArray(opt.tags) ? opt.tags[0] : (opt.tag ?? null);
     const points = (() => {
@@ -94,9 +99,9 @@ const QuizDireccion = () => {
         setFade(true);
       }
 
-      setSelectedIdx(null); // ✅ resetea para la siguiente
+      setSelectedIdx(null); // seguridad extra
       clickingRef.current = false;
-    }, 220); // leve delay para que se vea el highlight
+    }, 220);
   };
 
   if (isCompleted) return null;

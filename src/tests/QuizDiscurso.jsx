@@ -12,10 +12,10 @@ const QuizDiscurso = () => {
   const totalQuestions = questions.length;
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState([]); // guarda tags por pregunta (p.ej. ['A'])
+  const [answers, setAnswers] = useState([]); // p.ej. ['A']
   const [fade, setFade] = useState(true);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [selectedIdx, setSelectedIdx] = useState(null); // ✅ feedback visual
+  const [selectedIdx, setSelectedIdx] = useState(null); // feedback visual
   const clickingRef = useRef(false);
 
   // Restaurar progreso
@@ -38,6 +38,11 @@ const QuizDiscurso = () => {
     try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(answers)); } catch {}
   }, [answers]);
 
+  // Resetear selección al cambiar de pregunta
+  useEffect(() => {
+    setSelectedIdx(null);
+  }, [currentQuestion]);
+
   // Finalizar → calcular, limpiar, navegar
   useEffect(() => {
     if (!isCompleted) return;
@@ -53,7 +58,7 @@ const QuizDiscurso = () => {
     if (clickingRef.current) return;
     clickingRef.current = true;
 
-    setSelectedIdx(idx); // ✅ marca selección
+    setSelectedIdx(idx); // marca selección
 
     if (DEBUG) console.info('[TDR-DISC] click tags:', tags);
 
@@ -75,7 +80,7 @@ const QuizDiscurso = () => {
         setFade(true);
       }
 
-      setSelectedIdx(null); // ✅ reset para la siguiente
+      setSelectedIdx(null); // seguridad extra
       clickingRef.current = false;
     }, 220);
   };
