@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso restringido</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 20vh; }
+    input { padding: 8px; margin: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Web en desarrollo</h2>
+  <p>Introduce la contraseña para continuar:</p>
+  <input type="password" id="pwd" placeholder="Contraseña">
+  <button onclick="checkPwd()">Entrar</button>
+
+  <script>
+    function checkPwd() {
+      const pass = document.getElementById("pwd").value;
+      if (pass === "trd2025") {
+        localStorage.setItem("accessTDR", "ok");
+        window.location.href = "/home.html"; // o la ruta real de tu app
+      } else {
+        alert("Contraseña incorrecta");
+      }
+    }
+  </script>
+</body>
+</html>

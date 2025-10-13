@@ -74,7 +74,7 @@ const Header = ({ isTestLayout }) => {
       {/* Menú de escritorio / tablet horizontal */}
       {!isMobile && (
         <nav className={styles.headerNav}>
-          <Link to="/sobre-mi"><button>Sobre mí</button></Link>
+          <Link to="/test-direccion"><button>Tests</button></Link>
 
           <div className={styles.dropdown}>
             <button className={styles.dropbtn}>Accede a más recursos</button>
@@ -114,8 +114,8 @@ const Header = ({ isTestLayout }) => {
           <nav className={styles.menuMobileNav}>
             <button className={styles.menuLink} onClick={handleInicioClick}>Inicio</button>
 
-            <Link to="/sobre-mi" onClick={closeAllMenus}>
-              <button className={styles.menuLink}>Sobre mí</button>
+            <Link to="/test-direccion" onClick={closeAllMenus}>
+              <button className={styles.menuLink}>Tests</button>
             </Link>
 
             <div className={styles.dropdown}>
