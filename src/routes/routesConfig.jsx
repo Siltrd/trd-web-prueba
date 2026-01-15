@@ -15,6 +15,9 @@ const SobreMi = lazy(() => import('../pages/SobreMi'));
 const ContactPage = lazy(() => import('../pages/ContactPage'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
+// ✅ NUEVO: Próximamente (lazy)
+const Proximamente = lazy(() => import('../pages/Proximamente'));
+
 // Landing de tests (lazy)
 const TestsIndex = lazy(() => import('../pages/TestsIndex'));
 
@@ -46,6 +49,19 @@ export const routes = [
 
       // Landing que lista ambos tests
       { path: '/tests', element: <TestsIndex /> },
+
+      // ✅ Aliases “bonitos” (para links tipo /tests/direccion)
+      { path: '/tests/direccion', element: <Navigate to="/test-direccion" replace /> },
+      { path: '/tests/discurso', element: <Navigate to="/test-discurso" replace /> },
+
+      // ✅ (Opcional recomendado) aliases para quiz/result si algún link lo usa
+      { path: '/tests/direccion/quiz', element: <Navigate to="/test-direccion/quiz" replace /> },
+      { path: '/tests/discurso/quiz', element: <Navigate to="/test-discurso/quiz" replace /> },
+      { path: '/tests/direccion/result', element: <Navigate to="/test-direccion/result" replace /> },
+      { path: '/tests/discurso/result', element: <Navigate to="/test-discurso/result" replace /> },
+
+      // ✅ NUEVO: Próximamente (30%)
+      { path: '/proximamente', element: <Proximamente /> },
 
       // Landings individuales
       { path: '/test-direccion', element: <TestDireccion /> },

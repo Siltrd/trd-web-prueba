@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from '../styles/heroTDR.module.css';
 import layout from '../styles/layout.module.css';
@@ -7,22 +8,40 @@ import fotoProvisoria from '../assets/images/fotoProvisoria.jpg';
 import fotoMovil from '../assets/images/foto-movil.png';
 
 const HeroTDR = () => {
+  const navigate = useNavigate();
+
+  const handleGoTest = (e) => {
+    e.currentTarget.blur();
+    navigate('/tests/direccion');
+  };
+
+  const handleGoSoon = (e) => {
+    e.currentTarget.blur();
+    navigate('/proximamente', {
+      state: {
+        titulo: 'Recursos gratuitos',
+        detalle:
+          'Estoy cerrando el MVP beta de TDR. Los recursos gratuitos se liberan en breve. Mientras tanto, podés empezar por el Test Dirección.',
+      },
+    });
+  };
+
   return (
     <section className={classNames(styles.hero__section, layout.wrapperFullWidth)}>
       <div className={styles.hero__wrapper}>
-        {/* Columna izquierda: Texto */}
+
+        {/* Columna izquierda */}
         <div className={styles.hero__leftColumn}>
-          {/* Box1: Título */}
+
           <div className={classNames(styles.hero__textBox, styles.hero__box1)}>
             <p>Transforma tu Vida y tu Comunicación</p>
           </div>
 
-          {/* Box2: Descripción */}
           <div className={classNames(styles.hero__textBox, styles.hero__box2)}>
-            Descubre herramientas prácticas y una comunidad de apoyo que te ayudará a superar bloqueos. Rediseña tu vida, logrando un cambio real y significativo.
+            Descubre herramientas prácticas y una comunidad de apoyo que te ayudará a superar bloqueos.
+            Rediseña tu vida, logrando un cambio real y significativo.
           </div>
 
-          {/* Box3: Checkmarks */}
           <div className={classNames(styles.hero__textBox, styles.hero__box3)}>
             <div className={styles.hero__checkmark}>
               <img src={checkmark} alt="Checkmark" />
@@ -42,14 +61,15 @@ const HeroTDR = () => {
           <div className={styles.hero__boxButtons}>
             <button
               type="button"
-              onClick={(e) => e.currentTarget.blur()}
+              onClick={handleGoTest}
               onTouchEnd={(e) => e.currentTarget.blur()}
             >
               Comienza tu transformación
             </button>
+
             <button
               type="button"
-              onClick={(e) => e.currentTarget.blur()}
+              onClick={handleGoSoon}
               onTouchEnd={(e) => e.currentTarget.blur()}
             >
               Recursos gratuitos
@@ -58,21 +78,26 @@ const HeroTDR = () => {
 
           {/* Foto móvil */}
           <div className={styles.hero__mobileFotoWrapper}>
-            <img src={fotoMovil} alt="Foto móvil" className={styles.hero__mobileFoto} />
+            <img
+              src={fotoMovil}
+              alt="Foto móvil"
+              className={styles.hero__mobileFoto}
+            />
           </div>
 
-          {/* Box5: Descripción adicional */}
           <div className={classNames(styles.hero__textBox, styles.hero__box5)}>
-            TDR es una plataforma integral que potencia tu transformación personal y profesional mediante un enfoque claro, estructurado y profundamente alineado con tu propósito.
+            TDR es una plataforma integral que potencia tu transformación personal y profesional
+            mediante un enfoque claro, estructurado y profundamente alineado con tu propósito.
           </div>
         </div>
 
-        {/* Columna derecha: Imagen */}
+        {/* Columna derecha */}
         <div className={styles.hero__rightColumn}>
           <div className={styles.hero__visualsWrapper}>
             <img className={styles.hero__foto} src={fotoProvisoria} alt="Foto" />
           </div>
         </div>
+
       </div>
     </section>
   );

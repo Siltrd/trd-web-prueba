@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles/contact.module.css';  // Importar el CSS como módulo
+import styles from '../styles/contact.module.css';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -9,35 +9,51 @@ const ContactPage = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true); // Marca el formulario como enviado
+    setLoading(true);
+    setError(null);
 
-    // Aquí podrías integrar con Zoho Forms luego
-    // o simular la respuesta por ahora con un mensaje automático
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    alert('Gracias por ponerte en contacto. Te responderemos pronto. ¡Estás comenzando tu camino hacia la transformación!');
+      const data = await res.json();
+      if (!data.ok) {
+        throw new Error(data.error || 'No se pudo enviar el mensaje');
+      }
+
+      setSubmitted(true); // ✅ SOLO si se envió de verdad
+    } catch (err) {
+      setError(
+        'No se pudo enviar el mensaje en este momento. Puedes escribirnos por WhatsApp o intentarlo nuevamente.'
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <section className={styles.contactPage}>  {/* Usamos styles.contactPage */}
-      <div className={styles.contactContainer}>  {/* Usamos styles.contactContainer */}
+    <section className={styles.contactPage}>
+      <div className={styles.contactContainer}>
         <h1>Comienza tu camino con TDR</h1>
         <p>
           Gracias por dar el primer paso hacia tu transformación. Déjanos tus datos y comparte cómo podemos ayudarte.
         </p>
-        
+
         {!submitted ? (
-          <form className={styles.contactForm} onSubmit={handleSubmit}>  {/* Usamos styles.contactForm */}
+          <form className={styles.contactForm} onSubmit={handleSubmit}>
             <label htmlFor="name">¿Qué te trae a TDR?</label>
             <input
               type="text"
@@ -71,21 +87,38 @@ const ContactPage = () => {
               required
             />
 
-            <button type="submit" className={styles.btnPrincipal}>  {/* Usamos styles.btnPrincipal */}
-              Inicia tu transformación
+            {error && (
+              <p className={styles.errorMessage}>{error}</p>
+            )}
+
+            <button
+              type="submit"
+              className={styles.btnPrincipal}
+              disabled={loading}
+            >
+              {loading ? 'Enviando…' : 'Inicia tu transformación'}
             </button>
           </form>
         ) : (
-          <div className={styles.thankYouMessage}>  {/* Usamos styles.thankYouMessage */}
+          <div className={styles.thankYouMessage}>
             <h2>Gracias por ponerte en contacto con TDR</h2>
             <p>
               Estás comenzando tu viaje hacia un cambio real. Te responderemos pronto y estaremos aquí para
               apoyarte en cada paso del camino.
             </p>
+
             <p>
-              Mientras tanto, si lo deseas, puedes unirte a nuestra comunidad para más recursos, apoyo y
-              crecimiento.
+              Si lo prefieres, también puedes escribirnos directamente por WhatsApp.
             </p>
+
+            <a
+              href="https://wa.me/5491157041750?text=Hola,%20me%20contacté%20desde%20la%20web%20TDR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.whatsappLink}
+            >
+              💬 Escribir por WhatsApp
+            </a>
           </div>
         )}
       </div>
