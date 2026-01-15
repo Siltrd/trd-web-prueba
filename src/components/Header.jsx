@@ -14,7 +14,7 @@ const Header = ({ isTestLayout }) => {
   const navigate = useNavigate();
 
   const isMobile = windowWidth <= 767;
-  const isTablet = windowWidth > 767 && windowWidth <= 1024;
+  const isTablet = windowWidth > 767 && windowWidth <= 1024; // si no lo usas, lo puedes quitar
 
   const handleScroll = () => setScrolled(window.scrollY > 0);
 
@@ -74,14 +74,15 @@ const Header = ({ isTestLayout }) => {
       {/* Menú de escritorio / tablet horizontal */}
       {!isMobile && (
         <nav className={styles.headerNav}>
-          <Link to="/test-direccion"><button>Tests</button></Link>
+
+                    <Link to="/tests"><button>Tests</button></Link>
+
 
           <div className={styles.dropdown}>
+            {/* Puedes renombrar a "Recursos" si lo prefieres */}
             <button className={styles.dropbtn}>Accede a más recursos</button>
             <div className={styles.dropdownContent}>
-              {/* ✅ Rutas absolutas al lugar correcto */}
-              <Link to="/test-direccion">Test Dirección</Link>
-              <Link to="/test-discurso">Test Discurso</Link>
+              {/* Sin tests aquí para evitar repetición */}
               <a href="#" onClick={(e) => e.preventDefault()}>PDFs Descargables</a>
               <a href="#" onClick={(e) => e.preventDefault()}>Ejercicios</a>
             </div>
@@ -114,22 +115,22 @@ const Header = ({ isTestLayout }) => {
           <nav className={styles.menuMobileNav}>
             <button className={styles.menuLink} onClick={handleInicioClick}>Inicio</button>
 
-            <Link to="/test-direccion" onClick={closeAllMenus}>
+
+                        <Link to="/tests" onClick={closeAllMenus}>
               <button className={styles.menuLink}>Tests</button>
             </Link>
+
 
             <div className={styles.dropdown}>
               <button
                 className={styles.menuLink}
                 onClick={() => setRecursosOpen(!recursosOpen)}
               >
-                Recursos Gratuitos
+                Accede a más recursos
               </button>
               {recursosOpen && (
                 <div className={styles.dropdownContent}>
-                  {/* ✅ Rutas absolutas + cierran el overlay */}
-                  <Link to="/test-direccion" onClick={closeAllMenus}>Test Dirección</Link>
-                  <Link to="/test-discurso" onClick={closeAllMenus}>Test Discurso</Link>
+                  {/* Sin tests para evitar repetición */}
                   <a href="#" onClick={(e) => { e.preventDefault(); closeAllMenus(); }}>PDFs Descargables</a>
                   <a href="#" onClick={(e) => { e.preventDefault(); closeAllMenus(); }}>Ejercicios</a>
                 </div>

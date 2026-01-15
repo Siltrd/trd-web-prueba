@@ -90,9 +90,24 @@
 .main{
   background: var(--surface);
   border-radius: var(--radius);
-  padding: 24px 22px;
+  padding: 34px 32px;
   box-shadow: var(--shadow);
+  position: relative;
 }
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 9rem;    /* Ajusta según posición deseada */
+  right: 19rem;  /* Ajusta según posición deseada */
+  width: 100px;  /* Tamaño del logo */
+  height: 100px;
+  background: url('../../assets/images/tdr-logo.svg') no-repeat center / contain;
+  opacity: 0.1; /* Opacidad sutil */
+  pointer-events: none; /* No bloquea interacciones */
+  
+}
+
 .block{ margin-top: 18px; }
 .h2{
   font-size: 1.08rem; font-weight: 800; color: var(--title); margin: 0 0 8px;
@@ -117,7 +132,7 @@
 /* Sidebar CTA sticky */
 .aside{ position: sticky; top: 24px; }
 .ctaCard{
-  background: #fff; border-radius: 18px; padding: 20px 18px;
+  background: #fff; border-radius: 18px; padding: 30px 28px;
   box-shadow: var(--shadow); border: 1px solid #eef0ea;
 }
 .ctaTitle{
@@ -170,3 +185,4 @@
 .coste{ font-size: 1.05rem; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
 .cta{ background: #fff; border-radius: 18px; padding: 20px; box-shadow: var(--shadow); border: 1px solid #eef0ea; }
 .precio{ font-weight: 800; color: #111; }
+

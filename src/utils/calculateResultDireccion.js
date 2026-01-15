@@ -47,8 +47,9 @@ export function calculateResultDireccion(rawAnswers) {
   // Reglas rápidas que prevalecen en casos claros
   // Mucho D domina → miedo/desconexión
   if (d >= Math.max(a, b, c) && d >= 3) {
-    if (d >= c + 1) return 'miedo';
-    if (d >= c)     return 'desconexion';
+  // si además hay C relevante, la evitación suele venir de miedo/impacto del cambio
+  if (c >= 2) return 'miedo';
+  return 'desconexion';
   }
   // Mucho C y bajo A → bucle
   if (c >= Math.max(a, b, d) && a <= c * 0.6 && c >= 3) return 'bucle';

@@ -34,8 +34,6 @@ const ResultDireccion = () => {
   const data = results[key];
 
   const handleBuy = (cta) => {
-    // Implementá tu acción real (checkout / WhatsApp / link externo)
-    // window.location.href = '/checkout?sku=tdr-' + key;
     console.log('CTA Dirección:', key, cta?.titulo);
   };
 
@@ -54,7 +52,6 @@ const ResultDireccion = () => {
 
           {data.imagen && (
             <div className={styles.callout}>
-              <span className={styles.calloutIcon} aria-hidden>✦</span>
               <p className={styles.calloutText}>{data.imagen}</p>
             </div>
           )}

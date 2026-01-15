@@ -9,10 +9,10 @@ const StartDireccion = () => {
     <div className={styles.startContainer}>
       <div className={styles.startCard}>
         <h1 className={styles.startTitle}>
-          ¿Qué parte de tu energía está bloqueando tu avance?
+          ¿Cómo está hoy tu dirección de vida?
         </h1>
         <p className={styles.startDescription}>
-          Este test simbólico revela si estás en pausa, dispersión o contradicción interna. Sin juicio. Solo claridad.
+          Este test revela si tu avance está en tensión, desconexión, bucle, miedo o impulso. Sin juicio. Solo claridad para decidir el siguiente paso.
         </p>
         <button onClick={() => navigate('/test-direccion/quiz')} className={styles.botonTDR}>
           Empezar ahora

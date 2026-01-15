@@ -34,9 +34,7 @@ const ResultDiscurso = () => {
   const data = results[key];
 
   const handleBuy = (cta) => {
-    // Implementá tu acción real (checkout / WhatsApp / link externo)
     console.log('CTA Discurso:', key, cta?.titulo);
-    // window.location.href = '/checkout?sku=tdr-disc-' + key;
   };
 
   return (
@@ -52,7 +50,6 @@ const ResultDiscurso = () => {
 
           {data.imagen && (
             <div className={styles.callout}>
-              <span className={styles.calloutIcon} aria-hidden>✦</span>
               <p className={styles.calloutText}>{data.imagen}</p>
             </div>
           )}
@@ -64,7 +61,6 @@ const ResultDiscurso = () => {
             </div>
           )}
 
-          {/* Renderizamos el bloque T·D·R */}
           {data.tdr && (
             <div className={styles.tdrGrid}>
               <div className={styles.tdrItem}>

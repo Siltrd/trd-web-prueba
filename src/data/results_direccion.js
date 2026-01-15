@@ -58,10 +58,10 @@ const results = {
   },
 
   impulso: {
-    title: 'Impulso desalineado',
-    diagnostico: 'Tienes energía e ideas, pero sin un blanco claro. Te mueves rápido sin verificar si responde a tu deseo real.',
-    imagen: 'Una flecha ya lanzada, pero sin objetivo definido.',
-    coste: 'La acción sin dirección desgasta recursos y credibilidad. Mucho movimiento, poco avance.',
+    title: 'Acción alineada',
+    diagnostico: 'Tienes energía y decisión. Te mueves con rapidez y, en general, tu acción está orientada. Tu reto no es arrancar: es sostener un eje sin dispersarte..',
+    imagen: 'Una flecha lanzada hacia un objetivo: potencia cuando el blanco es único.',
+    coste: 'Cuando vas rápido, el riesgo no es el bloqueo: es la dispersión o el desgaste. Si no defines un foco dominante, podés avanzar mucho… en la dirección equivocada.',
     cta: {
       titulo: 'Cuaderno TDR: Alinealas todas',
       descripcion: 'Hoja de enfoque + ejercicio simbólico + micro práctica diaria para alinear impulso y rumbo.',

@@ -61,11 +61,20 @@ const QuizDireccion = () => {
       setAnswers(prev => [...prev, { tag, points, qIndex: currentQuestion }]);
 
       if (currentQuestion + 1 >= totalQuestions) {
-        setIsCompleted(true);
-      } else {
-        setCurrentQuestion(prev => prev + 1);
-        setFade(true);
-      }
+  const finalAnswers = [...answers, { tag, points, qIndex: currentQuestion }];
+  const result = calculateResultDireccion(finalAnswers);
+
+  try {
+    sessionStorage.setItem('tdr_dir_result', result);
+  } catch {}
+
+  setAnswers(finalAnswers);
+  setIsCompleted(true);
+} else {
+  setCurrentQuestion(prev => prev + 1);
+  setFade(true);
+}
+
 
       setSelectedIdx(null);
       clickingRef.current = false;
