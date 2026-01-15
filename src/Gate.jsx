@@ -1,11 +1,18 @@
 // src/Gate.jsx
 import { useEffect, useState } from "react";
 
+console.log("GATE VERSION: BYPASS ON");
+
+
+const ACCESS_ALWAYS = true; // ✅ ponelo en false cuando quieras reactivar el candado
 const PASSWORD = "trd2025"; // 🔐 cámbiala si querés
 
-export default function Gate() {
+export default function Gate({ children }) {
   const [authorized, setAuthorized] = useState(false);
   const [pwd, setPwd] = useState("");
+
+  // Bypass total (modo trabajo)
+  if (ACCESS_ALWAYS) return children;
 
   useEffect(() => {
     if (localStorage.getItem("accessTDR") === "ok") {
@@ -17,14 +24,15 @@ export default function Gate() {
     if (pwd === PASSWORD) {
       localStorage.setItem("accessTDR", "ok");
       setAuthorized(true);
-      window.location.replace("/"); // recarga limpia
     } else {
       alert("Contraseña incorrecta");
     }
   };
 
-  if (authorized) return null; // ya autenticado
+  // ✅ Si ya está autorizado, mostramos la web
+  if (authorized) return children;
 
+  // ⛔ Si no está autorizado, mostramos el gate
   return (
     <div
       style={{
@@ -32,7 +40,7 @@ export default function Gate() {
         inset: 0,
         display: "grid",
         placeItems: "center",
-        background: "#f9f3ed", // fondo TDR
+        background: "#f9f3ed",
         zIndex: 99999,
         fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
         color: "#444",
@@ -50,10 +58,11 @@ export default function Gate() {
           textAlign: "center",
         }}
       >
-        <h2 style={{ marginBottom: "8px" }}>Web en desarrollo</h2>
+        <h2 style={{ marginBottom: "8px" }}>GATE VERSION 2026-01-15 00:xx</h2>
         <p style={{ marginBottom: "18px", opacity: 0.8 }}>
           Introduce la contraseña para continuar:
         </p>
+
         <input
           type="password"
           placeholder="Contraseña"
@@ -69,6 +78,7 @@ export default function Gate() {
             fontSize: "16px",
           }}
         />
+
         <button
           onClick={submit}
           style={{
@@ -76,7 +86,7 @@ export default function Gate() {
             padding: "10px 12px",
             borderRadius: "10px",
             border: "0",
-            background: "#f57c00", // ámbar TRD
+            background: "#f57c00",
             color: "#fff",
             fontWeight: 600,
             cursor: "pointer",
