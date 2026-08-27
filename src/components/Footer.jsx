@@ -1,130 +1,129 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import React from 'react';
+import {
+  useNavigate,
+  useLocation,
+  Link,
+} from 'react-router-dom';
+
 import styles from '../styles/footer.module.css';
 import logo from '../assets/images/tdr-logo.svg';
 
 const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [openDropdown, setOpenDropdown] = useState(null);
 
   const handleInicioClick = () => {
     if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     } else {
       navigate('/');
     }
   };
 
-  const toggleDropdown = (menu) => {
-    setOpenDropdown((prev) => (prev === menu ? null : menu));
-  };
-
-  // ✅ Unificado: todo lo no disponible → /proximamente
   const goSoon = (titulo, detalle) => {
-    navigate('/proximamente', { state: { titulo, detalle } });
-    setOpenDropdown(null);
+    navigate('/proximamente', {
+      state: {
+        titulo,
+        detalle,
+      },
+    });
   };
 
-  const handleSoonClick = (titulo, detalle) => (e) => {
-    e.currentTarget.blur();
-    goSoon(titulo, detalle);
+  const handleIndividual = () => {
+    goSoon(
+      'Acompañamiento individual',
+      'La propuesta de acompañamiento individual está siendo actualizada. Próximamente podrás consultar modalidades y disponibilidad.'
+    );
+  };
+
+  const handlePrograms = () => {
+    goSoon(
+      'Programas TDR',
+      'Estoy desarrollando los primeros programas de TDR. Próximamente encontrarás aquí nuevas propuestas.'
+    );
+  };
+
+  const handleExperiences = () => {
+    goSoon(
+      'Experiencias TDR',
+      'Estoy desarrollando las primeras experiencias de TDR. Próximamente encontrarás aquí fechas y formatos.'
+    );
+  };
+
+  const handleResources = () => {
+    navigate('/tests');
   };
 
   return (
     <footer className={styles.footer}>
-      {/* Logo izquierda */}
       <div className={styles.footerLogo}>
-        <img src={logo} alt="TDR Logo" />
+        <img
+          src={logo}
+          alt="TDR Tunica de Realidad"
+        />
       </div>
 
-      <div className={styles.footerNav}>
-        <button className={styles.footerButton} onClick={handleInicioClick}>
+      <nav
+        className={styles.footerNav}
+        aria-label="Navegación del pie de página"
+      >
+        <button
+          type="button"
+          className={styles.footerButton}
+          onClick={handleInicioClick}
+        >
           Inicio
         </button>
 
-        <Link to="/sobre-mi">
-          <button className={styles.footerButton}>Sobre mí</button>
+        <button
+          type="button"
+          className={styles.footerButton}
+          onClick={handleIndividual}
+        >
+          1:1
+        </button>
+
+        <button
+          type="button"
+          className={styles.footerButton}
+          onClick={handlePrograms}
+        >
+          Programas
+        </button>
+
+        <button
+          type="button"
+          className={styles.footerButton}
+          onClick={handleExperiences}
+        >
+          Experiencias
+        </button>
+
+        <button
+          type="button"
+          className={styles.footerButton}
+          onClick={handleResources}
+        >
+          Recursos
+        </button>
+
+        <Link
+          to="/sobre-mi"
+          className={styles.footerLink}
+        >
+          Sobre TDR
         </Link>
 
-        {/* Recursos */}
-        <div className={styles.dropdown}>
-          <button
-            className={styles.dropbtn}
-            onClick={() => toggleDropdown('recursos')}
-            aria-expanded={openDropdown === 'recursos'}
-            aria-controls="recursosDropdown"
-          >
-            Accede a más recursos
-          </button>
-
-          {openDropdown === 'recursos' && (
-            <div id="recursosDropdown" className={styles.dropdownContent}>
-              {/* ✅ Links correctos */}
-              <Link to="/test-direccion" onClick={() => setOpenDropdown(null)}>
-                Test Dirección
-              </Link>
-              <Link to="/test-discurso" onClick={() => setOpenDropdown(null)}>
-                Test Discurso
-              </Link>
-
-              {/* ✅ 30%: Próximamente */}
-              <button
-                type="button"
-                onClick={handleSoonClick(
-                  'PDFs descargables',
-                  'Estoy cerrando el MVP beta. Los PDFs descargables se liberan en breve. Mientras tanto, podés empezar por el Test Dirección.'
-                )}
-                className={styles.dropdownButton}
-              >
-                PDFs Descargables
-              </button>
-
-              <button
-                type="button"
-                onClick={handleSoonClick(
-                  'Ejercicios',
-                  'Estoy cerrando el MVP beta. Los ejercicios guiados se liberan en breve. Mientras tanto, podés empezar por el Test Dirección.'
-                )}
-                className={styles.dropdownButton}
-              >
-                Ejercicios
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Premium */}
-        <div className={styles.dropdown}>
-          <button
-            className={styles.dropbtn}
-            onClick={() => toggleDropdown('premium')}
-            aria-expanded={openDropdown === 'premium'}
-            aria-controls="premiumDropdown"
-          >
-            Productos Premium
-          </button>
-
-          {openDropdown === 'premium' && (
-            <div id="premiumDropdown" className={styles.dropdownContent}>
-              <button
-                type="button"
-                onClick={handleSoonClick(
-                  'Productos Premium',
-                  'Estoy preparando la primera versión de productos premium. Si querés, empezá por el Test Dirección y luego vemos tu siguiente paso.'
-                )}
-                className={styles.dropdownButton}
-              >
-                Próximamente
-              </button>
-            </div>
-          )}
-        </div>
-
-        <Link to="/contacto">
-          <button className={styles.footerButton}>Contacto</button>
+        <Link
+          to="/contacto"
+          className={styles.footerLink}
+        >
+          Contacto
         </Link>
-      </div>
+      </nav>
 
       <div className={styles.whatsappFooter}>
         <a
@@ -137,7 +136,44 @@ const Footer = () => {
         </a>
       </div>
 
-      <p>© 2025 TDR - Todos los derechos reservados.</p>
+      <nav
+        className={styles.legalNav}
+        aria-label="Documentación legal"
+      >
+        <Link to="/terminos-y-condiciones">
+          Términos y Condiciones
+        </Link>
+
+        <Link to="/privacidad">
+          Privacidad
+        </Link>
+
+        <Link to="/cookies">
+          Cookies
+        </Link>
+
+        <Link to="/reservas-cancelaciones-devoluciones">
+          Reservas y devoluciones
+        </Link>
+
+        <Link
+          to="/arrepentimiento"
+          className={styles.legalAction}
+        >
+          Arrepentimiento
+        </Link>
+
+        <Link
+          to="/baja-de-servicio"
+          className={styles.legalAction}
+        >
+          Baja de servicio
+        </Link>
+      </nav>
+
+      <p className={styles.copyright}>
+        © 2026 TDR Tunica de Realidad. Todos los derechos reservados.
+      </p>
     </footer>
   );
 };

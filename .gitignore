@@ -20,9 +20,17 @@ dist-ssr/
 # === Archivos de entorno / secretos ===
 .env
 .env.*
-!.env.example   # si quieres dejar un template de ejemplo
 
-# === Config local de Vercel (solo uso en tu máquina) ===
+# Template de variables de entorno
+!.env.example
+
+# === Certificados y claves privadas ===
+ssl/
+*.key
+*.crt
+*.csr
+
+# === Config local de Vercel ===
 .vercel/
 
 # === Configuración de editores ===

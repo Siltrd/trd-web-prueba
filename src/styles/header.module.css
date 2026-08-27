@@ -1,16 +1,23 @@
-/* Definición de variables CSS para la altura del header y otros tamaños */
+/* =========================
+   VARIABLES
+   ========================= */
+
 :root {
-  --header-height: 100px; /* Altura dinámica para el header */
-  --logo-width: clamp(150px, 20vw, 250px); /* Ancho dinámico para el logo */
-  --font-size-button: clamp(14px, 2vw, 16px); /* Tamaño dinámico para los botones */
+  --header-height: 100px;
+  --logo-width: clamp(150px, 20vw, 250px);
 }
 
-/* === Header fijo y escalable === */
+
+/* =========================
+   HEADER
+   ========================= */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -18,250 +25,363 @@
 }
 
 .header {
-  height: var(--header-height);  /* Altura dinámica usando la variable */
-  width: 100%;
-  background-color: transparent;
-  transition: background-color 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: clamp(5px, 1vw, 10px) clamp(20px, 5vw, 60px);
   position: fixed;
   top: 0;
   left: 0;
+
+  width: 100%;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding:
+    clamp(5px, 1vw, 10px)
+    clamp(20px, 5vw, 60px);
+
+  background-color: transparent;
+
+  box-sizing: border-box;
+
   z-index: 100;
-  animation: fadeIn 0.5s ease-in-out; /* Aplica la animación al header */
+
+  transition:
+    background-color 0.4s ease,
+    box-shadow 0.3s ease;
+
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Estilo cuando el header está desplazado */
 .headerScrolled {
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+
+  box-shadow:
+    0 2px 6px
+    rgba(0, 0, 0, 0.05);
 }
 
-/* Estilo para el logo */
-.logo img {
-  width: var(--logo-width);  /* Usa la variable para el tamaño flexible */
-  height: auto;
-  display: block;
-  padding-top: 4px;
-}
 
-/* Contenedor del logo */
-.logo {
-  display: inline-block;
-  padding: clamp(10px, 2vw, 40px);
-  will-change: filter;
-  transition: filter 300ms ease;
+/* =========================
+   LOGO
+   ========================= */
+
+.logoButton {
+  all: unset;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: clamp(6px, 1vw, 14px);
+
+  cursor: pointer;
+
   position: relative;
-  z-index: 101;
+  z-index: 102;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.logoImage {
+  width: var(--logo-width);
+  height: auto;
+
+  display: block;
+
+  transition: filter 300ms ease;
 }
 
-/* === Menú de navegación escritorio === */
+.logoButton:hover .logoImage {
+  filter:
+    drop-shadow(
+      0 0 1.4rem
+      rgba(100, 108, 255, 0.18)
+    );
+}
+
+
+/* =========================
+   NAVEGACIÓN DESKTOP
+   ========================= */
+
 .headerNav {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: flex-end;
-  align-items: center;
-  gap: clamp(12px, 2vw, 28px);
+
+  gap: clamp(8px, 1.15vw, 18px);
+
   margin-left: auto;
-  padding-right: clamp(10px, 2vw, 40px);
-  max-width: 100%;
+
+  white-space: nowrap;
 }
 
-/* Estilo de los botones del menú de navegación */
-.headerNav button {
-  font-size: var(--font-size-button);
-  padding: clamp(6px, 1vh, 10px) clamp(20px, 3vw, 32px);
-  font-weight: bold;
+.navLink,
+.navAnchor {
+  appearance: none;
+
+  padding:
+    9px
+    clamp(10px, 1vw, 16px);
+
   background-color: transparent;
+
   color: #1e364d;
-  border: 2px solid transparent;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
 
-.headerNav button:hover {
-  color: #f57c00;
-  border: 1px solid #f57c00;
-  background-color: transparent;
-}
+  border: 1px solid transparent;
+  border-radius: 24px;
 
-/* Estilo para los botones de dropdown */
-.headerNav .dropdown {
-  position: relative;
-}
+  font-family: inherit;
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 700;
 
-.headerNav .dropdownContent {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-5px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  position: absolute;
-  background-color: #f9f3ed;
-  min-width: 180px;
-  z-index: 1;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 1rem;
-  display: flex;
-  flex-direction: column;
-}
+  line-height: 1;
 
-.headerNav .dropdown:hover .dropdownContent {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.headerNav .dropdownContent a {
   text-decoration: none;
-  color: #4A6D7C;
-  font-weight: 500;
-  font-size: 14px;
-  padding: 6px 0;
-  transition: color 0.2s ease;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
 
-.headerNav .dropdownContent a:hover {
+.navLink:hover,
+.navAnchor:hover {
   color: #f57c00;
+
+  border-color: #f57c00;
 }
 
-/* === Menú hamburguesa (móvil) === */
+
+/* =========================
+   CTA HEADER
+   ========================= */
+
+.headerCta {
+  min-height: 42px;
+
+  padding:
+    0.7rem
+    1.25rem;
+
+  background-color: #f57c00;
+  color: #ffffff;
+
+  border: 1px solid #f57c00;
+  border-radius: 24px;
+
+  font-family: inherit;
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.headerCta:hover {
+  background-color: #ffffff;
+  color: #f57c00;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   HAMBURGUESA
+   ========================= */
+
 .menuHamburger {
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background: transparent;
+  justify-content: center;
+
+  gap: 5px;
+
+  background-color: transparent;
+
   border: none;
-  width: 30px;
-  height: 30px;
+
   cursor: pointer;
-  z-index: 101;
+
+  position: relative;
+  z-index: 102;
 }
 
-.menuHamburger div {
+.menuHamburger span {
+  display: block;
+
   width: 100%;
   height: 3px;
+
   background-color: #f57c00;
-  margin: 4px 0;
-  transition: 0.4s;
+
+  border-radius: 2px;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.25s ease;
 }
 
-.menuHamburger.open div:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
+.menuHamburger.open span:nth-child(1) {
+  transform:
+    translateY(8px)
+    rotate(45deg);
 }
 
-.menuHamburger.open div:nth-child(2) {
+.menuHamburger.open span:nth-child(2) {
   opacity: 0;
 }
 
-.menuHamburger.open div:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+.menuHamburger.open span:nth-child(3) {
+  transform:
+    translateY(-8px)
+    rotate(-45deg);
 }
 
-/* === Overlay menú móvil === */
+
+/* =========================
+   MENÚ MÓVIL / TABLET
+   ========================= */
+
 .menuMobileOverlay {
   position: absolute;
+
   top: 100%;
   left: 0;
+
   width: 100%;
+
   background-color: #ffffff;
+
   overflow: hidden;
+
   max-height: 0;
-  transform: scaleY(0);
-  transform-origin: top center;
-  transition: max-height 0.4s ease, transform 0.4s ease;
+
+  opacity: 0;
+
+  transform: translateY(-8px);
+
   pointer-events: none;
-  opacity: 1;
+
+  box-shadow:
+    0 8px 18px
+    rgba(0, 0, 0, 0.08);
+
+  transition:
+    max-height 0.4s ease,
+    opacity 0.25s ease,
+    transform 0.3s ease;
+
   z-index: 100;
 }
 
 .menuMobileOverlay.open {
-  max-height: 500px;
-  transform: scaleY(1);
+  max-height: 650px;
+
+  opacity: 1;
+
+  transform: translateY(0);
+
   pointer-events: auto;
 }
 
-/* === Menú móvil === */
 .menuMobileNav {
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0;
-  padding: 0;
-  margin: 0;
-  width: 100%;
+
+  padding:
+    1rem
+    5vw
+    1.6rem;
+
   box-sizing: border-box;
 }
 
-.menuMobileNav .menuLink {
+.menuLink,
+.mobileAnchor {
   all: unset;
-  display: inline-block;
-  text-align: center;
+
+  width: 100%;
+
   padding: 12px 20px;
-  font-size: clamp(14px, 4vw, 18px);
-  font-weight: 600;
+
   color: #1e364d;
-  background-color: transparent;
-  border: none;
+
+  font-family: inherit;
+  font-size: clamp(14px, 3vw, 17px);
+  font-weight: 600;
+
+  text-align: center;
+
   cursor: pointer;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  margin: 0;
+
+  box-sizing: border-box;
+
+  transition: color 0.25s ease;
 }
 
-.menuMobileNav .menuLink:hover {
-  color: #f57c00;
-}
+.mobileAnchor {
+  display: block;
 
-.menuMobileNav a {
   text-decoration: none;
 }
 
-/* === Dropdown móvil === */
-.menuMobileNav .dropdown {
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.menuMobileNav .dropdownContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ffffff;
-  width: 100%;
-  gap: 0.25rem;
-  padding: 0.5rem 0;
-}
-
-.menuMobileNav .dropdown.open .dropdownContent {
-  display: flex;
-}
-
-.menuMobileNav .dropdownContent a {
-  color: #4A6D7C;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.menuMobileNav .dropdownContent a:hover {
+.menuLink:hover,
+.mobileAnchor:hover {
   color: #f57c00;
 }
 
-/* === Móvil vertical: solo hamburguesa === */
-@media (max-width: 767px) {
+.mobileCta {
+  width: min(100%, 320px);
+  min-height: 48px;
+
+  margin-top: 0.8rem;
+
+  background-color: #f57c00;
+  color: #ffffff;
+
+  border: 1px solid #f57c00;
+  border-radius: 24px;
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   DESKTOP
+   ========================= */
+
+@media (min-width: 1101px) {
+
+  .menuHamburger,
+  .menuMobileOverlay {
+    display: none;
+  }
+}
+
+
+/* =========================
+   TABLET / MÓVIL
+   ========================= */
+
+@media (max-width: 1100px) {
+
   .headerNav {
     display: none;
   }
@@ -269,36 +389,28 @@
   .menuHamburger {
     display: flex;
   }
-
-  .menuMobileOverlay {
-    display: block;
-  }
-
-  /* Ajustamos el margen superior para móviles */
-  .testPageContainer {
-    margin-top: var(--header-height);  /* Usamos la variable para mantener consistencia */
-  }
 }
 
-/* === Desde 768px en adelante: solo botones, sin hamburguesa === */
-@media (min-width: 768px) {
-  .headerNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: clamp(12px, 2vw, 32px);
-    padding-right: clamp(20px, 5vw, 60px);
-    white-space: nowrap;
+
+/* =========================
+   MÓVIL
+   ========================= */
+
+@media (max-width: 767px) {
+
+  :root {
+    --header-height: 88px;
+    --logo-width: clamp(145px, 46vw, 205px);
   }
 
-  .menuHamburger,
-  .menuMobileOverlay {
-    display: none;
+  .header {
+    padding:
+      5px
+      5vw;
   }
 
-  /* Aseguramos que el espacio se mantenga en todas las resoluciones */
-  .testPageContainer {
-    margin-top: var(--header-height);  /* Espaciado dinámico */
+  .menuHamburger {
+    width: 28px;
+    height: 28px;
   }
 }

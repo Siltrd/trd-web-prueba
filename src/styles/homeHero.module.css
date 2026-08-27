@@ -1,0 +1,359 @@
+/* =========================
+   PAGE ONE
+   HERO / LIENZO ÚNICO
+   ========================= */
+
+.pageOne {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 0 clamp(70px, 9vh, 130px);
+  padding: 0;
+
+  background-color: #f9f3ed;
+
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pageOneContent {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding-top: var(--header-height);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   FORMA ORGÁNICA DE FONDO
+   ========================= */
+
+.backgroundShape {
+  position: absolute;
+
+  width: clamp(620px, 52vw, 880px);
+  height: clamp(620px, 76vh, 820px);
+
+  right: -7vw;
+  bottom: -8vh;
+
+  background-color: #f1e2d5;
+
+  border-radius:
+    58% 42% 0 48%
+    / 48% 42% 0 52%;
+
+  z-index: 0;
+}
+
+
+/* =========================
+   FOTO
+   ========================= */
+
+.photoWrapper {
+  position: absolute;
+
+  right: clamp(25px, 5vw, 90px);
+  bottom: 5vh;
+
+  height: min(76vh, 780px);
+  aspect-ratio: 3 / 4;
+
+  overflow: hidden;
+
+  border-radius:
+    48% 48% 8% 8%
+    / 30% 30% 8% 8%;
+
+  z-index: 1;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  /*
+    Muy importante:
+    mantenemos visible la cabeza y damos prioridad
+    a la parte superior del retrato.
+  */
+  object-position: center top;
+}
+
+
+/* =========================
+   TEXTO
+   ========================= */
+
+.textBlock {
+  position: relative;
+
+  width: min(42vw, 610px);
+
+  margin-left: clamp(60px, 7vw, 120px);
+
+  padding-top: clamp(115px, 17vh, 175px);
+
+  z-index: 3;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  margin: 0 0 1rem;
+  padding: 0.3rem 0.65rem;
+
+  background-color: rgba(124, 127, 88, 0.16);
+  color: #1e364d;
+
+  border-radius: 3px;
+
+  font-size: clamp(0.76rem, 0.85vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  max-width: 590px;
+
+  margin: 0;
+
+  color: #1e364d;
+
+  font-size: clamp(2.15rem, 2.85vw, 3.45rem);
+  line-height: 1.08;
+  font-weight: 800;
+
+  letter-spacing: -0.02em;
+}
+
+.intro {
+  max-width: 520px;
+
+  margin: 1.35rem 0 0;
+
+  color: #1e364d;
+
+  font-size: clamp(0.98rem, 1.05vw, 1.12rem);
+  line-height: 1.55;
+}
+
+
+/* =========================
+   BOTONES
+   ========================= */
+
+.actions {
+  display: flex;
+  align-items: center;
+
+  gap: 0.9rem;
+
+  margin-top: 1.8rem;
+}
+
+.actions button {
+  min-height: 46px;
+
+  padding: 0.72rem 1.45rem;
+
+  border-radius: 3px;
+
+  font-size: 0.94rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.primaryButton {
+  background-color: #f57c00;
+  color: #ffffff;
+
+  border: 1px solid #f57c00;
+}
+
+.primaryButton:hover {
+  background-color: #ffffff;
+  color: #f57c00;
+
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #1e364d;
+
+  border: 1px solid rgba(30, 54, 77, 0.28);
+}
+
+.secondaryButton:hover {
+  background-color: #ffffff;
+  color: #f57c00;
+
+  border-color: #f57c00;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .backgroundShape {
+    width: 62vw;
+    height: 70vh;
+
+    right: -14vw;
+    bottom: -5vh;
+  }
+
+  .photoWrapper {
+    right: 2vw;
+
+    height: min(69vh, 680px);
+  }
+
+  .textBlock {
+    width: 43vw;
+
+    margin-left: 5vw;
+    padding-top: 15vh;
+  }
+
+  .title {
+    font-size: clamp(2rem, 3.6vw, 2.8rem);
+  }
+
+  .intro {
+    font-size: clamp(0.94rem, 1.5vw, 1.05rem);
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* =========================
+   MÓVIL
+   ========================= */
+
+@media (max-width: 767px) {
+
+  .pageOne {
+    min-height: auto;
+  }
+
+  .pageOneContent {
+    min-height: auto;
+
+    padding-top: calc(var(--header-height) + 3vh);
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textBlock {
+    width: auto;
+
+    margin: 0;
+
+    padding:
+      4vh
+      6vw
+      3vh;
+
+    text-align: center;
+    order: 1;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.9rem;
+  }
+
+  .title {
+    max-width: none;
+
+    font-size: clamp(2rem, 8.5vw, 3rem);
+  }
+
+  .intro {
+    max-width: none;
+
+    margin: 1.2rem auto 0;
+
+    font-size: clamp(0.98rem, 3.8vw, 1.08rem);
+  }
+
+  .actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 0.75rem;
+
+    margin-top: 1.6rem;
+  }
+
+  .actions button {
+    width: min(100%, 350px);
+    margin: 0 auto;
+  }
+
+  .backgroundShape {
+    width: 120vw;
+    height: 52vh;
+
+    right: -10vw;
+    bottom: -5vh;
+
+    border-radius:
+      52% 48% 0 0
+      / 28% 28% 0 0;
+  }
+
+  .photoWrapper {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    width: min(78vw, 430px);
+    height: auto;
+
+    aspect-ratio: 3 / 4;
+
+    margin:
+      1.5rem
+      auto
+      0;
+
+    border-radius:
+      48% 48% 5% 5%
+      / 25% 25% 5% 5%;
+      
+      order: 2;
+  }
+
+  .photo {
+    object-position: center top;
+  }
+}

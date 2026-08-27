@@ -1,207 +1,274 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 import styles from '../styles/header.module.css';
 import logo from '../assets/images/tdr-logo.svg';
 
 const Header = ({ isTestLayout }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [recursosOpen, setRecursosOpen] = useState(false);
-  const [productosOpen, setProductosOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isMobile = windowWidth <= 767;
-
-  const handleScroll = () => setScrolled(window.scrollY > 0);
-
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-    if (window.innerWidth > 1024) {
-      setMenuOpen(false);
-      setRecursosOpen(false);
-      setProductosOpen(false);
-    }
-  };
+  /*
+    Con la nueva navegación hay más elementos.
+    Pasamos antes a hamburguesa para evitar
+    comprimir logo + menú.
+  */
+  const isCompact = windowWidth <= 1100;
 
   useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+
+      if (window.innerWidth > 1100) {
+        setMenuOpen(false);
+      }
+    };
+
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   const handleInicioClick = () => {
     if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     } else {
       navigate('/');
     }
-    closeAllMenus();
+
+    closeMenu();
   };
 
-  const closeAllMenus = () => {
-    setMenuOpen(false);
-    setRecursosOpen(false);
-    setProductosOpen(false);
-  };
-
-  // ✅ Navegación unificada a /proximamente (30%)
   const goSoon = (titulo, detalle) => {
-    navigate('/proximamente', { state: { titulo, detalle } });
+    navigate('/proximamente', {
+      state: {
+        titulo,
+        detalle,
+      },
+    });
+
+    closeMenu();
   };
 
-  const handleSoonClick = (titulo, detalle) => (e) => {
-    e.currentTarget.blur();
-    goSoon(titulo, detalle);
-    // en mobile además cierra overlays/menus
-    closeAllMenus();
+  const handleIndividual = () => {
+    goSoon(
+      'Acompañamiento individual',
+      'La propuesta de acompañamiento individual está siendo actualizada. Próximamente podrás consultar modalidades y disponibilidad.'
+    );
+  };
+
+  const handlePrograms = () => {
+    goSoon(
+      'Programas TDR',
+      'Estoy desarrollando los primeros programas de TDR. Próximamente encontrarás aquí nuevas propuestas.'
+    );
+  };
+
+  const handleExperiences = () => {
+    goSoon(
+      'Experiencias TDR',
+      'Estoy desarrollando las primeras experiencias de TDR. Próximamente encontrarás aquí fechas y formatos.'
+    );
+  };
+
+  const handleResources = () => {
+    navigate('/tests');
+    closeMenu();
   };
 
   return (
     <header
-      className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}
+      className={`${styles.header} ${
+        scrolled ? styles.headerScrolled : ''
+      }`}
       style={{
-        backgroundColor: isTestLayout ? '#ffffff' : scrolled ? '#ffffff' : 'transparent',
-        position: 'fixed',
-        width: '100%',
-        top: 0,
-        left: 0,
-        padding: '1rem 2rem',
-        zIndex: 100,
-        boxShadow: scrolled || isTestLayout ? '0 4px 12px rgba(0, 0, 0, 0.1)' : 'none',
+        backgroundColor:
+          isTestLayout || scrolled
+            ? '#ffffff'
+            : 'transparent',
+        boxShadow:
+          scrolled || isTestLayout
+            ? '0 4px 12px rgba(0, 0, 0, 0.08)'
+            : 'none',
       }}
     >
-      <div className={styles.logo} onClick={handleInicioClick} style={{ cursor: 'pointer' }}>
-        <img src={logo} alt="TDR Logo" />
-      </div>
+      {/* LOGO */}
+      <button
+        type="button"
+        className={styles.logoButton}
+        onClick={handleInicioClick}
+        aria-label="Ir al inicio"
+      >
+        <img
+          src={logo}
+          alt="TDR · Túnica de Realidad"
+          className={styles.logoImage}
+        />
+      </button>
 
-      {/* Menú de escritorio / tablet horizontal */}
-      {!isMobile && (
-        <nav className={styles.headerNav}>
-          <Link to="/tests">
-            <button>Tests</button>
+      {/* DESKTOP */}
+      {!isCompact && (
+        <nav
+          className={styles.headerNav}
+          aria-label="Navegación principal"
+        >
+          <button
+            type="button"
+            className={styles.navLink}
+            onClick={handleIndividual}
+          >
+            1:1
+          </button>
+
+          <button
+            type="button"
+            className={styles.navLink}
+            onClick={handlePrograms}
+          >
+            Programas
+          </button>
+
+          <button
+            type="button"
+            className={styles.navLink}
+            onClick={handleExperiences}
+          >
+            Experiencias
+          </button>
+
+          <button
+            type="button"
+            className={styles.navLink}
+            onClick={handleResources}
+          >
+            Recursos
+          </button>
+
+          <Link
+            to="/sobre-mi"
+            className={styles.navAnchor}
+          >
+            Sobre TDR
           </Link>
 
-          <div className={styles.dropdown}>
-            <button className={styles.dropbtn}>Accede a más recursos</button>
-            <div className={styles.dropdownContent}>
-              <button
-                type="button"
-                onClick={handleSoonClick(
-                  'PDFs descargables',
-                  'Estoy cerrando el MVP beta. Los PDFs descargables se liberan en breve. Mientras tanto, podés empezar por el Test Dirección.'
-                )}
-              >
-                PDFs Descargables
-              </button>
-
-              <button
-                type="button"
-                onClick={handleSoonClick(
-                  'Ejercicios',
-                  'Estoy cerrando el MVP beta. Los ejercicios guiados se liberan en breve. Mientras tanto, podés empezar por el Test Dirección.'
-                )}
-              >
-                Ejercicios
-              </button>
-            </div>
-          </div>
-
-          <div className={styles.dropdown}>
-            <button className={styles.dropbtn}>Productos Premium</button>
-            <div className={styles.dropdownContent}>
-              <button
-                type="button"
-                onClick={handleSoonClick(
-                  'Productos Premium',
-                  'Estoy preparando la primera versión de productos premium. Si querés, empezá por el Test Dirección y luego vemos tu siguiente paso.'
-                )}
-              >
-                Próximamente
-              </button>
-            </div>
-          </div>
+          <button
+            type="button"
+            className={styles.headerCta}
+            onClick={handleResources}
+          >
+            Empezar gratis
+          </button>
         </nav>
       )}
 
-      {/* Icono hamburguesa solo en móvil */}
-      {isMobile && (
-        <div
-          className={`${styles.menuHamburger} ${menuOpen ? styles.open : ''}`}
-          onClick={toggleMenu}
+      {/* HAMBURGUESA */}
+      {isCompact && (
+        <button
+          type="button"
+          className={`${styles.menuHamburger} ${
+            menuOpen ? styles.open : ''
+          }`}
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label={
+            menuOpen
+              ? 'Cerrar menú'
+              : 'Abrir menú'
+          }
+          aria-expanded={menuOpen}
         >
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+          <span />
+          <span />
+          <span />
+        </button>
       )}
 
-      {/* Menú móvil */}
-      {isMobile && (
-        <div className={`${styles.menuMobileOverlay} ${menuOpen ? styles.open : styles.closed}`}>
-          <nav className={styles.menuMobileNav}>
-            <button className={styles.menuLink} onClick={handleInicioClick}>
+      {/* MENÚ COMPACTO */}
+      {isCompact && (
+        <div
+          className={`${styles.menuMobileOverlay} ${
+            menuOpen ? styles.open : styles.closed
+          }`}
+        >
+          <nav
+            className={styles.menuMobileNav}
+            aria-label="Navegación móvil"
+          >
+            <button
+              type="button"
+              className={styles.menuLink}
+              onClick={handleInicioClick}
+            >
               Inicio
             </button>
 
-            <Link to="/tests" onClick={closeAllMenus}>
-              <button className={styles.menuLink}>Tests</button>
+            <button
+              type="button"
+              className={styles.menuLink}
+              onClick={handleIndividual}
+            >
+              Acompañamiento 1:1
+            </button>
+
+            <button
+              type="button"
+              className={styles.menuLink}
+              onClick={handlePrograms}
+            >
+              Programas
+            </button>
+
+            <button
+              type="button"
+              className={styles.menuLink}
+              onClick={handleExperiences}
+            >
+              Experiencias
+            </button>
+
+            <button
+              type="button"
+              className={styles.menuLink}
+              onClick={handleResources}
+            >
+              Recursos
+            </button>
+
+            <Link
+              to="/sobre-mi"
+              className={styles.mobileAnchor}
+              onClick={closeMenu}
+            >
+              Sobre TDR
             </Link>
 
-            <div className={styles.dropdown}>
-              <button className={styles.menuLink} onClick={() => setRecursosOpen(!recursosOpen)}>
-                Accede a más recursos
-              </button>
-              {recursosOpen && (
-                <div className={styles.dropdownContent}>
-                  <button
-                    type="button"
-                    onClick={handleSoonClick(
-                      'PDFs descargables',
-                      'Estoy cerrando el MVP beta. Los PDFs descargables se liberan en breve. Mientras tanto, podés empezar por el Test Dirección.'
-                    )}
-                  >
-                    PDFs Descargables
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleSoonClick(
-                      'Ejercicios',
-                      'Estoy cerrando el MVP beta. Los ejercicios guiados se liberan en breve. Mientras tanto, podés empezar por el Test Dirección.'
-                    )}
-                  >
-                    Ejercicios
-                  </button>
-                </div>
-              )}
-            </div>
-
-            <div className={styles.dropdown}>
-              <button className={styles.menuLink} onClick={() => setProductosOpen(!productosOpen)}>
-                Productos Premium
-              </button>
-              {productosOpen && (
-                <div className={styles.dropdownContent}>
-                  <button
-                    type="button"
-                    onClick={handleSoonClick(
-                      'Productos Premium',
-                      'Estoy preparando la primera versión de productos premium. Si querés, empezá por el Test Dirección y luego vemos tu siguiente paso.'
-                    )}
-                  >
-                    Próximamente
-                  </button>
-                </div>
-              )}
-            </div>
+            <button
+              type="button"
+              className={styles.mobileCta}
+              onClick={handleResources}
+            >
+              Empezar gratis
+            </button>
           </nav>
         </div>
       )}

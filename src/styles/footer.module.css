@@ -1,4 +1,7 @@
-/* Footer principal */
+/* =========================
+   FOOTER
+   ========================= */
+
 .footer {
   width: 100%;
   background-color: #f9f9f9;
@@ -15,6 +18,10 @@
   margin-bottom: 0;
 }
 
+/* =========================
+   LOGO
+   ========================= */
+
 .footerLogo {
   position: absolute;
   left: clamp(2rem, 5vw, 12vh);
@@ -23,71 +30,56 @@
   height: auto;
 }
 
-.footerNav {
-  display: flex;
-  gap: 2vw;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+.footerLogo img {
   width: 100%;
-  padding-right: 20vh;
+  height: auto;
+  display: block;
 }
 
-.footerNav button,
-.footerNav .dropdownContent a {
+/* =========================
+   NAVEGACIÓN PRINCIPAL
+   ========================= */
+
+.footerNav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(8px, 1.3vw, 20px);
+  flex-wrap: wrap;
+  width: 100%;
+  padding-right: clamp(4rem, 8vw, 20vh);
+  padding-left: clamp(12rem, 20vw, 22rem);
+  box-sizing: border-box;
+}
+
+.footerButton,
+.footerLink {
   background: none;
   border: none;
   color: #1e364d;
-  font-size: 1rem;
+  font-size: clamp(0.88rem, 1vw, 1rem);
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;  
-  transition: color 0.3s ease;
   display: inline-block;
-  min-width: 100px;
+  min-width: auto;
+  padding: 10px 12px;
   text-align: center;
-  font-weight: bold;
-  padding: 10px 20px;
-}
-
-.footerNav button:hover,
-.footerNav .dropdownContent a:hover {
-  color: #f57c00;
-  background-color: transparent;
-}
-
-.footerNav .dropdown {
-  position: relative;
-}
-
-.footerNav .dropdownContent {
-  position: absolute;
-  background-color: #f9f3ed;
-  min-width: 180px;
-  z-index: 1;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.footerNav .dropdownContent a {
-  color: #4a6d7c;
-  padding: 10px 20px;
   text-decoration: none;
-  display: block;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.2s ease;
 }
 
-.footerNav .dropdownContent a:hover {
+.footerButton:hover,
+.footerLink:hover {
   color: #f57c00;
-  background-color: transparent;
+  transform: translateY(-1px);
 }
 
-footer p {
-  font-size: 1rem;
-  margin: 0;
-  text-align: center;
-  color: #7c7f58;
-  margin-top: 1rem;
-}
+/* =========================
+   WHATSAPP
+   ========================= */
 
 .whatsappFooter {
   margin-top: 4vh;
@@ -96,21 +88,97 @@ footer p {
 }
 
 .whatsappFooter a {
-  background-color: #25D366;
-  color: white;
+  background-color: #25d366;
+  color: #ffffff;
   padding: 8px 15px;
   border-radius: 8px;
   font-size: 14px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 }
 
 .whatsappFooter a:hover {
-  background-color: #128C7E;
+  background-color: #128c7e;
+  transform: translateY(-1px);
 }
 
-/* Media query general móvil */
-@media (max-width: 768px) {
+/* =========================
+   NAVEGACIÓN LEGAL
+   ========================= */
+
+.legalNav {
+  width: min(94%, 1000px);
+  margin-top: 1.5rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(30, 54, 77, 0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 0.45rem 1.15rem;
+}
+
+.legalNav a {
+  color: #777d82;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.legalNav a:hover {
+  color: #f57c00;
+}
+
+.legalNav .legalAction {
+  color: #616a70;
+  font-weight: 500;
+}
+
+/* =========================
+   COPYRIGHT
+   ========================= */
+
+.copyright {
+  margin: 1rem 0 0;
+  color: #7c7f58;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .footerNav {
+    padding-left: clamp(10em, 15vw, 18em);
+    padding-right: 4vw;
+    gap: 0.5rem;
+  }
+
+  .footerButton,
+  .footerLink {
+    padding: 9px 8px;
+    font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+  }
+
+  .legalNav {
+    width: 90%;
+  }
+}
+
+/* =========================
+   MÓVIL
+   ========================= */
+
+@media (max-width: 767px) {
   .footer {
     padding: 8vh 5vw 3vh;
     align-items: center;
@@ -119,37 +187,48 @@ footer p {
 
   .footerLogo {
     position: static;
-    margin-bottom: 2vh;
     width: 50vw;
     max-width: 190px;
+    margin-bottom: 2vh;
   }
 
   .footerNav {
+    width: 100%;
+    padding: 0;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
-    width: 100%;
-    padding-right: 0;
+    gap: 0.7rem;
   }
 
-  .footerButton {
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
+  .footerButton,
+  .footerLink {
+    width: 100%;
+    padding: 9px 10px;
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
   }
 
   .whatsappFooter {
     margin-top: 2vh;
   }
 
-  .footer p {
+  .legalNav {
+    width: 100%;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+
+    flex-direction: row;
+    justify-content: center;
+
+    gap: 0.55rem 1rem;
+  }
+
+  .legalNav a {
+    font-size: 11.5px;
+  }
+
+  .copyright {
     margin-top: 2rem;
     font-size: clamp(0.75rem, 2vw, 0.9rem);
     text-align: center;
   }
 }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .footerNav {
-    padding-left: clamp(10em, 15vw, 18em); /* evita que los botones se metan sobre el logo */
-  }
-}
-

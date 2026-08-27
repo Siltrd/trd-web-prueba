@@ -1,106 +1,107 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
-import styles from '../styles/heroTDR.module.css';
+
+import styles from '../styles/homeSectionThree.module.css';
 import layout from '../styles/layout.module.css';
+
 import checkmark from '../assets/images/checkmark-bco.png';
 import fotoProvisoria from '../assets/images/fotoProvisoria.jpg';
 import fotoMovil from '../assets/images/foto-movil.png';
 
-const HeroTDR = () => {
+const HomeSectionThree = () => {
   const navigate = useNavigate();
 
-  const handleGoTest = (e) => {
+  const handleGoOptions = (e) => {
     e.currentTarget.blur();
-    navigate('/tests/direccion');
+
+    const section = document.getElementById('formas-de-trabajar');
+
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  const handleGoSoon = (e) => {
+  const handleGoAbout = (e) => {
     e.currentTarget.blur();
-    navigate('/proximamente', {
-      state: {
-        titulo: 'Recursos gratuitos',
-        detalle:
-          'Estoy cerrando el MVP beta de TDR. Los recursos gratuitos se liberan en breve. Mientras tanto, podés empezar por el Test Dirección.',
-      },
-    });
+    navigate('/sobre-mi');
   };
 
   return (
     <section className={classNames(styles.hero__section, layout.wrapperFullWidth)}>
       <div className={styles.hero__wrapper}>
-
-        {/* Columna izquierda */}
         <div className={styles.hero__leftColumn}>
-
           <div className={classNames(styles.hero__textBox, styles.hero__box1)}>
-            <p>Transforma tu Vida y tu Comunicación</p>
+            <p>Escuchar al cuerpo. Observar la mente.</p>
           </div>
 
           <div className={classNames(styles.hero__textBox, styles.hero__box2)}>
-            Descubre herramientas prácticas y una comunidad de apoyo que te ayudará a superar bloqueos.
-            Rediseña tu vida, logrando un cambio real y significativo.
+            TDR integra distintas formas de trabajo que permiten abordar una experiencia
+            desde más de un lugar: lo que pensamos, lo que sentimos, lo que hacemos y
+            lo que el cuerpo registra.
           </div>
 
           <div className={classNames(styles.hero__textBox, styles.hero__box3)}>
             <div className={styles.hero__checkmark}>
-              <img src={checkmark} alt="Checkmark" />
-              Transforma desde la raíz, no solo desde lo externo.
+              <img src={checkmark} alt="" />
+              La experiencia también aporta información.
             </div>
+
             <div className={styles.hero__checkmark}>
-              <img src={checkmark} alt="Checkmark" />
-              Desafía las creencias limitantes y abre camino a nuevas oportunidades con claridad y propósito.
+              <img src={checkmark} alt="" />
+              El cuerpo puede ser una vía de observación y trabajo.
             </div>
+
             <div className={styles.hero__checkmark}>
-              <img src={checkmark} alt="Checkmark" />
-              Reconecta con tu dirección interna, tanto en lo personal como en lo profesional.
+              <img src={checkmark} alt="" />
+              Las herramientas cambian según el proceso y el formato.
             </div>
           </div>
 
-          {/* Botones */}
           <div className={styles.hero__boxButtons}>
             <button
               type="button"
-              onClick={handleGoTest}
+              onClick={handleGoOptions}
               onTouchEnd={(e) => e.currentTarget.blur()}
             >
-              Comienza tu transformación
+              Ver formas de trabajar
             </button>
 
             <button
               type="button"
-              onClick={handleGoSoon}
+              onClick={handleGoAbout}
               onTouchEnd={(e) => e.currentTarget.blur()}
             >
-              Recursos gratuitos
+              Conocer TDR
             </button>
           </div>
 
-          {/* Foto móvil */}
           <div className={styles.hero__mobileFotoWrapper}>
             <img
               src={fotoMovil}
-              alt="Foto móvil"
+              alt=""
               className={styles.hero__mobileFoto}
             />
           </div>
 
           <div className={classNames(styles.hero__textBox, styles.hero__box5)}>
-            TDR es una plataforma integral que potencia tu transformación personal y profesional
-            mediante un enfoque claro, estructurado y profundamente alineado con tu propósito.
+            Programas, experiencias, acompañamiento individual y recursos pueden
+            incorporar distintas herramientas según lo que se esté trabajando.
           </div>
         </div>
 
-        {/* Columna derecha */}
         <div className={styles.hero__rightColumn}>
           <div className={styles.hero__visualsWrapper}>
-            <img className={styles.hero__foto} src={fotoProvisoria} alt="Foto" />
+            <img
+              className={styles.hero__foto}
+              src={fotoProvisoria}
+              alt=""
+            />
           </div>
         </div>
-
       </div>
     </section>
   );
 };
 
-export default HeroTDR;
+export default HomeSectionThree;
