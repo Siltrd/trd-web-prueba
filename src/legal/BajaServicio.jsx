@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LegalLayout from '../components/LegalLayout';
+import '../styles/legalForms.css';
 
 const sections = [
   { id: 'alcance', label: 'Alcance' },
@@ -15,10 +16,76 @@ const sections = [
   { id: 'comunicaciones', label: 'Comunicaciones' },
   { id: 'conservacion', label: 'Conservación del trámite' },
   { id: 'derechos', label: 'Derechos del consumidor' },
-  { id: 'contacto', label: 'Contacto' },
+  { id: 'solicitud-baja', label: 'Solicitud de baja' },
 ];
 
 const BajaServicio = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    service: '',
+    contractDate: '',
+    reference: '',
+    additionalInfo: '',
+  });
+
+  const [status, setStatus] = useState('idle');
+  const [codigo, setCodigo] = useState('');
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setStatus('sending');
+    setError('');
+    setCodigo('');
+
+    try {
+      const response = await fetch('/api/baja', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || 'No se pudo enviar la solicitud.');
+      }
+
+      setCodigo(data.codigo);
+      setStatus('success');
+
+      setFormData({
+        name: '',
+        email: '',
+        service: '',
+        contractDate: '',
+        reference: '',
+        additionalInfo: '',
+      });
+    } catch (err) {
+      console.error(err);
+
+      setError(
+        'No pudimos registrar la solicitud. Intenta nuevamente o contacta con TDR.'
+      );
+
+      setStatus('error');
+    }
+  };
+
   return (
     <LegalLayout
       title="Procedimiento de Baja de Servicio"
@@ -158,8 +225,8 @@ const BajaServicio = () => {
 
         <p>
           El saldo correspondiente a las sesiones pendientes se calculará y,
-          cuando corresponda, se reintegrará conforme a la Política de
-          Reservas, Cancelaciones y Devoluciones.
+          cuando corresponda, se reintegrará conforme a la Política de Reservas,
+          Cancelaciones y Devoluciones.
         </p>
       </section>
 
@@ -242,24 +309,137 @@ const BajaServicio = () => {
         </p>
       </section>
 
-      <section id="contacto">
-        <h2>14. Contacto</h2>
+      <section id="solicitud-baja">
+        <h2>14. Solicitud de baja de servicio</h2>
 
         <p>
-          Para consultas relacionadas con una solicitud de baja:
+          Completa el siguiente formulario para solicitar la baja del servicio.
         </p>
 
-        <p>
-          <strong>Tunica de Realidad — TDR</strong>
-          <br />
-          Correo electrónico:{' '}
-          <strong>[EMAIL DE CONTACTO / LEGAL]</strong>
-        </p>
+        {status === 'success' ? (
+          <div className="legalFormSuccess">
+            <h3>Solicitud recibida</h3>
 
-        <p>
-          La solicitud formal deberá realizarse mediante el mecanismo específico
-          habilitado en el sitio web cuando corresponda.
-        </p>
+            <p>
+              Tu solicitud de baja ha sido registrada correctamente.
+            </p>
+
+            <p>
+              Código de trámite: <strong>{codigo}</strong>
+            </p>
+
+            <p>
+              También hemos enviado una constancia al correo electrónico
+              informado.
+            </p>
+
+            <p>
+              Conserva este código para cualquier consulta relacionada con la
+              solicitud.
+            </p>
+          </div>
+        ) : (
+          <form className="legalForm" onSubmit={handleSubmit}>
+            <div className="legalFormField">
+              <label htmlFor="name">Nombre y apellido *</label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="legalFormField">
+              <label htmlFor="email">
+                Correo electrónico utilizado en la contratación *
+              </label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="legalFormField">
+              <label htmlFor="service">Servicio contratado *</label>
+
+              <input
+                id="service"
+                name="service"
+                type="text"
+                value={formData.service}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="legalFormField">
+              <label htmlFor="contractDate">
+                Fecha aproximada de contratación *
+              </label>
+
+              <input
+                id="contractDate"
+                name="contractDate"
+                type="date"
+                value={formData.contractDate}
+                onChange={handleChange}
+                max={new Date().toISOString().split('T')[0]}
+                required
+              />
+            </div>
+
+            <div className="legalFormField">
+              <label htmlFor="reference">
+                Referencia de reserva, operación o pago
+              </label>
+
+              <input
+                id="reference"
+                name="reference"
+                type="text"
+                value={formData.reference}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="legalFormField">
+              <label htmlFor="additionalInfo">
+                Información adicional
+              </label>
+
+              <textarea
+                id="additionalInfo"
+                name="additionalInfo"
+                rows="5"
+                value={formData.additionalInfo}
+                onChange={handleChange}
+              />
+            </div>
+
+            {status === 'error' && (
+              <p className="legalFormError">{error}</p>
+            )}
+
+            <button
+              type="submit"
+              className="legalFormButton"
+              disabled={status === 'sending'}
+            >
+              {status === 'sending'
+                ? 'Enviando solicitud...'
+                : 'Enviar solicitud de baja'}
+            </button>
+          </form>
+        )}
       </section>
     </LegalLayout>
   );
