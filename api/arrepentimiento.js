@@ -109,27 +109,39 @@ La recepción de esta solicitud no implica por sí misma la procedencia del arre
 Este correo confirma únicamente la recepción de la solicitud.
 `.trim();
 
-    await enviarEmail({
-      apiKey,
-      from,
-      to,
-      subject: `Arrepentimiento TDR — ${codigo} — ${name}`,
-      text: mensajeInterno,
-      replyTo: email,
-    });
+await enviarEmail({
+  apiKey,
+  from,
+  to,
+  subject: `Arrepentimiento TDR — ${codigo} — ${name}`,
+  text: mensajeInterno,
+  replyTo: email,
+});
 
-    await enviarEmail({
-      apiKey,
-      from,
-      to: email,
-      subject: `Solicitud de arrepentimiento recibida — ${codigo}`,
-      text: confirmacionUsuario,
-    });
+let confirmationSent = true;
 
-    return res.status(200).json({
-      ok: true,
-      codigo,
-    });
+try {
+  await enviarEmail({
+    apiKey,
+    from,
+    to: email,
+    subject: `Solicitud de arrepentimiento recibida — ${codigo}`,
+    text: confirmacionUsuario,
+  });
+} catch (confirmationError) {
+  confirmationSent = false;
+  console.error(
+    'La solicitud fue recibida por TDR, pero falló el correo de confirmación:',
+    confirmationError
+  );
+}
+
+return res.status(200).json({
+  ok: true,
+  codigo,
+  confirmationSent,
+});
+
   } catch (error) {
     console.error('Error arrepentimiento:', error);
 
