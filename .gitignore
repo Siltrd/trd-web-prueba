@@ -45,3 +45,5 @@ ssl/
 *.njsproj
 *.sln
 *.sw?
+# === Reportes temporales ===
+lint.txt
