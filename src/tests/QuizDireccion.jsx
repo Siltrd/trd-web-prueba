@@ -13,72 +13,95 @@ const QuizDireccion = () => {
   const [fade, setFade] = useState(true);
   const [isCompleted, setIsCompleted] = useState(false);
   const [selectedIdx, setSelectedIdx] = useState(null);
+
   const clickingRef = useRef(false);
 
-  // Reset selección y foco al entrar a cada pregunta
   useEffect(() => {
     setSelectedIdx(null);
+
     setTimeout(() => {
-      try {
-        if (document.activeElement && document.activeElement instanceof HTMLElement) {
-          document.activeElement.blur();
-        }
-      } catch {}
+      const activeElement = document.activeElement;
+
+      if (activeElement instanceof HTMLElement) {
+        activeElement.blur();
+      }
     }, 0);
   }, [currentQuestion]);
 
-  // Navegar al resultado
   useEffect(() => {
     if (!isCompleted) return;
+
     const result = calculateResultDireccion(answers);
-    navigate('/test-direccion/result', { state: { result }, replace: true });
+
+    navigate('/test-direccion/result', {
+      state: { result },
+      replace: true,
+    });
   }, [isCompleted, answers, navigate]);
 
   const handleAnswer = (opt, idx) => {
     if (clickingRef.current) return;
+
     clickingRef.current = true;
+    setSelectedIdx(idx);
 
-    setSelectedIdx(idx); // feedback visual
+    const tag = Array.isArray(opt.tags)
+      ? opt.tags[0]
+      : (opt.tag ?? null);
 
-    const tag = Array.isArray(opt.tags) ? opt.tags[0] : (opt.tag ?? null);
     const points = (() => {
-      if (typeof opt.points === 'number') return opt.points;
-      if (opt.points && typeof opt.points === 'object' && tag && opt.points[tag] != null) {
+      if (typeof opt.points === 'number') {
+        return opt.points;
+      }
+
+      if (
+        opt.points &&
+        typeof opt.points === 'object' &&
+        tag &&
+        opt.points[tag] != null
+      ) {
         return opt.points[tag];
       }
+
       return 1;
     })();
 
     setFade(false);
-    setTimeout(() => {
-      // blur extra antes de cambiar
-      try {
-        if (document.activeElement && document.activeElement instanceof HTMLElement) {
-          document.activeElement.blur();
-        }
-      } catch {}
 
-      setAnswers(prev => [...prev, { tag, points, qIndex: currentQuestion }]);
+    setTimeout(() => {
+      const activeElement = document.activeElement;
+
+      if (activeElement instanceof HTMLElement) {
+        activeElement.blur();
+      }
+
+      const answer = {
+        tag,
+        points,
+        qIndex: currentQuestion,
+      };
 
       if (currentQuestion + 1 >= totalQuestions) {
-  const finalAnswers = [...answers, { tag, points, qIndex: currentQuestion }];
-  const result = calculateResultDireccion(finalAnswers);
+        const finalAnswers = [...answers, answer];
+        const result = calculateResultDireccion(finalAnswers);
 
-  try {
-    sessionStorage.setItem('tdr_dir_result', result);
-  } catch {}
+        try {
+          sessionStorage.setItem('tdr_dir_result', result);
+        } catch {
+          console.warn('No se pudo guardar el resultado en sessionStorage');
+        }
 
-  setAnswers(finalAnswers);
-  setIsCompleted(true);
-} else {
-  setCurrentQuestion(prev => prev + 1);
-  setFade(true);
-}
-
+        setAnswers(finalAnswers);
+        setIsCompleted(true);
+      } else {
+        setAnswers((prev) => [...prev, answer]);
+        setCurrentQuestion((prev) => prev + 1);
+        setFade(true);
+      }
 
       setSelectedIdx(null);
       clickingRef.current = false;
-    }, 260); // un poco más para que se vea la selección
+    }, 260);
   };
 
   const q = questions[currentQuestion];
@@ -91,16 +114,25 @@ const QuizDireccion = () => {
         className={styles.card}
         style={{
           opacity: fade ? 1 : 0,
-          transform: fade ? 'translateY(0) scale(1)' : 'translateY(5px) scale(0.98)',
+          transform: fade
+            ? 'translateY(0) scale(1)'
+            : 'translateY(5px) scale(0.98)',
           transition: 'opacity .2s ease, transform .2s ease',
         }}
       >
         <h2 className={styles.question}>{q.question}</h2>
 
-        <div className={styles.progressBarWrap} aria-hidden="true">
+        <div
+          className={styles.progressBarWrap}
+          aria-hidden="true"
+        >
           <div className={styles.progressBarTrack}>
-            <div className={styles.progressBarFill} style={{ width: `${progress}%` }} />
+            <div
+              className={styles.progressBarFill}
+              style={{ width: `${progress}%` }}
+            />
           </div>
+
           <span className={styles.progressLabel}>
             {currentQuestion + 1} / {totalQuestions}
           </span>
@@ -111,13 +143,18 @@ const QuizDireccion = () => {
             <button
               key={idx}
               type="button"
-              onMouseDown={(e) => e.preventDefault()}      // evita foco por mouse
-              onTouchStart={(e) => e.currentTarget.blur()} // evita foco por tap
-              onClick={(e) => { e.currentTarget.blur(); handleAnswer(opt, idx); }}
+              onMouseDown={(e) => e.preventDefault()}
+              onTouchStart={(e) => e.currentTarget.blur()}
+              onClick={(e) => {
+                e.currentTarget.blur();
+                handleAnswer(opt, idx);
+              }}
               onTouchEnd={(e) => e.currentTarget.blur()}
-              className={`${styles.button} ${idx === selectedIdx ? styles.selected : ''}`}
+              className={`${styles.button} ${
+                idx === selectedIdx ? styles.selected : ''
+              }`}
               aria-pressed={idx === selectedIdx}
-              tabIndex={-1} // no recibe foco por teclado
+              tabIndex={-1}
             >
               {opt.text}
             </button>
