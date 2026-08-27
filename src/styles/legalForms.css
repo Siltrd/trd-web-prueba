@@ -1,0 +1,95 @@
+.legalForm {
+  margin-top: 32px;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.legalFormField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legalFormField label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #24364a;
+}
+
+.legalFormField input,
+.legalFormField textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #d7d9dc;
+  border-radius: 8px;
+  background: #fff;
+  color: #24364a;
+  font: inherit;
+  line-height: 1.4;
+}
+
+.legalFormField input:focus,
+.legalFormField textarea:focus {
+  outline: none;
+  border-color: #9a9a7a;
+  box-shadow: 0 0 0 2px rgba(154, 154, 122, 0.12);
+}
+
+.legalFormField textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.legalFormButton {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 8px;
+  background: #24364a;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.legalFormButton:hover {
+  opacity: 0.9;
+}
+
+.legalFormButton:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.legalFormError {
+  margin: 0;
+  color: #a33a32;
+  font-size: 0.92rem;
+}
+
+.legalFormSuccess {
+  margin-top: 28px;
+  max-width: 680px;
+  padding: 24px;
+  border: 1px solid #d7d9dc;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.legalFormSuccess h3 {
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .legalForm {
+    max-width: 100%;
+  }
+
+  .legalFormButton {
+    width: 100%;
+  }
+}

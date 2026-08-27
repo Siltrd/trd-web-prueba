@@ -4,7 +4,6 @@ import {
   useLocation,
   Link,
 } from 'react-router-dom';
-
 import styles from '../styles/footer.module.css';
 import logo from '../assets/images/tdr-logo.svg';
 
@@ -122,6 +121,13 @@ const Footer = () => {
           className={styles.footerLink}
         >
           Contacto
+        </Link>
+
+        <Link
+          to="/ayuda"
+          className={styles.footerHelp}
+        >
+          Ayuda y atención
         </Link>
       </nav>
 

@@ -34,48 +34,53 @@ const TerminosCondiciones = () => {
   return (
     <LegalLayout
       title="Términos y Condiciones"
-      updated="26 de agosto de 2026"
+      updated="27 de agosto de 2026"
       sections={sections}
     >
       <section id="identificacion">
         <h2>1. Identificación del prestador</h2>
+
         <p>
           Los servicios ofrecidos a través de este sitio son prestados por
           <strong> [NOMBRE Y APELLIDO]</strong>, CUIT <strong>[CUIT]</strong>,
           con domicilio en <strong>[DOMICILIO]</strong>, correo electrónico
           <strong> [EMAIL DE CONTACTO]</strong>, quien opera comercialmente
-          bajo el nombre <strong>Tunica de Realidad</strong>, en adelante,
+          bajo el nombre <strong>Tunica de Realidad</strong>, en adelante
           <strong> “TDR”</strong>.
         </p>
 
         <p>
-          El sitio oficial de TDR es <strong>[DOMINIO]</strong>.
+          El sitio oficial de TDR es
+          <strong> tunicaderealidad.com</strong>.
         </p>
       </section>
 
       <section id="objeto">
         <h2>2. Objeto y alcance</h2>
+
         <p>
           Estos Términos y Condiciones regulan el acceso y uso del sitio web de
           TDR, así como la contratación de los servicios, programas,
-          experiencias, recursos y demás propuestas comerciales que se ofrezcan
-          a través del sitio o de los canales expresamente indicados por TDR.
+          experiencias, recursos y demás propuestas comerciales que se
+          ofrezcan a través del sitio o de los canales expresamente indicados
+          por TDR.
         </p>
 
         <p>
-          Determinados servicios podrán contar con condiciones particulares. En
-          esos casos, dichas condiciones complementarán estos Términos y
+          Determinados servicios podrán contar con condiciones particulares.
+          En esos casos, dichas condiciones complementarán estos Términos y
           Condiciones.
         </p>
 
         <p>
-          La contratación de cualquier servicio implica la aceptación de las
-          condiciones vigentes al momento de contratar.
+          La contratación de un servicio estará sujeta a las condiciones
+          vigentes e informadas al consumidor antes de contratar.
         </p>
       </section>
 
       <section id="servicios">
         <h2>3. Servicios ofrecidos</h2>
+
         <p>TDR podrá ofrecer, entre otros:</p>
 
         <ul>
@@ -102,13 +107,14 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          La inclusión de una categoría de servicio en estos Términos no implica
-          necesariamente que se encuentre disponible en todo momento.
+          La inclusión de una categoría de servicio en estos Términos no
+          implica necesariamente que se encuentre disponible en todo momento.
         </p>
       </section>
 
       <section id="contratacion">
         <h2>4. Proceso de contratación</h2>
+
         <p>La forma de contratación podrá variar según el servicio.</p>
 
         <p>TDR podrá utilizar, según corresponda:</p>
@@ -123,9 +129,14 @@ const TerminosCondiciones = () => {
         </ul>
 
         <p>
-          La contratación se considerará confirmada cuando se hayan cumplido las
-          condiciones expresamente indicadas para el servicio correspondiente,
-          incluyendo, cuando proceda, la acreditación del pago.
+          Antes de la contratación se informarán las condiciones esenciales
+          del servicio correspondiente.
+        </p>
+
+        <p>
+          La contratación se considerará confirmada cuando se hayan cumplido
+          las condiciones expresamente indicadas para el servicio,
+          incluyendo, cuando corresponda, la acreditación del pago.
         </p>
 
         <p>
@@ -139,9 +150,9 @@ const TerminosCondiciones = () => {
         <h2>5. Precios, moneda, pagos y facturación</h2>
 
         <p>
-          Los precios aplicables serán los publicados en el sitio web, informados
-          mediante presupuesto o comunicados expresamente antes de la
-          contratación.
+          Los precios aplicables serán los publicados en el sitio web,
+          informados mediante presupuesto o comunicados expresamente antes de
+          la contratación.
         </p>
 
         <p>
@@ -155,8 +166,8 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Cuando el pago se realice mediante transferencia u otro medio sujeto a
-          verificación, la contratación o reserva quedará definitivamente
+          Cuando el pago se realice mediante transferencia u otro medio sujeto
+          a verificación, la contratación o reserva quedará definitivamente
           confirmada una vez acreditado el importe correspondiente.
         </p>
 
@@ -176,13 +187,18 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Las condiciones podrán variar según el tipo de servicio.
+          Las condiciones podrán variar según la naturaleza del servicio.
         </p>
 
         <p>
           Cuando existan condiciones específicas informadas en la página de un
           servicio, presupuesto o propuesta comercial, dichas condiciones
-          formarán parte de la contratación.
+          complementarán las presentes disposiciones.
+        </p>
+
+        <p>
+          Ninguna condición particular podrá limitar derechos inderogables que
+          correspondan al consumidor conforme a la normativa aplicable.
         </p>
       </section>
 
@@ -190,21 +206,33 @@ const TerminosCondiciones = () => {
         <h2>7. Derecho de arrepentimiento</h2>
 
         <p>
-          Cuando resulte legalmente aplicable, el consumidor podrá ejercer el
-          derecho de revocación o arrepentimiento correspondiente a
-          contrataciones realizadas a distancia, dentro de los plazos previstos
-          por la normativa vigente.
+          Cuando resulte aplicable, el consumidor podrá ejercer el derecho
+          irrenunciable de revocación respecto de las contrataciones realizadas
+          a distancia dentro del plazo previsto por la normativa vigente.
         </p>
 
         <p>
-          TDR pondrá a disposición del usuario el mecanismo correspondiente para
-          ejercer este derecho.
+          TDR dispondrá en el sitio web del mecanismo correspondiente para
+          ejercer este derecho sin necesidad de crear una cuenta o iniciar
+          sesión.
         </p>
 
         <p>
-          El ejercicio del derecho de arrepentimiento no afectará las
-          prestaciones que, conforme a la normativa aplicable, ya hubieran sido
-          efectivamente realizadas o utilizadas.
+          TDR podrá aplicar mecanismos razonables de verificación de identidad
+          cuando tengan como finalidad exclusiva garantizar la seguridad y
+          autenticidad de la solicitud.
+        </p>
+
+        <p>
+          Una vez recibida la solicitud, TDR informará el código identificatorio
+          o de registración correspondiente dentro del plazo legal aplicable.
+        </p>
+
+        <p>
+          Los efectos de la revocación, incluyendo las restituciones que
+          correspondan y las situaciones en que una prestación hubiera sido
+          ejecutada total o parcialmente, se determinarán conforme a la
+          normativa vigente y a las circunstancias de la contratación.
         </p>
       </section>
 
@@ -212,20 +240,32 @@ const TerminosCondiciones = () => {
         <h2>8. Baja o finalización de servicios</h2>
 
         <p>
-          Cuando corresponda, el usuario podrá solicitar la baja o finalización
-          de un servicio contratado a distancia mediante los mecanismos
-          habilitados por TDR.
+          Cuando corresponda, el consumidor podrá solicitar la baja o
+          finalización de un servicio contratado a distancia mediante el
+          mecanismo habilitado por TDR.
+        </p>
+
+        <p>
+          El acceso al procedimiento no requerirá la creación de una cuenta ni
+          el inicio de sesión.
+        </p>
+
+        <p>
+          TDR podrá aplicar mecanismos razonables de verificación de identidad
+          exclusivamente con fines de seguridad y validación.
         </p>
 
         <p>
           La finalización de un servicio en curso se regirá además por las
-          condiciones específicas de la propuesta contratada y por la Política
-          de Reservas, Cancelaciones y Devoluciones.
+          condiciones de la propuesta contratada, la Política de Reservas,
+          Cancelaciones y Devoluciones y la normativa aplicable.
         </p>
 
         <p>
-          La baja de un servicio no implica automáticamente el reintegro de
-          importes correspondientes a prestaciones ya realizadas.
+          La baja de un servicio no implica por sí sola que todos los importes
+          abonados deban ser reintegrados. Los efectos económicos se
+          determinarán según las prestaciones realizadas, las pendientes, las
+          condiciones aplicables y los derechos que legalmente correspondan.
         </p>
       </section>
 
@@ -248,8 +288,11 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Las cancelaciones o inasistencias con una anticipación inferior a 24
-          horas no generan derecho a reprogramación ni reintegro.
+          Las solicitudes de cancelación o reprogramación efectuadas con una
+          anticipación inferior a 24 horas, así como la inasistencia al horario
+          reservado, no generan derecho contractual a una nueva fecha ni a
+          reintegro, sin perjuicio de los derechos que pudieran corresponder
+          legalmente al consumidor.
         </p>
 
         <p>
@@ -263,25 +306,28 @@ const TerminosCondiciones = () => {
         <h2>10. Condiciones específicas de procesos de varias sesiones</h2>
 
         <p>
-          Cuando se contrate un proceso compuesto por varias sesiones, las fechas
-          podrán coordinarse previamente a la acreditación del pago cuando así se
-          indique en la propuesta comercial.
+          Cuando se contrate un proceso compuesto por varias sesiones, las
+          fechas podrán coordinarse previamente a la acreditación del pago
+          cuando así se indique en la propuesta comercial.
         </p>
 
         <p>
           Si el cliente decide finalizar el proceso una vez iniciado, podrá
-          solicitar el reintegro correspondiente a las sesiones que aún no hayan
-          sido realizadas.
+          solicitar el reintegro correspondiente a las sesiones que aún no
+          hayan sido realizadas, conforme a las condiciones contractuales y a
+          la normativa aplicable.
         </p>
 
         <p>
-          Para calcular dicho reintegro, las sesiones ya realizadas se imputarán
-          al valor de la sesión individual vigente al momento de la
+          Para calcular dicho reintegro, las sesiones ya realizadas se
+          imputarán al valor de la sesión individual vigente al momento de la
           contratación.
         </p>
 
         <p>
-          Las sesiones efectivamente realizadas no generan derecho a reintegro.
+          Las sesiones efectivamente realizadas no generan por sí mismas
+          derecho contractual a reintegro, sin perjuicio de los derechos que
+          pudieran resultar aplicables en cada caso.
         </p>
 
         <p>
@@ -295,8 +341,8 @@ const TerminosCondiciones = () => {
 
         <p>
           Los servicios de Sound Healing destinados a estudios, spas, hoteles,
-          empresas, centros u otras organizaciones podrán requerir presupuesto y
-          condiciones particulares.
+          empresas, centros u otras organizaciones podrán requerir presupuesto
+          y condiciones particulares.
         </p>
 
         <p>La contratación podrá incluir condiciones específicas relativas a:</p>
@@ -334,14 +380,15 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Si TDR debiera cancelar una experiencia, se informarán las alternativas
-          disponibles, que podrán incluir reprogramación o reintegro conforme a
-          las condiciones aplicables.
+          Si TDR debiera cancelar una experiencia, se informarán las
+          alternativas que correspondan, incluyendo, según el caso,
+          reprogramación o reintegro.
         </p>
 
         <p>
-          La inasistencia del participante no genera automáticamente derecho a
-          devolución, salvo que así se establezca expresamente.
+          La inasistencia del participante no genera por sí misma derecho
+          contractual a devolución, salvo que se hubiera establecido otra
+          condición o corresponda legalmente una solución distinta.
         </p>
       </section>
 
@@ -367,7 +414,10 @@ const TerminosCondiciones = () => {
           <li>finalización anticipada.</li>
         </ul>
 
-        <p>Estas condiciones serán informadas antes de la contratación.</p>
+        <p>
+          Estas condiciones serán informadas antes de la contratación y no
+          limitarán los derechos inderogables que resulten aplicables.
+        </p>
       </section>
 
       <section id="recursos">
@@ -387,9 +437,9 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Las condiciones de devolución, arrepentimiento y acceso se regirán por
-          la normativa aplicable y por las condiciones específicas informadas
-          antes de la compra.
+          Las condiciones de acceso, devolución y ejercicio del derecho de
+          revocación se regirán por la normativa aplicable y por la naturaleza
+          específica del recurso correspondiente.
         </p>
       </section>
 
@@ -411,8 +461,8 @@ const TerminosCondiciones = () => {
         </ul>
 
         <p>
-          TDR no realizará cobros recurrentes sin información previa y aceptación
-          del usuario.
+          TDR no realizará cobros recurrentes sin información previa y
+          aceptación del usuario.
         </p>
       </section>
 
@@ -436,8 +486,9 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Las decisiones que el cliente adopte a partir del trabajo realizado
-          son de su exclusiva responsabilidad.
+          Las decisiones que adopte el cliente a partir del trabajo realizado
+          le corresponden personalmente, sin perjuicio de las obligaciones que
+          TDR asuma respecto de la correcta prestación del servicio contratado.
         </p>
       </section>
 
@@ -445,16 +496,16 @@ const TerminosCondiciones = () => {
         <h2>17. Propiedad intelectual</h2>
 
         <p>
-          Todos los contenidos propios de TDR, incluidos textos, audios, videos,
-          materiales, metodologías, ejercicios, documentos, diseños, recursos y
-          demás contenidos originales se encuentran protegidos por la normativa
-          aplicable en materia de propiedad intelectual.
+          Todos los contenidos propios de TDR, incluidos textos, audios,
+          videos, materiales, metodologías, ejercicios, documentos, diseños,
+          recursos y demás contenidos originales se encuentran protegidos por
+          la normativa aplicable en materia de propiedad intelectual.
         </p>
 
         <p>
           Salvo autorización expresa, no está permitida su reproducción,
-          redistribución, venta, cesión, publicación, modificación o utilización
-          comercial.
+          redistribución, venta, cesión, publicación, modificación o
+          utilización comercial.
         </p>
 
         <p>
@@ -475,8 +526,8 @@ const TerminosCondiciones = () => {
           No está permitido realizar acciones que puedan comprometer la
           seguridad, funcionamiento o integridad del sitio, acceder de manera no
           autorizada a áreas restringidas, utilizar sistemas automatizados de
-          forma abusiva o emplear los contenidos de TDR con fines fraudulentos o
-          ilícitos.
+          forma abusiva o emplear los contenidos de TDR con fines fraudulentos
+          o ilícitos.
         </p>
       </section>
 
@@ -498,8 +549,9 @@ const TerminosCondiciones = () => {
           <li>mantener comunicaciones operativas;</li>
           <li>cumplir obligaciones legales;</li>
           <li>
-            enviar comunicaciones comerciales cuando exista consentimiento o
-            base legal suficiente.
+            enviar comunicaciones comerciales cuando exista consentimiento del
+            titular o concurra otro supuesto permitido por la normativa
+            aplicable.
           </li>
         </ul>
 
@@ -513,16 +565,17 @@ const TerminosCondiciones = () => {
         <h2>20. Comunicaciones</h2>
 
         <p>
-          El usuario acepta recibir las comunicaciones necesarias para gestionar
-          la relación contractual, incluyendo confirmaciones de reserva,
+          TDR podrá enviar las comunicaciones necesarias para gestionar la
+          relación contractual, incluyendo confirmaciones de reserva,
           modificaciones, cancelaciones, facturación, recordatorios y
           comunicaciones vinculadas al servicio contratado.
         </p>
 
         <p>
           Las comunicaciones promocionales o comerciales que no sean necesarias
-          para la prestación del servicio se gestionarán conforme a la normativa
-          aplicable y, cuando corresponda, podrán ser canceladas por el usuario.
+          para la prestación del servicio se gestionarán conforme a la
+          normativa aplicable y podrán ser canceladas por el usuario cuando
+          corresponda.
         </p>
       </section>
 
@@ -547,8 +600,8 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Las modificaciones no afectarán de manera retroactiva derechos
-          adquiridos ni condiciones ya pactadas cuando ello resulte contrario a
+          Las modificaciones no afectarán retroactivamente derechos adquiridos
+          ni condiciones previamente pactadas cuando ello resulte contrario a
           la normativa aplicable.
         </p>
       </section>
@@ -560,15 +613,14 @@ const TerminosCondiciones = () => {
 
         <p>
           Cuando un usuario contrate desde otro país, la relación se regirá por
-          las normas que resulten aplicables de acuerdo con las circunstancias
-          de la contratación.
+          las normas que resulten aplicables según las circunstancias de la
+          contratación.
         </p>
 
         <p>
-          Nada de lo previsto en estos Términos tiene por objeto excluir derechos
-          inderogables que pudieran corresponder al consumidor conforme a la
-          normativa de su país de residencia cuando dicha normativa resulte
-          aplicable.
+          Nada de lo previsto en estos Términos tiene por objeto excluir
+          derechos inderogables que pudieran corresponder al consumidor
+          conforme a la normativa que resulte aplicable.
         </p>
       </section>
 
@@ -577,39 +629,52 @@ const TerminosCondiciones = () => {
 
         <p>
           TDR se compromete a prestar los servicios contratados conforme a las
-          condiciones informadas.
+          condiciones informadas y a las obligaciones que resulten aplicables.
         </p>
 
         <p>
-          No será responsable por incumplimientos derivados de causas ajenas
-          razonablemente a su control, sin perjuicio de los derechos que
-          pudieran corresponder al consumidor.
+          Cuando una incidencia sea atribuible a servicios de terceros,
+          plataformas externas, proveedores tecnológicos o conexiones de
+          internet, su tratamiento se determinará según las circunstancias del
+          caso y la normativa aplicable.
         </p>
 
         <p>
-          TDR tampoco será responsable por fallos atribuibles a servicios de
-          terceros, plataformas externas, proveedores tecnológicos, conexiones
-          de internet u otros sistemas ajenos, salvo que la normativa aplicable
-          disponga lo contrario.
+          Ninguna disposición de estos Términos tiene por objeto excluir o
+          limitar responsabilidades que legalmente correspondan a TDR ni
+          derechos inderogables del consumidor.
         </p>
       </section>
 
       <section id="atencion">
         <h2>24. Atención al cliente y reclamos</h2>
 
-        <p>Las consultas, solicitudes y reclamos podrán enviarse a:</p>
-
         <p>
-          <strong>Correo electrónico:</strong> [EMAIL]
+          TDR dispondrá de canales para la recepción de consultas, solicitudes
+          y reclamos.
         </p>
 
         <p>
+          <strong>Área responsable:</strong> Atención al Cliente — TDR
+          <br />
+          <strong>Correo electrónico:</strong> [EMAIL DE ATENCIÓN]
+          <br />
           <strong>WhatsApp / teléfono:</strong> [NÚMERO, SI CORRESPONDE]
         </p>
 
         <p>
-          Los mecanismos específicos de Arrepentimiento y Baja de Servicio
-          estarán disponibles en el sitio web cuando corresponda.
+          Cuando la atención se preste exclusivamente mediante canales
+          telefónicos o electrónicos, TDR mantendrá un horario de atención no
+          inferior a ocho horas por día hábil, de lunes a viernes.
+        </p>
+
+        <p>
+          <strong>Horario de atención:</strong> [HORARIO A DEFINIR]
+        </p>
+
+        <p>
+          El Botón de Arrepentimiento y el Botón de Baja de Servicio estarán
+          disponibles en el sitio conforme a la normativa aplicable.
         </p>
       </section>
 
@@ -628,10 +693,10 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Antes de iniciar cualquier instancia formal, las partes podrán intentar
-          resolver la cuestión mediante los canales de atención de TDR, sin que
-          ello limite el acceso del consumidor a los mecanismos administrativos
-          o judiciales que correspondan.
+          Las partes podrán intentar resolver cualquier diferencia mediante los
+          canales de atención de TDR, sin que ello constituya un requisito
+          previo ni limite el acceso del consumidor a los mecanismos
+          administrativos o judiciales que correspondan.
         </p>
       </section>
 
@@ -639,12 +704,14 @@ const TerminosCondiciones = () => {
         <h2>26. Vigencia</h2>
 
         <p>
-          Estos Términos y Condiciones entran en vigor a partir de
-          <strong> [FECHA]</strong>.
+          Estos Términos y Condiciones entrarán en vigor a partir de su
+          publicación en el sitio web.
         </p>
 
         <p>
-          La versión vigente será siempre la publicada en el sitio web de TDR.
+          La versión vigente será la disponible en el sitio web de TDR, sin
+          perjuicio de las condiciones aplicables a contrataciones celebradas
+          bajo versiones anteriores.
         </p>
       </section>
     </LegalLayout>

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LegalLayout from '../components/LegalLayout';
+import '../styles/legalForms.css';
 
 const sections = [
   { id: 'alcance', label: 'Alcance' },
@@ -17,10 +18,73 @@ const sections = [
 ];
 
 const Arrepentimiento = () => {
+  const [formData, setFormData] = useState({
+  name: '',
+  email: '',
+  service: '',
+  contractDate: '',
+  reference: '',
+  additionalInfo: '',
+});
+
+const [status, setStatus] = useState('idle');
+const [codigo, setCodigo] = useState('');
+const [error, setError] = useState('');
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+
+  setFormData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  setStatus('sending');
+  setError('');
+  setCodigo('');
+
+  try {
+    const response = await fetch('/api/arrepentimiento', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.ok) {
+      throw new Error(data.error || 'No se pudo enviar la solicitud.');
+    }
+
+    setCodigo(data.codigo);
+    setStatus('success');
+
+    setFormData({
+      name: '',
+      email: '',
+      service: '',
+      contractDate: '',
+      reference: '',
+      additionalInfo: '',
+    });
+  } catch (err) {
+    console.error(err);
+    setError(
+      'No pudimos registrar la solicitud. Intenta nuevamente o contacta con TDR.'
+    );
+    setStatus('error');
+  }
+};
   return (
     <LegalLayout
       title="Procedimiento de Arrepentimiento"
-      updated="26 de agosto de 2026"
+      updated="27 de agosto de 2026"
       sections={sections}
     >
       <section id="alcance">
@@ -35,10 +99,10 @@ const Arrepentimiento = () => {
         </p>
 
         <p>
-          Con carácter general, el consumidor dispone de un plazo de 10 días
-          para ejercer el derecho de revocación en las contrataciones realizadas
-          a distancia, sin perjuicio de las excepciones o modalidades especiales
-          que puedan resultar aplicables.
+          Con carácter general, el consumidor dispone del plazo previsto por la
+          normativa aplicable para ejercer el derecho de revocación, sin
+          perjuicio de las excepciones o modalidades que pudieran corresponder
+          según la naturaleza de la contratación.
         </p>
       </section>
 
@@ -46,8 +110,8 @@ const Arrepentimiento = () => {
         <h2>2. Cómo ejercer el derecho</h2>
 
         <p>
-          El consumidor podrá solicitar el arrepentimiento mediante el Botón de
-          Arrepentimiento disponible en el sitio web de TDR.
+          El consumidor podrá iniciar la solicitud mediante el Botón de
+          Arrepentimiento habilitado en el sitio web de TDR.
         </p>
 
         <p>
@@ -68,17 +132,18 @@ const Arrepentimiento = () => {
         <p>
           Para identificar correctamente la contratación y tramitar el pedido,
           TDR podrá solicitar únicamente los datos razonablemente necesarios,
-          por ejemplo:
+          entre ellos:
         </p>
 
         <ul>
           <li>nombre y apellido;</li>
           <li>correo electrónico utilizado en la contratación;</li>
           <li>servicio contratado;</li>
-          <li>fecha de contratación;</li>
+          <li>fecha aproximada de contratación;</li>
           <li>referencia de reserva, operación o pago, si existiera;</li>
           <li>
-            información adicional necesaria para identificar la operación.
+            información adicional estrictamente necesaria para identificar la
+            operación.
           </li>
         </ul>
       </section>
@@ -95,12 +160,17 @@ const Arrepentimiento = () => {
           La constancia será enviada dentro de las 24 horas siguientes a la
           recepción de la solicitud, conforme a la normativa aplicable.
         </p>
+
+        <p>
+          El código permitirá identificar la solicitud y mantener trazabilidad
+          sobre su tramitación.
+        </p>
       </section>
 
       <section id="evaluacion">
         <h2>5. Evaluación de la solicitud</h2>
 
-        <p>TDR verificará:</p>
+        <p>TDR verificará, según corresponda:</p>
 
         <ul>
           <li>la contratación correspondiente;</li>
@@ -119,16 +189,16 @@ const Arrepentimiento = () => {
         <h2>6. Efectos del arrepentimiento</h2>
 
         <p>
-          Cuando el derecho de arrepentimiento resulte procedente, TDR dará curso
-          a la revocación de la contratación y realizará las restituciones que
-          correspondan conforme a la normativa aplicable.
+          Cuando el derecho de arrepentimiento resulte procedente, TDR dará
+          curso a la revocación de la contratación y realizará las
+          restituciones que correspondan conforme a la normativa aplicable.
         </p>
 
         <p>
-          Cuando el servicio haya sido prestado total o parcialmente, el alcance
-          de una eventual restitución se determinará en función de las
-          prestaciones efectivamente realizadas y de las reglas legales
-          aplicables.
+          Cuando el servicio haya sido prestado total o parcialmente, los
+          efectos económicos de la revocación se determinarán conforme a la
+          normativa aplicable, la naturaleza de la prestación y las
+          circunstancias concretas de la contratación.
         </p>
       </section>
 
@@ -136,8 +206,8 @@ const Arrepentimiento = () => {
         <h2>7. Reintegros</h2>
 
         <p>
-          Cuando corresponda un reintegro, TDR gestionará la devolución conforme
-          a su Política de Reservas, Cancelaciones y Devoluciones.
+          Cuando corresponda un reintegro, TDR gestionará la devolución
+          conforme a la Política de Reservas, Cancelaciones y Devoluciones.
         </p>
 
         <p>
@@ -145,20 +215,25 @@ const Arrepentimiento = () => {
           medio utilizado para efectuar el pago o mediante otro medio acordado
           con el consumidor.
         </p>
+
+        <p>
+          El tiempo de acreditación final podrá depender de la entidad
+          bancaria, proveedor de pagos o medio utilizado.
+        </p>
       </section>
 
       <section id="incompletas">
         <h2>8. Solicitudes incompletas</h2>
 
         <p>
-          Si la información proporcionada no permitiera identificar correctamente
-          la contratación, TDR podrá solicitar los datos mínimos adicionales
-          necesarios para tramitar el pedido.
+          Si la información proporcionada no permitiera identificar
+          correctamente la contratación, TDR podrá solicitar los datos mínimos
+          adicionales necesarios para tramitar el pedido.
         </p>
 
         <p>
-          Esta solicitud de información no tendrá por objeto dificultar ni
-          impedir el ejercicio del derecho.
+          Esta solicitud de información no tendrá por objeto dificultar,
+          demorar injustificadamente ni impedir el ejercicio del derecho.
         </p>
       </section>
 
@@ -176,9 +251,10 @@ const Arrepentimiento = () => {
         <h2>10. Conservación del trámite</h2>
 
         <p>
-          TDR podrá conservar la constancia de la solicitud y de su resolución
-          durante el tiempo necesario para acreditar el cumplimiento de sus
-          obligaciones legales, contractuales y administrativas.
+          TDR podrá conservar la constancia de la solicitud, su código
+          identificatorio, las comunicaciones vinculadas y la resolución
+          adoptada durante el tiempo necesario para acreditar el cumplimiento
+          de sus obligaciones legales, contractuales y administrativas.
         </p>
       </section>
 
@@ -186,25 +262,137 @@ const Arrepentimiento = () => {
         <h2>11. Derechos del consumidor</h2>
 
         <p>
-          Este procedimiento no limita ni sustituye los derechos reconocidos al
-          consumidor por la normativa aplicable.
+          Este procedimiento no limita, sustituye ni condiciona los derechos
+          reconocidos al consumidor por la normativa aplicable.
         </p>
       </section>
+<section id="contacto">
+  <h2>12. Solicitud de arrepentimiento</h2>
 
-      <section id="contacto">
-        <h2>12. Contacto</h2>
+  <p>
+    Completa el siguiente formulario para ejercer el derecho de
+    arrepentimiento cuando resulte aplicable.
+  </p>
 
-        <p>
-          <strong>Tunica de Realidad — TDR</strong>
-          <br />
-          Correo electrónico: <strong>[EMAIL DE CONTACTO / LEGAL]</strong>
-        </p>
+  {status === 'success' ? (
+    <div className="legalFormSuccess">
+      <h3>Solicitud recibida</h3>
 
-        <p>
-          El formulario correspondiente se integrará en esta página para
-          permitir el ejercicio directo del derecho.
-        </p>
-      </section>
+      <p>
+        Tu solicitud ha sido registrada correctamente.
+      </p>
+
+      <p>
+        Código de trámite: <strong>{codigo}</strong>
+      </p>
+
+      <p>
+        También hemos enviado una constancia al correo electrónico
+        informado.
+      </p>
+
+      <p>
+        Conserva este código para cualquier consulta relacionada con la
+        solicitud.
+      </p>
+    </div>
+  ) : (
+    <form className="legalForm" onSubmit={handleSubmit}>
+      <div className="legalFormField">
+        <label htmlFor="name">Nombre y apellido *</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="legalFormField">
+        <label htmlFor="email">
+          Correo electrónico utilizado en la contratación *
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="legalFormField">
+        <label htmlFor="service">Servicio contratado *</label>
+        <input
+          id="service"
+          name="service"
+          type="text"
+          value={formData.service}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="legalFormField">
+        <label htmlFor="contractDate">
+          Fecha aproximada de contratación *
+        </label>
+        <input
+          id="contractDate"
+          name="contractDate"
+          type="date"
+          value={formData.contractDate}
+          onChange={handleChange}
+          max={new Date().toISOString().split('T')[0]}
+          required
+       />
+      </div>
+
+      <div className="legalFormField">
+        <label htmlFor="reference">
+          Referencia de reserva, operación o pago
+        </label>
+        <input
+          id="reference"
+          name="reference"
+          type="text"
+          value={formData.reference}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="legalFormField">
+        <label htmlFor="additionalInfo">
+          Información adicional
+        </label>
+        <textarea
+          id="additionalInfo"
+          name="additionalInfo"
+          rows="5"
+          value={formData.additionalInfo}
+          onChange={handleChange}
+        />
+      </div>
+
+      {status === 'error' && (
+        <p className="legalFormError">{error}</p>
+      )}
+
+      <button
+        type="submit"
+        className="legalFormButton"
+        disabled={status === 'sending'}
+      >
+        {status === 'sending'
+          ? 'Enviando solicitud...'
+          : 'Enviar solicitud de arrepentimiento'}
+      </button>
+    </form>
+  )}
+</section>
     </LegalLayout>
   );
 };

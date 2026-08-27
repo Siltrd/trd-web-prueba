@@ -13,6 +13,7 @@ import HomeSectionFour from '../components/HomeSectionFour';
 // Pages
 const SobreMi = lazy(() => import('../pages/SobreMi'));
 const ContactPage = lazy(() => import('../pages/ContactPage'));
+const Ayuda = lazy(() => import('../pages/Ayuda'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 const Proximamente = lazy(() => import('../pages/Proximamente'));
 
@@ -42,21 +43,40 @@ const BajaServicio = lazy(() =>
 );
 
 // Landing de tests
-const TestsIndex = lazy(() => import('../pages/TestsIndex'));
+const TestsIndex = lazy(() =>
+  import('../pages/TestsIndex')
+);
 
 // Landings individuales
-const TestDireccion = lazy(() => import('../pages/TestDireccion'));
-const TestDiscurso = lazy(() => import('../pages/TestDiscurso'));
+const TestDireccion = lazy(() =>
+  import('../pages/TestDireccion')
+);
+
+const TestDiscurso = lazy(() =>
+  import('../pages/TestDiscurso')
+);
 
 // Flujos de test
-const QuizDireccion = lazy(() => import('../tests/QuizDireccion'));
-const QuizDiscurso = lazy(() => import('../tests/QuizDiscurso'));
-const ResultDireccion = lazy(() => import('../tests/ResultDireccion'));
-const ResultDiscurso = lazy(() => import('../tests/ResultDiscurso'));
+const QuizDireccion = lazy(() =>
+  import('../tests/QuizDireccion')
+);
+
+const QuizDiscurso = lazy(() =>
+  import('../tests/QuizDiscurso')
+);
+
+const ResultDireccion = lazy(() =>
+  import('../tests/ResultDireccion')
+);
+
+const ResultDiscurso = lazy(() =>
+  import('../tests/ResultDiscurso')
+);
 
 export const routes = [
   {
     element: <Layout />,
+
     children: [
       {
         path: '/',
@@ -78,6 +98,11 @@ export const routes = [
       {
         path: '/contacto',
         element: <ContactPage />,
+      },
+
+      {
+        path: '/ayuda',
+        element: <Ayuda />,
       },
 
       // Legal
@@ -171,6 +196,7 @@ export const routes = [
 
   {
     element: <TestLayout />,
+
     children: [
       {
         path: '/test-direccion/quiz',

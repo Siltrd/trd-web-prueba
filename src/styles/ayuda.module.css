@@ -1,0 +1,169 @@
+.page {
+  width: 100%;
+  min-height: 70vh;
+  background: #f7f4ee;
+  color: #1e364d;
+  font-family: 'Inter', sans-serif;
+  padding: clamp(3rem, 7vw, 6rem) 1.5rem;
+  box-sizing: border-box;
+}
+
+.container {
+  width: min(100%, 820px);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: #7c7f58;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  margin: 0;
+  color: #1e364d;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.intro {
+  max-width: 690px;
+  margin: 1.25rem 0 0;
+  color: #4f5962;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.75;
+}
+
+.section {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(30, 54, 77, 0.14);
+}
+
+.section h2 {
+  margin: 0 0 0.8rem;
+  color: #1e364d;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  line-height: 1.3;
+}
+
+.section p {
+  max-width: 700px;
+  margin: 0 0 1.15rem;
+  color: #505960;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.actions,
+.legalActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.25rem;
+}
+
+.primaryLink,
+.secondaryLink,
+.legalButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.7rem 1rem;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.primaryLink {
+  background: #1e364d;
+  color: #ffffff;
+}
+
+.primaryLink:hover {
+  transform: translateY(-1px);
+}
+
+.secondaryLink {
+  border: 1px solid rgba(30, 54, 77, 0.25);
+  background: transparent;
+  color: #1e364d;
+}
+
+.secondaryLink:hover {
+  border-color: #1e364d;
+  transform: translateY(-1px);
+}
+
+.legalButton {
+  border: 1px solid rgba(30, 54, 77, 0.28);
+  background: #ffffff;
+  color: #1e364d;
+}
+
+.legalButton:hover {
+  border-color: #f57c00;
+  transform: translateY(-1px);
+}
+
+.textLink {
+  color: #1e364d;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.textLink:hover {
+  color: #f57c00;
+}
+
+.inlineLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.5rem;
+}
+
+.pendingData {
+  color: #1e364d !important;
+}
+
+.note {
+  color: #777d82 !important;
+  font-size: 0.82rem !important;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  .actions,
+  .legalActions,
+  .inlineLinks {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .primaryLink,
+  .secondaryLink,
+  .legalButton {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

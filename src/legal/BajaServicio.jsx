@@ -22,7 +22,7 @@ const BajaServicio = () => {
   return (
     <LegalLayout
       title="Procedimiento de Baja de Servicio"
-      updated="26 de agosto de 2026"
+      updated="27 de agosto de 2026"
       sections={sections}
     >
       <section id="alcance">
@@ -38,7 +38,9 @@ const BajaServicio = () => {
 
         <p>
           La baja de un servicio no debe confundirse con el derecho de
-          arrepentimiento.
+          arrepentimiento. El arrepentimiento se refiere a la revocación de una
+          contratación dentro del régimen legal correspondiente; la baja se
+          refiere a la finalización de un servicio en curso.
         </p>
       </section>
 
@@ -47,7 +49,7 @@ const BajaServicio = () => {
 
         <p>
           Cuando corresponda, el consumidor podrá solicitar la baja mediante el
-          Botón de Baja de Servicio disponible en el sitio web de TDR.
+          Botón de Baja de Servicio habilitado en el sitio web de TDR.
         </p>
 
         <p>
@@ -67,7 +69,8 @@ const BajaServicio = () => {
 
         <p>
           Para identificar correctamente el servicio y tramitar la baja, TDR
-          podrá solicitar los datos razonablemente necesarios, por ejemplo:
+          podrá solicitar únicamente los datos razonablemente necesarios, entre
+          ellos:
         </p>
 
         <ul>
@@ -77,8 +80,8 @@ const BajaServicio = () => {
           <li>fecha aproximada de contratación;</li>
           <li>referencia de reserva, contratación o pago, si existiera;</li>
           <li>
-            información adicional necesaria para identificar la relación
-            contractual.
+            información adicional estrictamente necesaria para identificar la
+            relación contractual.
           </li>
         </ul>
       </section>
@@ -95,12 +98,17 @@ const BajaServicio = () => {
           La constancia será enviada dentro de las 24 horas siguientes a la
           recepción de la solicitud, conforme a la normativa aplicable.
         </p>
+
+        <p>
+          El código permitirá identificar la solicitud y mantener trazabilidad
+          sobre su tramitación.
+        </p>
       </section>
 
       <section id="evaluacion">
         <h2>5. Evaluación de la baja</h2>
 
-        <p>TDR verificará:</p>
+        <p>TDR verificará, según corresponda:</p>
 
         <ul>
           <li>el servicio contratado;</li>
@@ -108,7 +116,7 @@ const BajaServicio = () => {
           <li>las prestaciones ya realizadas;</li>
           <li>las prestaciones pendientes;</li>
           <li>los pagos efectuados;</li>
-          <li>las condiciones particulares aplicables.</li>
+          <li>las condiciones particulares aplicables al servicio.</li>
         </ul>
       </section>
 
@@ -129,7 +137,9 @@ const BajaServicio = () => {
 
         <p>
           La baja no genera automáticamente derecho al reintegro de importes
-          correspondientes a prestaciones ya realizadas.
+          correspondientes a prestaciones ya realizadas. Los efectos
+          económicos se determinarán conforme a las condiciones aplicables y a
+          los derechos que legalmente correspondan.
         </p>
       </section>
 
@@ -143,9 +153,13 @@ const BajaServicio = () => {
 
         <p>
           Las sesiones efectivamente realizadas se imputarán al valor de la
-          sesión individual vigente al momento de la contratación y el saldo
-          pendiente se calculará conforme a la Política de Reservas,
-          Cancelaciones y Devoluciones.
+          sesión individual vigente al momento de la contratación.
+        </p>
+
+        <p>
+          El saldo correspondiente a las sesiones pendientes se calculará y,
+          cuando corresponda, se reintegrará conforme a la Política de
+          Reservas, Cancelaciones y Devoluciones.
         </p>
       </section>
 
@@ -154,9 +168,9 @@ const BajaServicio = () => {
 
         <p>
           Si TDR incorpora en el futuro membresías, suscripciones u otros
-          servicios recurrentes, la solicitud de baja tendrá como efecto detener
-          futuras renovaciones o cobros conforme a las condiciones particulares
-          informadas antes de la contratación.
+          servicios recurrentes, la solicitud de baja tendrá como efecto
+          detener futuras renovaciones o cobros conforme a las condiciones
+          particulares informadas antes de la contratación.
         </p>
 
         <p>
@@ -174,6 +188,12 @@ const BajaServicio = () => {
           gestionará el reintegro conforme a la Política de Reservas,
           Cancelaciones y Devoluciones.
         </p>
+
+        <p>
+          Siempre que sea posible, la devolución se realizará mediante el mismo
+          medio utilizado para el pago o mediante otro medio acordado con el
+          consumidor.
+        </p>
       </section>
 
       <section id="incompletas">
@@ -186,8 +206,9 @@ const BajaServicio = () => {
         </p>
 
         <p>
-          Esta solicitud de información no tendrá por objeto dificultar ni
-          impedir el ejercicio del derecho a solicitar la baja.
+          Esta solicitud de información no tendrá por objeto dificultar,
+          demorar injustificadamente ni impedir el ejercicio del derecho a
+          solicitar la baja.
         </p>
       </section>
 
@@ -206,8 +227,9 @@ const BajaServicio = () => {
 
         <p>
           TDR podrá conservar la constancia de la solicitud, su código
-          identificatorio y la resolución adoptada durante el tiempo necesario
-          para cumplir obligaciones legales, contractuales y administrativas.
+          identificatorio, las comunicaciones vinculadas y la resolución
+          adoptada durante el tiempo necesario para cumplir obligaciones
+          legales, contractuales y administrativas.
         </p>
       </section>
 
@@ -215,8 +237,8 @@ const BajaServicio = () => {
         <h2>13. Derechos del consumidor</h2>
 
         <p>
-          Este procedimiento no limita ni sustituye los derechos reconocidos por
-          la normativa aplicable.
+          Este procedimiento no limita, sustituye ni condiciona los derechos
+          reconocidos por la normativa aplicable.
         </p>
       </section>
 
@@ -224,14 +246,19 @@ const BajaServicio = () => {
         <h2>14. Contacto</h2>
 
         <p>
-          <strong>Tunica de Realidad — TDR</strong>
-          <br />
-          Correo electrónico: <strong>[EMAIL DE CONTACTO / LEGAL]</strong>
+          Para consultas relacionadas con una solicitud de baja:
         </p>
 
         <p>
-          El formulario correspondiente se integrará en esta página para
-          permitir la solicitud directa de baja.
+          <strong>Tunica de Realidad — TDR</strong>
+          <br />
+          Correo electrónico:{' '}
+          <strong>[EMAIL DE CONTACTO / LEGAL]</strong>
+        </p>
+
+        <p>
+          La solicitud formal deberá realizarse mediante el mecanismo específico
+          habilitado en el sitio web cuando corresponda.
         </p>
       </section>
     </LegalLayout>
