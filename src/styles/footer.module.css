@@ -4,30 +4,51 @@
 
 .footer {
   width: 100%;
-  background-color: #f9f9f9;
-  color: #1e364d;
-  padding: 9vh 1vw 3vh;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
   margin-top: 5vh;
   margin-bottom: 0;
+
+  padding:
+    clamp(2rem, 3vw, 2.8rem)
+    clamp(2rem, 5vw, 5rem)
+    clamp(2.8rem, 4.5vw, 4rem);
+
+  box-sizing: border-box;
+
+  background-color: #f9f9f9;
+  color: #1e364d;
+
+  font-family: 'Inter', sans-serif;
+}
+
+.footerInner {
+  width: min(92%, 86rem);
+  margin: 0 auto;
+  
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.78fr)
+    minmax(0, 1.22fr);
+
+  align-items: end;
+  gap: clamp(2.4rem, 5vw, 4.5rem);
 }
 
 /* =========================
-   LOGO
+   COLUMNA IZQUIERDA
    ========================= */
 
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+}
+
 .footerLogo {
-  position: absolute;
-  left: clamp(2rem, 5vw, 12vh);
-  top: clamp(2rem, 5vh, 6vh);
-  width: clamp(9em, 14vw, 13em);
-  height: auto;
+  width: clamp(9rem, 12vw, 12rem);
 }
 
 .footerLogo img {
@@ -36,20 +57,88 @@
   display: block;
 }
 
+.footerMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* =========================
+   LEGAL
+   ========================= */
+
+.legalNav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  gap:
+    0.3rem
+    clamp(0.75rem, 1.1vw, 1rem);
+}
+
+.legalNav a {
+  color: #777d82;
+
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.67rem, 0.72vw, 0.76rem);
+  font-weight: 400;
+  line-height: 1.4;
+
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.legalNav a:hover {
+  color: #f57c00;
+}
+
+/* =========================
+   COPYRIGHT
+   ========================= */
+
+.copyright {
+  margin: 0;
+
+  color: #8a8f93;
+
+  font-size: clamp(0.64rem, 0.68vw, 0.72rem);
+  font-weight: 400;
+  line-height: 1.4;
+
+  text-align: left;
+}
+
+/* =========================
+   COLUMNA DERECHA
+   ========================= */
+
+.footerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+}
+
 /* =========================
    NAVEGACIÓN PRINCIPAL
    ========================= */
 
 .footerNav {
+  width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: clamp(8px, 1.3vw, 20px);
   flex-wrap: wrap;
-  width: 100%;
-  padding-right: clamp(4rem, 8vw, 20vh);
-  padding-left: clamp(12rem, 20vw, 22rem);
-  box-sizing: border-box;
+
+  gap:
+    0.2rem
+    clamp(0.35rem, 0.7vw, 0.75rem);
 }
 
 .footerButton,
@@ -57,16 +146,24 @@
 .footerHelp {
   background: none;
   border: none;
+
   color: #1e364d;
-  font-size: clamp(0.88rem, 1vw, 1rem);
-  font-weight: 700;
+
   font-family: 'Inter', sans-serif;
+  font-size: clamp(0.76rem, 0.82vw, 0.9rem);
+  font-weight: 700;
+
   cursor: pointer;
+
   display: inline-block;
-  min-width: auto;
-  padding: 10px 12px;
+
+  padding:
+    0.3rem
+    clamp(0.35rem, 0.55vw, 0.6rem);
+
   text-align: center;
   text-decoration: none;
+
   transition:
     color 0.3s ease,
     transform 0.2s ease;
@@ -80,7 +177,23 @@
 .footerLink:hover,
 .footerHelp:hover {
   color: #f57c00;
-  transform: translateY(-1px);
+  transform: translateY(-0.05rem);
+}
+
+/* =========================
+   ACCIONES
+   ========================= */
+
+.footerActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  gap:
+    0.5rem
+    clamp(0.9rem, 1.4vw, 1.4rem);
+    padding-right: clamp(1rem, 4vw, 4rem);
 }
 
 /* =========================
@@ -88,96 +201,105 @@
    ========================= */
 
 .whatsappFooter {
-  margin-top: 4vh;
-  margin-bottom: 1.5vh;
-  text-align: center;
+  margin: 0;
 }
 
 .whatsappFooter a {
+  display: inline-block;
+
   background-color: #25d366;
   color: #ffffff;
-  padding: 8px 15px;
-  border-radius: 8px;
-  font-size: 14px;
+
+  padding:
+    clamp(0.38rem, 0.48vw, 0.48rem)
+    clamp(0.72rem, 0.9vw, 0.92rem);
+
+  border-radius: 0.5rem;
+
+  font-size: clamp(0.72rem, 0.78vw, 0.84rem);
+  font-weight: 500;
+
   text-decoration: none;
+
   transition:
     background-color 0.3s ease,
     transform 0.2s ease;
 }
 
 .whatsappFooter a:hover {
-  background-color: #128c7e;
-  transform: translateY(-1px);
+  background-color: #23b320;
+  transform: translateY(-0.05rem);
 }
 
 /* =========================
-   NAVEGACIÓN LEGAL
+   GESTIONES DE CONSUMIDORES
    ========================= */
 
-.legalNav {
-  width: min(94%, 1000px);
-  margin-top: 1.5rem;
-  padding-top: 1.35rem;
-  border-top: 1px solid rgba(30, 54, 77, 0.12);
-
+.consumerNav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
 
-  gap: 0.45rem 1.15rem;
+  gap:
+    0.3rem
+    clamp(0.75rem, 1.1vw, 1rem);
 }
 
-.legalNav a {
-  color: #777d82;
+.consumerNav a {
+  color: #1e364d;
+
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 1.5;
+  font-size: clamp(0.69rem, 0.74vw, 0.79rem);
+  font-weight: 600;
+  line-height: 1.35;
+
   text-decoration: none;
-  transition: color 0.25s ease;
+
+  transition:
+    color 0.25s ease,
+    transform 0.2s ease;
 }
 
-.legalNav a:hover {
+.consumerNav a:hover {
   color: #f57c00;
-}
-
-.legalNav .legalAction {
-  color: #616a70;
-  font-weight: 500;
-}
-
-/* =========================
-   COPYRIGHT
-   ========================= */
-
-.copyright {
-  margin: 1rem 0 0;
-  color: #7c7f58;
-  font-size: 1rem;
-  text-align: center;
+  transform: translateY(-0.05rem);
 }
 
 /* =========================
    TABLET
    ========================= */
 
-@media (min-width: 768px) and (max-width: 1100px) {
+@media (min-width: 48rem) and (max-width: 68.75rem) {
+  .footerInner {
+    width: 94%;
+    grid-template-columns:
+      minmax(0, 0.72fr)
+      minmax(0, 1.28fr);
+
+    gap: clamp(1.8rem, 4vw, 3rem);
+  }
+
   .footerNav {
-    padding-left: clamp(10em, 15vw, 18em);
-    padding-right: 4vw;
-    gap: 0.5rem;
+    gap:
+      0.15rem
+      0.3rem;
   }
 
   .footerButton,
   .footerLink,
   .footerHelp {
-    padding: 9px 8px;
-    font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+    padding:
+      0.28rem
+      0.34rem;
+
+    font-size: clamp(0.72rem, 1.1vw, 0.84rem);
   }
 
-  .legalNav {
-    width: 90%;
+  .footerActions {
+    gap:
+      0.45rem
+      0.8rem;
   }
 }
 
@@ -185,56 +307,86 @@
    MÓVIL
    ========================= */
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .footer {
-    padding: 8vh 5vw 3vh;
+    padding:
+      clamp(2.2rem, 8vw, 3rem)
+      5vw
+      clamp(1.7rem, 6vw, 2.3rem);
+  }
+
+  .footerInner {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .footerLeft,
+  .footerRight {
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .footerLogo {
-    position: static;
-    width: 50vw;
-    max-width: 190px;
-    margin-bottom: 2vh;
+    width: min(50vw, 12rem);
+  }
+
+  .footerMeta {
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .legalNav {
+    justify-content: center;
+  }
+
+  .copyright {
+    text-align: center;
   }
 
   .footerNav {
-    width: 100%;
-    padding: 0;
     flex-direction: column;
     align-items: center;
-    gap: 0.7rem;
+    justify-content: center;
+    gap: 0.3rem;
   }
 
   .footerButton,
   .footerLink,
   .footerHelp {
     width: 100%;
-    padding: 9px 10px;
-    font-size: clamp(0.85rem, 3.5vw, 1rem);
+
+    padding:
+      0.4rem
+      0.55rem;
+
+    font-size: clamp(0.82rem, 3.5vw, 0.98rem);
   }
 
-  .whatsappFooter {
-    margin-top: 2vh;
-  }
-
-  .legalNav {
-    width: 100%;
-    margin-top: 1.25rem;
-    padding-top: 1.25rem;
-    flex-direction: row;
+  .footerActions {
+    flex-direction: column;
     justify-content: center;
-    gap: 0.55rem 1rem;
+
+    gap: clamp(0.7rem, 3vw, 0.95rem);
+  }
+
+  .consumerNav {
+    justify-content: center;
+    gap:
+      0.35rem
+      0.8rem;
+  }
+
+  .consumerNav a {
+    font-size: clamp(0.72rem, 3vw, 0.8rem);
+    text-align: center;
   }
 
   .legalNav a {
-    font-size: 11.5px;
+    font-size: clamp(0.67rem, 2.8vw, 0.76rem);
   }
 
   .copyright {
-    margin-top: 2rem;
-    font-size: clamp(0.75rem, 2vw, 0.9rem);
-    text-align: center;
+    font-size: clamp(0.64rem, 2.7vw, 0.72rem);
   }
 }

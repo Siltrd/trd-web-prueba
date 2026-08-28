@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import LegalLayout from '../components/LegalLayout';
 import '../styles/legalForms.css';
 
@@ -16,7 +17,7 @@ const sections = [
   { id: 'comunicaciones', label: 'Comunicaciones' },
   { id: 'conservacion', label: 'Conservación del trámite' },
   { id: 'derechos', label: 'Derechos del consumidor' },
-  { id: 'solicitud-baja', label: 'Solicitud de baja' },
+  { id: 'formulario', label: 'Solicitud de baja' },
 ];
 
 const BajaServicio = () => {
@@ -31,6 +32,7 @@ const BajaServicio = () => {
 
   const [status, setStatus] = useState('idle');
   const [codigo, setCodigo] = useState('');
+  const [confirmationSent, setConfirmationSent] = useState(true);
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -48,6 +50,7 @@ const BajaServicio = () => {
     setStatus('sending');
     setError('');
     setCodigo('');
+    setConfirmationSent(true);
 
     try {
       const response = await fetch('/api/baja', {
@@ -65,6 +68,7 @@ const BajaServicio = () => {
       }
 
       setCodigo(data.codigo);
+      setConfirmationSent(data.confirmationSent !== false);
       setStatus('success');
 
       setFormData({
@@ -116,7 +120,8 @@ const BajaServicio = () => {
 
         <p>
           Cuando corresponda, el consumidor podrá solicitar la baja mediante el
-          Botón de Baja de Servicio habilitado en el sitio web de TDR.
+          <strong> Botón de Baja de Servicio</strong> habilitado en el sitio web
+          de TDR.
         </p>
 
         <p>
@@ -125,9 +130,16 @@ const BajaServicio = () => {
         </p>
 
         <p>
-          Cuando resulte necesario, TDR podrá aplicar mecanismos razonables de
-          verificación de identidad exclusivamente con fines de seguridad y
-          validación de la solicitud.
+          Cuando resulte necesario corroborar los datos o la identidad de quien
+          formula la solicitud, TDR podrá aplicar mecanismos razonables de
+          verificación mediante medios habituales y exclusivamente con fines de
+          seguridad y validación.
+        </p>
+
+        <p>
+          Dichos mecanismos no tendrán por objeto dificultar, demorar
+          injustificadamente ni impedir el ejercicio del derecho a solicitar la
+          baja.
         </p>
       </section>
 
@@ -162,8 +174,9 @@ const BajaServicio = () => {
         </p>
 
         <p>
-          La constancia será enviada dentro de las 24 horas siguientes a la
-          recepción de la solicitud, conforme a la normativa aplicable.
+          Dentro de las veinticuatro (24) horas siguientes a la recepción de la
+          solicitud, TDR informará dicho código y adoptará las medidas
+          necesarias para efectivizar la baja cuando corresponda.
         </p>
 
         <p>
@@ -185,6 +198,11 @@ const BajaServicio = () => {
           <li>los pagos efectuados;</li>
           <li>las condiciones particulares aplicables al servicio.</li>
         </ul>
+
+        <p>
+          Esta verificación se realizará sin imponer requisitos que tengan por
+          efecto obstaculizar o demorar injustificadamente la solicitud.
+        </p>
       </section>
 
       <section id="efectos">
@@ -192,7 +210,7 @@ const BajaServicio = () => {
 
         <p>
           La baja producirá la finalización del servicio conforme a las
-          condiciones aplicables a la contratación.
+          condiciones aplicables a la contratación y a la normativa vigente.
         </p>
 
         <p>
@@ -204,9 +222,9 @@ const BajaServicio = () => {
 
         <p>
           La baja no genera automáticamente derecho al reintegro de importes
-          correspondientes a prestaciones ya realizadas. Los efectos
-          económicos se determinarán conforme a las condiciones aplicables y a
-          los derechos que legalmente correspondan.
+          correspondientes a prestaciones ya realizadas. Los efectos económicos
+          se determinarán conforme a las prestaciones realizadas, las pendientes,
+          las condiciones aplicables y los derechos que legalmente correspondan.
         </p>
       </section>
 
@@ -253,13 +271,19 @@ const BajaServicio = () => {
         <p>
           Cuando de la baja resulte un saldo a favor del consumidor, TDR
           gestionará el reintegro conforme a la Política de Reservas,
-          Cancelaciones y Devoluciones.
+          Cancelaciones y Devoluciones y dentro de los plazos legalmente
+          aplicables.
         </p>
 
         <p>
           Siempre que sea posible, la devolución se realizará mediante el mismo
-          medio utilizado para el pago o mediante otro medio acordado con el
-          consumidor.
+          medio utilizado para efectuar el pago o mediante otro medio acordado
+          cuando exista una razón que lo justifique.
+        </p>
+
+        <p>
+          El tiempo de acreditación final podrá depender de la entidad bancaria,
+          proveedor de pagos o medio utilizado.
         </p>
       </section>
 
@@ -267,15 +291,14 @@ const BajaServicio = () => {
         <h2>10. Solicitudes incompletas</h2>
 
         <p>
-          Si la información recibida no permitiera identificar correctamente la
-          contratación, TDR podrá solicitar los datos mínimos adicionales
-          necesarios.
+          Si la información recibida no permitiera identificar correctamente el
+          servicio o la contratación, TDR podrá solicitar únicamente los datos
+          mínimos adicionales necesarios para tramitar la baja.
         </p>
 
         <p>
-          Esta solicitud de información no tendrá por objeto dificultar,
-          demorar injustificadamente ni impedir el ejercicio del derecho a
-          solicitar la baja.
+          Esta solicitud de información no tendrá por objeto dificultar, demorar
+          injustificadamente ni impedir el ejercicio del derecho.
         </p>
       </section>
 
@@ -284,8 +307,8 @@ const BajaServicio = () => {
 
         <p>
           Las comunicaciones relacionadas con la baja se enviarán al correo
-          electrónico informado por el consumidor, salvo que se acuerde otro
-          medio adecuado.
+          electrónico informado por el consumidor, salvo que resulte necesario
+          utilizar otro medio adecuado.
         </p>
       </section>
 
@@ -295,8 +318,8 @@ const BajaServicio = () => {
         <p>
           TDR podrá conservar la constancia de la solicitud, su código
           identificatorio, las comunicaciones vinculadas y la resolución
-          adoptada durante el tiempo necesario para cumplir obligaciones
-          legales, contractuales y administrativas.
+          adoptada durante el tiempo necesario para acreditar el cumplimiento
+          de sus obligaciones legales, contractuales y administrativas.
         </p>
       </section>
 
@@ -305,33 +328,40 @@ const BajaServicio = () => {
 
         <p>
           Este procedimiento no limita, sustituye ni condiciona los derechos
-          reconocidos por la normativa aplicable.
+          reconocidos al consumidor por la normativa aplicable.
         </p>
       </section>
 
-      <section id="solicitud-baja">
-        <h2>14. Solicitud de baja de servicio</h2>
+      <section id="formulario">
+        <h2>14. Solicitud de baja</h2>
 
         <p>
-          Completa el siguiente formulario para solicitar la baja del servicio.
+          Completa el siguiente formulario para solicitar la baja de un servicio
+          cuando corresponda.
         </p>
 
         {status === 'success' ? (
           <div className="legalFormSuccess">
             <h3>Solicitud recibida</h3>
 
-            <p>
-              Tu solicitud de baja ha sido registrada correctamente.
-            </p>
+            <p>Tu solicitud ha sido registrada correctamente.</p>
 
             <p>
               Código de trámite: <strong>{codigo}</strong>
             </p>
 
-            <p>
-              También hemos enviado una constancia al correo electrónico
-              informado.
-            </p>
+            {confirmationSent ? (
+              <p>
+                También hemos enviado una constancia al correo electrónico
+                informado.
+              </p>
+            ) : (
+              <p>
+                La solicitud quedó registrada, pero no pudimos enviar la
+                constancia por correo electrónico. Conserva el código que
+                aparece en esta página.
+              </p>
+            )}
 
             <p>
               Conserva este código para cualquier consulta relacionada con la
@@ -412,9 +442,7 @@ const BajaServicio = () => {
             </div>
 
             <div className="legalFormField">
-              <label htmlFor="additionalInfo">
-                Información adicional
-              </label>
+              <label htmlFor="additionalInfo">Información adicional</label>
 
               <textarea
                 id="additionalInfo"
@@ -423,7 +451,21 @@ const BajaServicio = () => {
                 value={formData.additionalInfo}
                 onChange={handleChange}
               />
+
+              <p className="legalFormNote">
+                No incluyas datos sensibles que no sean necesarios para
+                identificar o gestionar la solicitud.
+              </p>
             </div>
+
+            <p className="legalFormPrivacy">
+              Los datos enviados mediante este formulario se utilizarán para
+              identificar el servicio, gestionar la solicitud y cumplir las
+              obligaciones legales y administrativas vinculadas al trámite. Los
+              campos marcados con * son necesarios. Puedes consultar más
+              información y cómo ejercer tus derechos en nuestra{' '}
+              <Link to="/privacidad">Política de Privacidad</Link>.
+            </p>
 
             {status === 'error' && (
               <p className="legalFormError">{error}</p>

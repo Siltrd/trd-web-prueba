@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import LegalLayout from '../components/LegalLayout';
 import '../styles/legalForms.css';
 
@@ -14,73 +15,79 @@ const sections = [
   { id: 'comunicaciones', label: 'Comunicaciones' },
   { id: 'conservacion', label: 'Conservación del trámite' },
   { id: 'derechos', label: 'Derechos del consumidor' },
-  { id: 'contacto', label: 'Contacto' },
+  { id: 'solicitud', label: 'Solicitud de arrepentimiento' },
 ];
 
 const Arrepentimiento = () => {
   const [formData, setFormData] = useState({
-  name: '',
-  email: '',
-  service: '',
-  contractDate: '',
-  reference: '',
-  additionalInfo: '',
-});
+    name: '',
+    email: '',
+    service: '',
+    contractDate: '',
+    reference: '',
+    additionalInfo: '',
+  });
 
-const [status, setStatus] = useState('idle');
-const [codigo, setCodigo] = useState('');
-const [error, setError] = useState('');
+  const [status, setStatus] = useState('idle');
+  const [codigo, setCodigo] = useState('');
+  const [confirmationSent, setConfirmationSent] = useState(true);
+  const [error, setError] = useState('');
 
-const handleChange = (e) => {
-  const { name, value } = e.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-  setFormData((prev) => ({
-    ...prev,
-    [name]: value,
-  }));
-};
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  setStatus('sending');
-  setError('');
-  setCodigo('');
+    setStatus('sending');
+    setError('');
+    setCodigo('');
+    setConfirmationSent(true);
 
-  try {
-    const response = await fetch('/api/arrepentimiento', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch('/api/arrepentimiento', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (!response.ok || !data.ok) {
-      throw new Error(data.error || 'No se pudo enviar la solicitud.');
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || 'No se pudo enviar la solicitud.');
+      }
+
+      setCodigo(data.codigo);
+      setConfirmationSent(data.confirmationSent !== false);
+      setStatus('success');
+
+      setFormData({
+        name: '',
+        email: '',
+        service: '',
+        contractDate: '',
+        reference: '',
+        additionalInfo: '',
+      });
+    } catch (err) {
+      console.error(err);
+
+      setError(
+        'No pudimos registrar la solicitud. Intenta nuevamente o contacta con TDR.'
+      );
+
+      setStatus('error');
     }
+  };
 
-    setCodigo(data.codigo);
-    setStatus('success');
-
-    setFormData({
-      name: '',
-      email: '',
-      service: '',
-      contractDate: '',
-      reference: '',
-      additionalInfo: '',
-    });
-  } catch (err) {
-    console.error(err);
-    setError(
-      'No pudimos registrar la solicitud. Intenta nuevamente o contacta con TDR.'
-    );
-    setStatus('error');
-  }
-};
   return (
     <LegalLayout
       title="Procedimiento de Arrepentimiento"
@@ -99,10 +106,11 @@ const handleSubmit = async (e) => {
         </p>
 
         <p>
-          Con carácter general, el consumidor dispone del plazo previsto por la
-          normativa aplicable para ejercer el derecho de revocación, sin
-          perjuicio de las excepciones o modalidades que pudieran corresponder
-          según la naturaleza de la contratación.
+          Con carácter general, el consumidor dispone de un plazo de diez (10)
+          días para ejercer el derecho de revocación en las contrataciones a
+          distancia cuando resulte legalmente aplicable, sin perjuicio de las
+          excepciones, modalidades especiales o supuestos específicos previstos
+          por la normativa vigente.
         </p>
       </section>
 
@@ -110,8 +118,9 @@ const handleSubmit = async (e) => {
         <h2>2. Cómo ejercer el derecho</h2>
 
         <p>
-          El consumidor podrá iniciar la solicitud mediante el Botón de
-          Arrepentimiento habilitado en el sitio web de TDR.
+          El consumidor podrá iniciar la solicitud mediante el
+          <strong> Botón de Arrepentimiento</strong> habilitado en el sitio web
+          de TDR.
         </p>
 
         <p>
@@ -120,9 +129,15 @@ const handleSubmit = async (e) => {
         </p>
 
         <p>
-          Cuando resulte necesario, TDR podrá aplicar mecanismos razonables de
-          verificación de identidad exclusivamente con fines de seguridad y
-          validación de la solicitud.
+          Cuando resulte necesario corroborar los datos o la identidad de quien
+          formula la solicitud, TDR podrá aplicar mecanismos razonables de
+          verificación mediante medios habituales y exclusivamente con fines de
+          seguridad y validación.
+        </p>
+
+        <p>
+          Dichos mecanismos no tendrán por objeto dificultar, demorar
+          injustificadamente ni impedir el ejercicio del derecho.
         </p>
       </section>
 
@@ -157,8 +172,9 @@ const handleSubmit = async (e) => {
         </p>
 
         <p>
-          La constancia será enviada dentro de las 24 horas siguientes a la
-          recepción de la solicitud, conforme a la normativa aplicable.
+          Dentro de las veinticuatro (24) horas siguientes a la recepción de la
+          solicitud, TDR informará dicho código y adoptará las medidas
+          necesarias para efectivizar la revocación cuando resulte procedente.
         </p>
 
         <p>
@@ -183,6 +199,11 @@ const handleSubmit = async (e) => {
             derecho.
           </li>
         </ul>
+
+        <p>
+          Esta verificación se realizará sin imponer requisitos que tengan por
+          efecto obstaculizar injustificadamente el ejercicio del derecho.
+        </p>
       </section>
 
       <section id="efectos">
@@ -195,10 +216,22 @@ const handleSubmit = async (e) => {
         </p>
 
         <p>
-          Cuando el servicio haya sido prestado total o parcialmente, los
-          efectos económicos de la revocación se determinarán conforme a la
-          normativa aplicable, la naturaleza de la prestación y las
-          circunstancias concretas de la contratación.
+          El derecho estará sujeto a las excepciones y modalidades previstas
+          legalmente, incluyendo los supuestos contemplados para determinados
+          servicios o contenidos digitales y las demás situaciones en las que
+          la normativa excluya o limite su ejercicio.
+        </p>
+
+        <p>
+          Cuando el producto o servicio hubiera sido efectivamente utilizado o
+          consumido antes de formular la solicitud, se aplicarán las
+          disposiciones vigentes correspondientes a ese supuesto.
+        </p>
+
+        <p>
+          Los efectos económicos de la revocación se determinarán conforme a la
+          naturaleza de la contratación, las circunstancias del caso y los
+          derechos que legalmente correspondan.
         </p>
       </section>
 
@@ -207,18 +240,19 @@ const handleSubmit = async (e) => {
 
         <p>
           Cuando corresponda un reintegro, TDR gestionará la devolución
-          conforme a la Política de Reservas, Cancelaciones y Devoluciones.
+          conforme a la Política de Reservas, Cancelaciones y Devoluciones y a
+          los plazos que resulten legalmente aplicables.
         </p>
 
         <p>
           Siempre que sea posible, el reintegro se realizará mediante el mismo
           medio utilizado para efectuar el pago o mediante otro medio acordado
-          con el consumidor.
+          con el consumidor cuando exista una razón que lo justifique.
         </p>
 
         <p>
-          El tiempo de acreditación final podrá depender de la entidad
-          bancaria, proveedor de pagos o medio utilizado.
+          El tiempo de acreditación final podrá depender de la entidad bancaria,
+          proveedor de pagos o medio utilizado.
         </p>
       </section>
 
@@ -227,8 +261,8 @@ const handleSubmit = async (e) => {
 
         <p>
           Si la información proporcionada no permitiera identificar
-          correctamente la contratación, TDR podrá solicitar los datos mínimos
-          adicionales necesarios para tramitar el pedido.
+          correctamente la contratación, TDR podrá solicitar únicamente los
+          datos mínimos adicionales necesarios para tramitar el pedido.
         </p>
 
         <p>
@@ -242,8 +276,8 @@ const handleSubmit = async (e) => {
 
         <p>
           Las comunicaciones relacionadas con el arrepentimiento se enviarán al
-          correo electrónico informado por el consumidor, salvo que se acuerde
-          otro medio adecuado.
+          correo electrónico informado por el consumidor, salvo que resulte
+          necesario utilizar otro medio adecuado.
         </p>
       </section>
 
@@ -266,133 +300,164 @@ const handleSubmit = async (e) => {
           reconocidos al consumidor por la normativa aplicable.
         </p>
       </section>
-<section id="contacto">
-  <h2>12. Solicitud de arrepentimiento</h2>
 
-  <p>
-    Completa el siguiente formulario para ejercer el derecho de
-    arrepentimiento cuando resulte aplicable.
-  </p>
+      <section id="solicitud">
+        <h2>12. Solicitud de arrepentimiento</h2>
 
-  {status === 'success' ? (
-    <div className="legalFormSuccess">
-      <h3>Solicitud recibida</h3>
+        <p>
+          Completa el siguiente formulario para ejercer el derecho de
+          arrepentimiento cuando resulte aplicable.
+        </p>
 
-      <p>
-        Tu solicitud ha sido registrada correctamente.
-      </p>
+        {status === 'success' ? (
+          <div className="legalFormSuccess">
+            <h3>Solicitud recibida</h3>
 
-      <p>
-        Código de trámite: <strong>{codigo}</strong>
-      </p>
+            <p>
+              Tu solicitud ha sido registrada correctamente.
+            </p>
 
-      <p>
-        También hemos enviado una constancia al correo electrónico
-        informado.
-      </p>
+            <p>
+              Código de trámite: <strong>{codigo}</strong>
+            </p>
 
-      <p>
-        Conserva este código para cualquier consulta relacionada con la
-        solicitud.
-      </p>
-    </div>
-  ) : (
-    <form className="legalForm" onSubmit={handleSubmit}>
-      <div className="legalFormField">
-        <label htmlFor="name">Nombre y apellido *</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-      </div>
+            {confirmationSent ? (
+              <p>
+                También hemos enviado una constancia al correo electrónico
+                informado.
+              </p>
+            ) : (
+              <p>
+                La solicitud quedó registrada, pero no pudimos enviar la
+                constancia por correo electrónico. Conserva el código que
+                aparece en esta página.
+              </p>
+            )}
 
-      <div className="legalFormField">
-        <label htmlFor="email">
-          Correo electrónico utilizado en la contratación *
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
+            <p>
+              Conserva este código para cualquier consulta relacionada con la
+              solicitud.
+            </p>
+          </div>
+        ) : (
+          <form className="legalForm" onSubmit={handleSubmit}>
+            <div className="legalFormField">
+              <label htmlFor="name">Nombre y apellido *</label>
 
-      <div className="legalFormField">
-        <label htmlFor="service">Servicio contratado *</label>
-        <input
-          id="service"
-          name="service"
-          type="text"
-          value={formData.service}
-          onChange={handleChange}
-          required
-        />
-      </div>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-      <div className="legalFormField">
-        <label htmlFor="contractDate">
-          Fecha aproximada de contratación *
-        </label>
-        <input
-          id="contractDate"
-          name="contractDate"
-          type="date"
-          value={formData.contractDate}
-          onChange={handleChange}
-          max={new Date().toISOString().split('T')[0]}
-          required
-       />
-      </div>
+            <div className="legalFormField">
+              <label htmlFor="email">
+                Correo electrónico utilizado en la contratación *
+              </label>
 
-      <div className="legalFormField">
-        <label htmlFor="reference">
-          Referencia de reserva, operación o pago
-        </label>
-        <input
-          id="reference"
-          name="reference"
-          type="text"
-          value={formData.reference}
-          onChange={handleChange}
-        />
-      </div>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-      <div className="legalFormField">
-        <label htmlFor="additionalInfo">
-          Información adicional
-        </label>
-        <textarea
-          id="additionalInfo"
-          name="additionalInfo"
-          rows="5"
-          value={formData.additionalInfo}
-          onChange={handleChange}
-        />
-      </div>
+            <div className="legalFormField">
+              <label htmlFor="service">Servicio contratado *</label>
 
-      {status === 'error' && (
-        <p className="legalFormError">{error}</p>
-      )}
+              <input
+                id="service"
+                name="service"
+                type="text"
+                value={formData.service}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-      <button
-        type="submit"
-        className="legalFormButton"
-        disabled={status === 'sending'}
-      >
-        {status === 'sending'
-          ? 'Enviando solicitud...'
-          : 'Enviar solicitud de arrepentimiento'}
-      </button>
-    </form>
-  )}
-</section>
+            <div className="legalFormField">
+              <label htmlFor="contractDate">
+                Fecha aproximada de contratación *
+              </label>
+
+              <input
+                id="contractDate"
+                name="contractDate"
+                type="date"
+                value={formData.contractDate}
+                onChange={handleChange}
+                max={new Date().toISOString().split('T')[0]}
+                required
+              />
+            </div>
+
+            <div className="legalFormField">
+              <label htmlFor="reference">
+                Referencia de reserva, operación o pago
+              </label>
+
+              <input
+                id="reference"
+                name="reference"
+                type="text"
+                value={formData.reference}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="legalFormField">
+              <label htmlFor="additionalInfo">
+                Información adicional
+              </label>
+
+              <textarea
+                id="additionalInfo"
+                name="additionalInfo"
+                rows="5"
+                value={formData.additionalInfo}
+                onChange={handleChange}
+              />
+
+              <p className="legalFormNote">
+                No incluyas datos sensibles que no sean necesarios para
+                identificar o gestionar la solicitud.
+              </p>
+            </div>
+
+            <p className="legalFormPrivacy">
+              Los datos enviados mediante este formulario se utilizarán para
+              identificar la contratación, gestionar la solicitud y cumplir las
+              obligaciones legales y administrativas vinculadas al trámite. Los
+              campos marcados con * son necesarios. Puedes consultar más
+              información y cómo ejercer tus derechos en nuestra{' '}
+              <Link to="/privacidad">
+                Política de Privacidad
+              </Link>.
+            </p>
+
+            {status === 'error' && (
+              <p className="legalFormError">{error}</p>
+            )}
+
+            <button
+              type="submit"
+              className="legalFormButton"
+              disabled={status === 'sending'}
+            >
+              {status === 'sending'
+                ? 'Enviando solicitud...'
+                : 'Enviar solicitud de arrepentimiento'}
+            </button>
+          </form>
+        )}
+      </section>
     </LegalLayout>
   );
 };

@@ -31,9 +31,9 @@ const ReservasDevoluciones = () => {
 
         <p>
           Esta política regula las reservas, reprogramaciones, cancelaciones,
-          inasistencias y devoluciones aplicables a los servicios contratados
-          con <strong>Tunica de Realidad</strong>, en adelante
-          <strong> “TDR”</strong>.
+          inasistencias, finalización anticipada y devoluciones aplicables a los
+          servicios contratados con <strong>Tunica de Realidad</strong>, en
+          adelante <strong>“TDR”</strong>.
         </p>
 
         <p>
@@ -44,7 +44,8 @@ const ReservasDevoluciones = () => {
 
         <p>
           Ninguna condición particular limitará los derechos inderogables que
-          pudieran corresponder al consumidor conforme a la normativa aplicable.
+          pudieran corresponder al consumidor conforme a la normativa
+          aplicable.
         </p>
       </section>
 
@@ -62,6 +63,13 @@ const ReservasDevoluciones = () => {
           presupuesto o condiciones particulares, la confirmación estará sujeta
           a dicha coordinación.
         </p>
+
+        <p>
+          Antes de formalizar la contratación se informarán las condiciones
+          esenciales del servicio, incluyendo modalidad, duración, precio,
+          condiciones de reserva y reglas de cancelación o reprogramación
+          aplicables.
+        </p>
       </section>
 
       <section id="coaching">
@@ -75,7 +83,7 @@ const ReservasDevoluciones = () => {
 
         <p>
           La fecha y horario elegidos quedan confirmados una vez acreditado el
-          pago.
+          pago, cuando este sea requerido para confirmar la reserva.
         </p>
 
         <h3>Reprogramaciones</h3>
@@ -87,8 +95,9 @@ const ReservasDevoluciones = () => {
 
         <p>
           Las solicitudes realizadas con menos de 24 horas de anticipación no
-          generan derecho contractual a reprogramación, sin perjuicio de los
-          derechos que pudieran resultar aplicables.
+          generan, como regla contractual, derecho automático a una nueva fecha,
+          sin perjuicio de las circunstancias particulares y de los derechos que
+          pudieran resultar legalmente aplicables.
         </p>
 
         <h3>Cancelaciones e inasistencias</h3>
@@ -96,9 +105,9 @@ const ReservasDevoluciones = () => {
         <p>
           Si el cliente cancela con menos de 24 horas de anticipación o no se
           presenta en el horario acordado, el importe correspondiente a esa
-          sesión no será reintegrado ni podrá aplicarse a una nueva fecha como
-          regla contractual, sin perjuicio de los derechos que pudieran
-          corresponder legalmente.
+          sesión no será reintegrado ni podrá aplicarse automáticamente a una
+          nueva fecha como regla contractual, sin perjuicio de los derechos que
+          pudieran corresponder legalmente.
         </p>
 
         <p>
@@ -113,13 +122,13 @@ const ReservasDevoluciones = () => {
 
         <p>
           Cuando se contrate un proceso compuesto por varias sesiones, las
-          fechas se coordinarán previamente al pago cuando así se indique en la
-          propuesta comercial.
+          fechas podrán coordinarse previamente al pago cuando así se indique en
+          la propuesta comercial.
         </p>
 
         <p>
-          Una vez acordadas las fechas y acreditado el pago, el proceso quedará
-          confirmado.
+          Una vez cumplidas las condiciones informadas y acreditado el pago
+          cuando corresponda, el proceso quedará confirmado.
         </p>
 
         <p>
@@ -138,14 +147,15 @@ const ReservasDevoluciones = () => {
         </p>
 
         <p>
-          Cuando existan sesiones pendientes, se calculará el importe a
-          reintegrar descontando del precio abonado las sesiones efectivamente
-          realizadas, valoradas al precio de la sesión individual vigente al
-          momento de la contratación.
+          Cuando existan sesiones pendientes, se calculará el importe que
+          corresponda reintegrar descontando del precio abonado las sesiones
+          efectivamente realizadas, valoradas al precio de la sesión individual
+          vigente al momento de la contratación.
         </p>
 
         <p>
-          El saldo resultante será reintegrado conforme a esta política.
+          El saldo resultante, cuando corresponda, será reintegrado conforme a
+          esta política y a la normativa aplicable.
         </p>
 
         <p>
@@ -189,8 +199,8 @@ const ReservasDevoluciones = () => {
         <p>
           Las experiencias, eventos y programas podrán contar con reglas
           particulares relativas a fecha, lugar, aforo, inscripción, pagos,
-          reprogramaciones, cancelaciones, inasistencias y acceso a materiales
-          o grabaciones.
+          reprogramaciones, cancelaciones, inasistencias y acceso a materiales o
+          grabaciones.
         </p>
 
         <p>
@@ -208,14 +218,21 @@ const ReservasDevoluciones = () => {
         <h2>8. Recursos digitales</h2>
 
         <p>
-          Las condiciones de devolución de recursos digitales dependerán de la
-          naturaleza del contenido, de la forma de acceso y de la normativa
-          aplicable.
+          Las condiciones de devolución y ejercicio del derecho de
+          arrepentimiento respecto de recursos digitales dependerán de la
+          naturaleza del contenido, de la forma en que se suministre y de la
+          normativa aplicable.
         </p>
 
         <p>
-          Cuando corresponda, se informarán condiciones específicas antes de la
-          compra.
+          Antes de la compra se informarán, cuando corresponda, las condiciones
+          específicas de acceso, disponibilidad, uso y devolución.
+        </p>
+
+        <p>
+          Podrán resultar aplicables las excepciones legales previstas para
+          determinados contenidos digitales suministrados electrónicamente y
+          susceptibles de utilización o reproducción inmediata.
         </p>
       </section>
 
@@ -229,15 +246,23 @@ const ReservasDevoluciones = () => {
         </p>
 
         <p>
-          TDR dispondrá en su sitio web del mecanismo correspondiente para
-          ejercer este derecho.
+          TDR dispone en su sitio web del
+          <strong> Botón de Arrepentimiento</strong>, mediante el cual podrá
+          iniciarse la solicitud sin necesidad de crear una cuenta ni iniciar
+          sesión.
+        </p>
+
+        <p>
+          Una vez recibida la solicitud, TDR informará el código identificatorio
+          correspondiente y adoptará, dentro del plazo legal aplicable, las
+          medidas necesarias para efectivizar la revocación cuando resulte
+          procedente.
         </p>
 
         <p>
           Los efectos de la revocación, incluyendo las restituciones que
-          correspondan cuando una prestación haya sido ejecutada total o
-          parcialmente, se determinarán conforme a la normativa aplicable y a
-          las circunstancias de la contratación.
+          correspondan, se determinarán conforme a la normativa aplicable, la
+          naturaleza de la contratación y las circunstancias del caso.
         </p>
       </section>
 
@@ -246,13 +271,26 @@ const ReservasDevoluciones = () => {
 
         <p>
           Cuando corresponda, el consumidor podrá solicitar la baja o
-          finalización de un servicio en curso mediante el mecanismo habilitado
-          por TDR.
+          finalización de un servicio en curso mediante el
+          <strong> Botón de Baja de Servicio</strong> disponible en el sitio de
+          TDR.
         </p>
 
         <p>
-          La baja se regirá además por las condiciones específicas del servicio
-          y por las reglas sobre reintegros previstas en esta política.
+          La solicitud podrá iniciarse sin necesidad de crear una cuenta ni
+          iniciar sesión.
+        </p>
+
+        <p>
+          TDR informará el código identificatorio correspondiente y adoptará las
+          medidas necesarias para hacer efectiva la baja conforme a la normativa
+          y a las condiciones aplicables.
+        </p>
+
+        <p>
+          La baja se regirá además por las condiciones específicas del servicio,
+          por las reglas sobre prestaciones ya realizadas y pendientes y por
+          esta política.
         </p>
       </section>
 
@@ -260,15 +298,21 @@ const ReservasDevoluciones = () => {
         <h2>11. Devoluciones</h2>
 
         <p>
-          Cuando corresponda efectuar un reintegro, TDR gestionará la
-          devolución dentro de los 5 días hábiles siguientes a la aceptación de
-          la solicitud.
+          Cuando corresponda efectuar un reintegro, TDR gestionará la devolución
+          sin demora injustificada y dentro de los plazos que resulten
+          legalmente aplicables según la naturaleza de la contratación y la
+          causa del reintegro.
         </p>
 
         <p>
-          El plazo de acreditación final podrá depender de la entidad bancaria,
-          proveedor de pagos o medio utilizado, y podrá exceder el plazo de
-          gestión de TDR.
+          El tiempo necesario para que el importe quede finalmente acreditado
+          podrá depender de la entidad bancaria, proveedor de pagos o medio
+          utilizado y puede exceder el tiempo de gestión propio de TDR.
+        </p>
+
+        <p>
+          Cuando una normativa específica establezca un plazo concreto para un
+          determinado supuesto, prevalecerá dicho plazo.
         </p>
       </section>
 
@@ -278,7 +322,7 @@ const ReservasDevoluciones = () => {
         <p>
           Siempre que sea posible, los reintegros se realizarán mediante el
           mismo medio utilizado para efectuar el pago o mediante otro medio
-          acordado con el cliente.
+          acordado con el cliente cuando exista una razón que lo justifique.
         </p>
 
         <p>
@@ -294,6 +338,11 @@ const ReservasDevoluciones = () => {
           Las situaciones no contempladas expresamente en esta política serán
           evaluadas conforme a las condiciones del servicio contratado y a la
           normativa aplicable.
+        </p>
+
+        <p>
+          Ninguna interpretación de esta política tendrá por objeto excluir o
+          limitar derechos inderogables que correspondan al consumidor.
         </p>
       </section>
 
@@ -330,7 +379,7 @@ const ReservasDevoluciones = () => {
           <br />
           Correo electrónico: <strong>[EMAIL DE CONTACTO]</strong>
           <br />
-          WhatsApp / teléfono: <strong>[NÚMERO, SI CORRESPONDE]</strong>
+          Horario de atención: <strong>lunes a viernes de 10:00 a 18:00, excepto feriados nacionales</strong>
         </p>
 
         <p>

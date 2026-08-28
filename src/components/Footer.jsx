@@ -4,6 +4,7 @@ import {
   useLocation,
   Link,
 } from 'react-router-dom';
+
 import styles from '../styles/footer.module.css';
 import logo from '../assets/images/tdr-logo.svg';
 
@@ -58,128 +59,137 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerLogo}>
-        <img
-          src={logo}
-          alt="TDR Tunica de Realidad"
-        />
+      <div className={styles.footerInner}>
+        <div className={styles.footerLeft}>
+          <div className={styles.footerLogo}>
+            <img
+              src={logo}
+              alt="TDR Tunica de Realidad"
+            />
+          </div>
+
+          <div className={styles.footerMeta}>
+            <nav
+              className={styles.legalNav}
+              aria-label="Documentación legal"
+            >
+              <Link to="/terminos-y-condiciones">
+                Términos y Condiciones
+              </Link>
+
+              <Link to="/privacidad">
+                Privacidad
+              </Link>
+
+              <Link to="/cookies">
+                Cookies
+              </Link>
+
+              <Link to="/reservas-cancelaciones-devoluciones">
+                Reservas y devoluciones
+              </Link>
+            </nav>
+
+            <p className={styles.copyright}>
+              © 2026 TDR Tunica de Realidad. Todos los derechos reservados.
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.footerRight}>
+          <nav
+            className={styles.footerNav}
+            aria-label="Navegación del pie de página"
+          >
+            <button
+              type="button"
+              className={styles.footerButton}
+              onClick={handleInicioClick}
+            >
+              Inicio
+            </button>
+
+            <button
+              type="button"
+              className={styles.footerButton}
+              onClick={handleIndividual}
+            >
+              1:1
+            </button>
+
+            <button
+              type="button"
+              className={styles.footerButton}
+              onClick={handlePrograms}
+            >
+              Programas
+            </button>
+
+            <button
+              type="button"
+              className={styles.footerButton}
+              onClick={handleExperiences}
+            >
+              Experiencias
+            </button>
+
+            <button
+              type="button"
+              className={styles.footerButton}
+              onClick={handleResources}
+            >
+              Recursos
+            </button>
+
+            <Link
+              to="/sobre-mi"
+              className={styles.footerLink}
+            >
+              Sobre TDR
+            </Link>
+
+            <Link
+              to="/contacto"
+              className={styles.footerLink}
+            >
+              Contacto
+            </Link>
+
+            <Link
+              to="/ayuda"
+              className={styles.footerHelp}
+            >
+              Ayuda y atención
+            </Link>
+          </nav>
+
+          <div className={styles.footerActions}>
+            <div className={styles.whatsappFooter}>
+              <a
+                href="https://wa.me/5491157041750?text=Hola,%20quisiera%20más%20información%20sobre%20TDR"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contactar por WhatsApp"
+              >
+                💬 Escríbenos por WhatsApp
+              </a>
+            </div>
+
+            <nav
+              className={styles.consumerNav}
+              aria-label="Gestiones de consumidores"
+            >
+              <Link to="/arrepentimiento">
+                Botón de Arrepentimiento
+              </Link>
+
+              <Link to="/baja-de-servicio">
+                Botón de Baja de Servicio
+              </Link>
+            </nav>
+          </div>
+        </div>
       </div>
-
-      <nav
-        className={styles.footerNav}
-        aria-label="Navegación del pie de página"
-      >
-        <button
-          type="button"
-          className={styles.footerButton}
-          onClick={handleInicioClick}
-        >
-          Inicio
-        </button>
-
-        <button
-          type="button"
-          className={styles.footerButton}
-          onClick={handleIndividual}
-        >
-          1:1
-        </button>
-
-        <button
-          type="button"
-          className={styles.footerButton}
-          onClick={handlePrograms}
-        >
-          Programas
-        </button>
-
-        <button
-          type="button"
-          className={styles.footerButton}
-          onClick={handleExperiences}
-        >
-          Experiencias
-        </button>
-
-        <button
-          type="button"
-          className={styles.footerButton}
-          onClick={handleResources}
-        >
-          Recursos
-        </button>
-
-        <Link
-          to="/sobre-mi"
-          className={styles.footerLink}
-        >
-          Sobre TDR
-        </Link>
-
-        <Link
-          to="/contacto"
-          className={styles.footerLink}
-        >
-          Contacto
-        </Link>
-
-        <Link
-          to="/ayuda"
-          className={styles.footerHelp}
-        >
-          Ayuda y atención
-        </Link>
-      </nav>
-
-      <div className={styles.whatsappFooter}>
-        <a
-          href="https://wa.me/5491157041750?text=Hola,%20quisiera%20más%20información%20sobre%20TDR"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Contactar por WhatsApp"
-        >
-          💬 Escríbenos por WhatsApp
-        </a>
-      </div>
-
-      <nav
-        className={styles.legalNav}
-        aria-label="Documentación legal"
-      >
-        <Link to="/terminos-y-condiciones">
-          Términos y Condiciones
-        </Link>
-
-        <Link to="/privacidad">
-          Privacidad
-        </Link>
-
-        <Link to="/cookies">
-          Cookies
-        </Link>
-
-        <Link to="/reservas-cancelaciones-devoluciones">
-          Reservas y devoluciones
-        </Link>
-
-        <Link
-          to="/arrepentimiento"
-          className={styles.legalAction}
-        >
-          Arrepentimiento
-        </Link>
-
-        <Link
-          to="/baja-de-servicio"
-          className={styles.legalAction}
-        >
-          Baja de servicio
-        </Link>
-      </nav>
-
-      <p className={styles.copyright}>
-        © 2026 TDR Tunica de Realidad. Todos los derechos reservados.
-      </p>
     </footer>
   );
 };

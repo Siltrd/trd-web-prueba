@@ -1,8 +1,32 @@
+function obtenerFechaArgentinaCompacta() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date());
+
+  const values = Object.fromEntries(
+    parts.map((part) => [part.type, part.value])
+  );
+
+  return `${values.year}${values.month}${values.day}`;
+}
+
 function generarCodigo() {
-  const fecha = new Date().toISOString().slice(0, 10).replaceAll('-', '');
+  const fecha = obtenerFechaArgentinaCompacta();
   const random = Math.random().toString(36).slice(2, 8).toUpperCase();
 
   return `BA-${fecha}-${random}`;
+}
+
+function obtenerFechaRecepcionArgentina() {
+  return new Intl.DateTimeFormat('es-AR', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    dateStyle: 'short',
+    timeStyle: 'medium',
+    hour12: false,
+  }).format(new Date());
 }
 
 async function enviarEmail({ apiKey, from, to, subject, text, replyTo }) {
@@ -71,13 +95,13 @@ export default async function handler(req, res) {
     }
 
     const codigo = generarCodigo();
-    const fechaRecepcion = new Date().toISOString();
+    const fechaRecepcionArgentina = obtenerFechaRecepcionArgentina();
 
     const mensajeInterno = `
 NUEVA SOLICITUD DE BAJA DE SERVICIO
 
 Código: ${codigo}
-Fecha de recepción: ${fechaRecepcion}
+Fecha de recepción: ${fechaRecepcionArgentina}
 
 Nombre y apellido: ${name}
 Email: ${email}
@@ -104,9 +128,13 @@ Referencia: ${reference || 'No informada'}
 
 Conserva este código para identificar la solicitud en cualquier comunicación relacionada con el trámite.
 
-TDR verificará el servicio contratado, su estado y las condiciones aplicables antes de confirmar los efectos de la baja.
+La solicitud ha quedado registrada. TDR verificará únicamente la información necesaria para identificar el servicio, su estado y las condiciones aplicables.
 
-Este correo confirma únicamente la recepción de la solicitud.
+Dentro de las veinticuatro (24) horas siguientes a la recepción de la solicitud, TDR adoptará las medidas necesarias para hacer efectiva la baja cuando corresponda.
+
+Los efectos económicos de la baja, si los hubiera, se determinarán de acuerdo con las prestaciones realizadas y pendientes, las condiciones aplicables y los derechos que legalmente correspondan.
+
+Esta comunicación constituye la constancia de recepción de tu solicitud.
 `.trim();
 
     await enviarEmail({
@@ -142,7 +170,6 @@ Este correo confirma únicamente la recepción de la solicitud.
       codigo,
       confirmationSent,
     });
-
   } catch (error) {
     console.error('Error baja de servicio:', error);
 

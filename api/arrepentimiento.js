@@ -1,8 +1,32 @@
+function obtenerFechaArgentinaCompacta() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date());
+
+  const values = Object.fromEntries(
+    parts.map((part) => [part.type, part.value])
+  );
+
+  return `${values.year}${values.month}${values.day}`;
+}
+
 function generarCodigo() {
-  const fecha = new Date().toISOString().slice(0, 10).replaceAll('-', '');
+  const fecha = obtenerFechaArgentinaCompacta();
   const random = Math.random().toString(36).slice(2, 8).toUpperCase();
 
   return `AR-${fecha}-${random}`;
+}
+
+function obtenerFechaRecepcionArgentina() {
+  return new Intl.DateTimeFormat('es-AR', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    dateStyle: 'short',
+    timeStyle: 'medium',
+    hour12: false,
+  }).format(new Date());
 }
 
 async function enviarEmail({ apiKey, from, to, subject, text, replyTo }) {
@@ -71,13 +95,13 @@ export default async function handler(req, res) {
     }
 
     const codigo = generarCodigo();
-    const fechaRecepcion = new Date().toISOString();
+    const fechaRecepcionArgentina = obtenerFechaRecepcionArgentina();
 
     const mensajeInterno = `
 NUEVA SOLICITUD DE ARREPENTIMIENTO
 
 Código: ${codigo}
-Fecha de recepción: ${fechaRecepcion}
+Fecha de recepción: ${fechaRecepcionArgentina}
 
 Nombre y apellido: ${name}
 Email: ${email}
@@ -104,44 +128,46 @@ Referencia: ${reference || 'No informada'}
 
 Conserva este código para identificar la solicitud en cualquier comunicación relacionada con el trámite.
 
-La recepción de esta solicitud no implica por sí misma la procedencia del arrepentimiento. TDR verificará la contratación y las circunstancias correspondientes conforme al procedimiento aplicable.
+La solicitud ha quedado registrada. TDR verificará únicamente la información necesaria para identificar la contratación y determinar el alcance del derecho conforme a la normativa aplicable.
 
-Este correo confirma únicamente la recepción de la solicitud.
+Dentro de las veinticuatro (24) horas siguientes a la recepción de la solicitud, TDR adoptará las medidas necesarias para hacer efectiva la revocación cuando resulte procedente.
+
+Esta comunicación constituye la constancia de recepción de tu solicitud.
 `.trim();
 
-await enviarEmail({
-  apiKey,
-  from,
-  to,
-  subject: `Arrepentimiento TDR — ${codigo} — ${name}`,
-  text: mensajeInterno,
-  replyTo: email,
-});
+    await enviarEmail({
+      apiKey,
+      from,
+      to,
+      subject: `Arrepentimiento TDR — ${codigo} — ${name}`,
+      text: mensajeInterno,
+      replyTo: email,
+    });
 
-let confirmationSent = true;
+    let confirmationSent = true;
 
-try {
-  await enviarEmail({
-    apiKey,
-    from,
-    to: email,
-    subject: `Solicitud de arrepentimiento recibida — ${codigo}`,
-    text: confirmacionUsuario,
-  });
-} catch (confirmationError) {
-  confirmationSent = false;
-  console.error(
-    'La solicitud fue recibida por TDR, pero falló el correo de confirmación:',
-    confirmationError
-  );
-}
+    try {
+      await enviarEmail({
+        apiKey,
+        from,
+        to: email,
+        subject: `Solicitud de arrepentimiento recibida — ${codigo}`,
+        text: confirmacionUsuario,
+      });
+    } catch (confirmationError) {
+      confirmationSent = false;
 
-return res.status(200).json({
-  ok: true,
-  codigo,
-  confirmationSent,
-});
+      console.error(
+        'La solicitud fue recibida por TDR, pero falló el correo de confirmación:',
+        confirmationError
+      );
+    }
 
+    return res.status(200).json({
+      ok: true,
+      codigo,
+      confirmationSent,
+    });
   } catch (error) {
     console.error('Error arrepentimiento:', error);
 

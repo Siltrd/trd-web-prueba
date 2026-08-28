@@ -92,4 +92,29 @@
   .legalFormButton {
     width: 100%;
   }
+
+  .legalFormNote {
+  margin: 0.15rem 0 0;
+  color: #777d82;
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+  line-height: 1.5;
+}
+
+.legalFormPrivacy {
+  margin: 0.25rem 0 0;
+  max-width: 42rem;
+  color: #777d82;
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+  line-height: 1.6;
+}
+
+.legalFormPrivacy a {
+  color: #5f6548;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.legalFormPrivacy a:hover {
+  color: #f57c00;
+}
 }

@@ -42,16 +42,16 @@ const TerminosCondiciones = () => {
 
         <p>
           Los servicios ofrecidos a través de este sitio son prestados por
-          <strong> [NOMBRE Y APELLIDO]</strong>, CUIT <strong>[CUIT]</strong>,
-          con domicilio en <strong>[DOMICILIO]</strong>, correo electrónico
-          <strong> [EMAIL DE CONTACTO]</strong>, quien opera comercialmente
-          bajo el nombre <strong>Tunica de Realidad</strong>, en adelante
-          <strong> “TDR”</strong>.
+          <strong> [NOMBRE Y APELLIDO / DENOMINACIÓN LEGAL]</strong>, CUIT{' '}
+          <strong>[CUIT]</strong>, con domicilio en{' '}
+          <strong>[DOMICILIO]</strong> y correo electrónico de atención al
+          consumidor <strong>[EMAIL DE CONTACTO]</strong>, quien opera
+          comercialmente bajo el nombre <strong>Tunica de Realidad</strong>,
+          en adelante <strong>“TDR”</strong>.
         </p>
 
         <p>
-          El sitio oficial de TDR es
-          <strong> tunicaderealidad.com</strong>.
+          El sitio oficial de TDR es <strong>tunicaderealidad.com</strong>.
         </p>
       </section>
 
@@ -121,7 +121,7 @@ const TerminosCondiciones = () => {
 
         <ul>
           <li>reserva directa desde agenda online;</li>
-          <li>coordinación previa por correo electrónico o WhatsApp;</li>
+          <li>coordinación previa por correo electrónico;</li>
           <li>envío y aceptación de presupuesto;</li>
           <li>formulario de inscripción;</li>
           <li>compra directa de recursos digitales;</li>
@@ -129,14 +129,38 @@ const TerminosCondiciones = () => {
         </ul>
 
         <p>
-          Antes de la contratación se informarán las condiciones esenciales
-          del servicio correspondiente.
+          Antes de formalizar una contratación, el consumidor tendrá acceso a
+          la información esencial del servicio, sus condiciones, precio,
+          modalidad de pago, disponibilidad y demás circunstancias relevantes.
+        </p>
+
+        <p>
+          Cuando la contratación se realice directamente mediante medios
+          electrónicos, se procurará que el usuario pueda revisar y corregir
+          los datos ingresados antes de confirmar la operación.
+        </p>
+
+        <p>
+          La decisión de contratar requerirá una manifestación expresa del
+          usuario. El silencio, la inactividad o la mera navegación por el
+          sitio no implican aceptación contractual.
+        </p>
+
+        <p>
+          Cuando corresponda, TDR presentará antes de la formalización un
+          resumen de las condiciones esenciales de la contratación.
         </p>
 
         <p>
           La contratación se considerará confirmada cuando se hayan cumplido
-          las condiciones expresamente indicadas para el servicio,
-          incluyendo, cuando corresponda, la acreditación del pago.
+          las condiciones expresamente indicadas para el servicio, incluyendo,
+          cuando corresponda, la acreditación del pago.
+        </p>
+
+        <p>
+          Cuando la aceptación se produzca por medios electrónicos, TDR
+          confirmará por vía electrónica y sin demora la recepción de dicha
+          aceptación.
         </p>
 
         <p>
@@ -161,8 +185,19 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Los medios de pago disponibles serán informados durante el proceso de
-          contratación.
+          Antes de contratar se informará el precio total aplicable,
+          incluyendo los impuestos y, cuando corresponda, cualquier costo
+          adicional o accesorio.
+        </p>
+
+        <p>
+          Los medios y condiciones de pago disponibles serán informados durante
+          el proceso de contratación.
+        </p>
+
+        <p>
+          Cuando se ofrezcan pagos en cuotas o financiación, se informarán las
+          condiciones aplicables conforme a la normativa vigente.
         </p>
 
         <p>
@@ -206,33 +241,51 @@ const TerminosCondiciones = () => {
         <h2>7. Derecho de arrepentimiento</h2>
 
         <p>
-          Cuando resulte aplicable, el consumidor podrá ejercer el derecho
-          irrenunciable de revocación respecto de las contrataciones realizadas
-          a distancia dentro del plazo previsto por la normativa vigente.
+          Cuando resulte aplicable, el consumidor que contrate a distancia
+          podrá ejercer el derecho irrenunciable de revocación dentro del plazo
+          de diez (10) días previsto por la normativa vigente.
         </p>
 
         <p>
-          TDR dispondrá en el sitio web del mecanismo correspondiente para
-          ejercer este derecho sin necesidad de crear una cuenta o iniciar
+          TDR dispondrá en el sitio web de un enlace denominado
+          <strong> “Botón de Arrepentimiento”</strong>, mediante el cual podrá
+          iniciarse la solicitud sin necesidad de crear una cuenta ni iniciar
           sesión.
         </p>
 
         <p>
-          TDR podrá aplicar mecanismos razonables de verificación de identidad
-          cuando tengan como finalidad exclusiva garantizar la seguridad y
-          autenticidad de la solicitud.
+          No obstante, cuando resulte necesario corroborar los datos o la
+          identidad de quien formula la solicitud, TDR podrá aplicar mecanismos
+          razonables, mediante medios habituales y exclusivamente con fines de
+          seguridad y verificación.
         </p>
 
         <p>
-          Una vez recibida la solicitud, TDR informará el código identificatorio
-          o de registración correspondiente dentro del plazo legal aplicable.
+          Dentro de las veinticuatro (24) horas siguientes a la recepción de
+          la solicitud, TDR informará el código de identificación o
+          registración correspondiente y adoptará las medidas necesarias para
+          efectivizar la revocación cuando resulte procedente.
+        </p>
+
+        <p>
+          El derecho de arrepentimiento estará sujeto a las excepciones,
+          modalidades especiales y demás disposiciones previstas por la
+          normativa vigente, incluyendo los supuestos contemplados en el
+          artículo 1116 del Código Civil y Comercial de la Nación y las demás
+          excepciones legalmente aplicables.
+        </p>
+
+        <p>
+          Asimismo, podrán resultar aplicables limitaciones o exclusiones
+          específicas cuando el producto o servicio hubiera sido efectivamente
+          utilizado o consumido por el consumidor antes de ejercer la
+          solicitud, conforme al régimen vigente.
         </p>
 
         <p>
           Los efectos de la revocación, incluyendo las restituciones que
-          correspondan y las situaciones en que una prestación hubiera sido
-          ejecutada total o parcialmente, se determinarán conforme a la
-          normativa vigente y a las circunstancias de la contratación.
+          correspondan, se determinarán conforme a la normativa aplicable y a
+          las circunstancias de la contratación.
         </p>
       </section>
 
@@ -242,7 +295,7 @@ const TerminosCondiciones = () => {
         <p>
           Cuando corresponda, el consumidor podrá solicitar la baja o
           finalización de un servicio contratado a distancia mediante el
-          mecanismo habilitado por TDR.
+          <strong> Botón de Baja de Servicio</strong> habilitado por TDR.
         </p>
 
         <p>
@@ -251,8 +304,16 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          TDR podrá aplicar mecanismos razonables de verificación de identidad
-          exclusivamente con fines de seguridad y validación.
+          Cuando resulte necesario corroborar los datos o la identidad del
+          solicitante, TDR podrá aplicar mecanismos razonables de verificación,
+          mediante medios habituales y exclusivamente con fines de seguridad.
+        </p>
+
+        <p>
+          Dentro de las veinticuatro (24) horas siguientes a la recepción de
+          la solicitud, TDR informará el código identificatorio correspondiente
+          y adoptará las medidas necesarias para efectivizar la baja solicitada
+          conforme a las condiciones aplicables.
         </p>
 
         <p>
@@ -296,9 +357,9 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Si TDR no pudiera realizar una sesión en la fecha acordada, el cliente
-          podrá elegir entre reprogramarla sin coste adicional o recibir el
-          reintegro íntegro correspondiente a esa sesión.
+          Si TDR no pudiera realizar una sesión en la fecha acordada, el
+          cliente podrá elegir entre reprogramarla sin coste adicional o
+          recibir el reintegro íntegro correspondiente a esa sesión.
         </p>
       </section>
 
@@ -437,9 +498,16 @@ const TerminosCondiciones = () => {
         </p>
 
         <p>
-          Las condiciones de acceso, devolución y ejercicio del derecho de
-          revocación se regirán por la normativa aplicable y por la naturaleza
-          específica del recurso correspondiente.
+          Antes de la contratación se informarán las condiciones esenciales de
+          acceso, disponibilidad y uso del recurso correspondiente.
+        </p>
+
+        <p>
+          El derecho de arrepentimiento y las condiciones de devolución se
+          regirán por la normativa aplicable y por la naturaleza del recurso.
+          En particular, podrán resultar aplicables las excepciones previstas
+          para determinados contenidos digitales suministrados
+          electrónicamente y susceptibles de uso o reproducción inmediata.
         </p>
       </section>
 
@@ -462,7 +530,7 @@ const TerminosCondiciones = () => {
 
         <p>
           TDR no realizará cobros recurrentes sin información previa y
-          aceptación del usuario.
+          aceptación expresa del usuario.
         </p>
       </section>
 
@@ -504,8 +572,8 @@ const TerminosCondiciones = () => {
 
         <p>
           Salvo autorización expresa, no está permitida su reproducción,
-          redistribución, venta, cesión, publicación, modificación o
-          utilización comercial.
+          redistribución, venta, cesión, publicación, modificación o utilización
+          comercial.
         </p>
 
         <p>
@@ -524,10 +592,16 @@ const TerminosCondiciones = () => {
 
         <p>
           No está permitido realizar acciones que puedan comprometer la
-          seguridad, funcionamiento o integridad del sitio, acceder de manera no
-          autorizada a áreas restringidas, utilizar sistemas automatizados de
-          forma abusiva o emplear los contenidos de TDR con fines fraudulentos
-          o ilícitos.
+          seguridad, funcionamiento o integridad del sitio, acceder de manera
+          no autorizada a áreas restringidas, utilizar sistemas automatizados
+          de forma abusiva o emplear los contenidos de TDR con fines
+          fraudulentos o ilícitos.
+        </p>
+
+        <p>
+          La mera visita, navegación o utilización informativa del sitio no
+          supone por sí misma la celebración de un contrato ni la aceptación de
+          una propuesta comercial.
         </p>
       </section>
 
@@ -650,26 +724,17 @@ const TerminosCondiciones = () => {
         <h2>24. Atención al cliente y reclamos</h2>
 
         <p>
-          TDR dispondrá de canales para la recepción de consultas, solicitudes
-          y reclamos.
+          TDR dispondrá de un canal electrónico para la recepción de consultas,
+          solicitudes y reclamos.
         </p>
 
         <p>
           <strong>Área responsable:</strong> Atención al Cliente — TDR
           <br />
-          <strong>Correo electrónico:</strong> [EMAIL DE ATENCIÓN]
+          <strong>Correo electrónico:</strong> [EMAIL DE CONTACTO]
           <br />
-          <strong>WhatsApp / teléfono:</strong> [NÚMERO, SI CORRESPONDE]
-        </p>
-
-        <p>
-          Cuando la atención se preste exclusivamente mediante canales
-          telefónicos o electrónicos, TDR mantendrá un horario de atención no
-          inferior a ocho horas por día hábil, de lunes a viernes.
-        </p>
-
-        <p>
-          <strong>Horario de atención:</strong> [HORARIO A DEFINIR]
+          <strong>Horario de atención:</strong> lunes a viernes de 10:00 a
+          18:00, excepto feriados nacionales.
         </p>
 
         <p>

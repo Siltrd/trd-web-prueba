@@ -8,8 +8,8 @@ const sections = [
   { id: 'propias-terceros', label: 'Cookies propias y de terceros' },
   { id: 'consentimiento', label: 'Gestión del consentimiento' },
   { id: 'etiquetas', label: 'Medición y etiquetas' },
-  { id: 'analytics', label: 'Google Analytics' },
-  { id: 'marketing', label: 'Cookies de marketing futuras' },
+  { id: 'analytics', label: 'Herramientas de analítica' },
+  { id: 'marketing', label: 'Marketing y publicidad' },
   { id: 'duracion', label: 'Duración de las cookies' },
   { id: 'gestion', label: 'Modificar o eliminar cookies' },
   { id: 'transferencias', label: 'Transferencias internacionales' },
@@ -36,13 +36,13 @@ const Cookies = () => {
         <p>
           También pueden utilizarse tecnologías similares, como etiquetas,
           píxeles, scripts o identificadores de almacenamiento local, para
-          recordar preferencias, medir el funcionamiento del sitio, analizar
-          el uso de sus páginas o gestionar determinadas funcionalidades.
+          recordar preferencias, permitir funcionalidades, medir el
+          funcionamiento del sitio o analizar el uso de sus páginas.
         </p>
 
         <p>
-          En esta Política, el término “cookies” se utiliza de forma amplia para
-          referirse también a tecnologías similares cuando corresponda.
+          En esta Política, el término “cookies” se utiliza de forma amplia
+          para referirse también a estas tecnologías cuando corresponda.
         </p>
       </section>
 
@@ -51,19 +51,19 @@ const Cookies = () => {
 
         <p>
           El sitio web de <strong>Tunica de Realidad</strong>, en adelante
-          <strong> “TDR”</strong>, utiliza cookies y tecnologías similares bajo
-          la responsabilidad de:
+          <strong> “TDR”</strong>, utiliza o podrá utilizar cookies y
+          tecnologías similares bajo la responsabilidad de:
         </p>
 
         <p>
-          <strong>[NOMBRE Y APELLIDO]</strong>
+          <strong>[NOMBRE Y APELLIDO / DENOMINACIÓN LEGAL]</strong>
           <br />
           CUIT: <strong>[CUIT]</strong>
           <br />
           Domicilio: <strong>[DOMICILIO]</strong>
           <br />
           Correo electrónico:{' '}
-          <strong>[EMAIL DE CONTACTO / PRIVACIDAD]</strong>
+          <strong>[EMAIL DE PRIVACIDAD / CONTACTO]</strong>
         </p>
       </section>
 
@@ -73,8 +73,9 @@ const Cookies = () => {
         <h3>Cookies necesarias</h3>
 
         <p>
-          Son aquellas indispensables para el funcionamiento básico del sitio o
-          para prestar una funcionalidad solicitada por el usuario.
+          Son aquellas indispensables para el funcionamiento básico del sitio,
+          su seguridad o para prestar una funcionalidad expresamente solicitada
+          por el usuario.
         </p>
 
         <p>Pueden utilizarse, por ejemplo, para:</p>
@@ -84,19 +85,19 @@ const Cookies = () => {
           <li>gestionar preferencias esenciales;</li>
           <li>permitir el funcionamiento de formularios;</li>
           <li>recordar elecciones necesarias para la navegación;</li>
-          <li>gestionar el consentimiento sobre cookies.</li>
+          <li>gestionar preferencias relacionadas con cookies.</li>
         </ul>
 
         <p>
-          Estas cookies no tienen necesariamente una finalidad analítica o
-          publicitaria.
+          Estas tecnologías no tienen por finalidad principal realizar
+          mediciones publicitarias o elaborar perfiles comerciales.
         </p>
 
         <h3>Cookies de analítica</h3>
 
         <p>
           Permiten conocer cómo se utiliza el sitio y obtener información
-          agregada o estadística sobre la navegación.
+          estadística sobre su funcionamiento y navegación.
         </p>
 
         <p>Pueden utilizarse para medir, entre otras cosas:</p>
@@ -112,13 +113,8 @@ const Cookies = () => {
         </ul>
 
         <p>
-          TDR podrá utilizar herramientas de analítica, como Google Analytics,
-          cuando se encuentren activas.
-        </p>
-
-        <p>
-          Estas cookies estarán sujetas a las preferencias de consentimiento
-          del usuario cuando así corresponda.
+          Estas herramientas solo se considerarán activas cuando se encuentren
+          efectivamente instaladas y configuradas en el sitio.
         </p>
 
         <h3>Cookies de funcionalidad</h3>
@@ -128,7 +124,7 @@ const Cookies = () => {
           funciones del sitio.
         </p>
 
-        <p>Por ejemplo:</p>
+        <p>Pueden utilizarse, por ejemplo, para:</p>
 
         <ul>
           <li>preferencias de visualización;</li>
@@ -139,19 +135,20 @@ const Cookies = () => {
         <h3>Cookies de marketing y publicidad</h3>
 
         <p>
-          Podrán utilizarse en el futuro para medir campañas, atribuir
-          conversiones, crear audiencias o mostrar publicidad relevante.
+          TDR podrá incorporar en el futuro tecnologías destinadas a medir
+          campañas, atribuir conversiones, crear audiencias o gestionar
+          publicidad.
         </p>
 
         <p>
-          Estas tecnologías pueden incluir herramientas de plataformas
-          publicitarias como Google Ads o Meta.
+          Estas herramientas solo se considerarán activas cuando hayan sido
+          efectivamente instaladas y configuradas.
         </p>
 
         <p>
-          TDR no utilizará estas tecnologías de forma activa sin que estén
-          previamente configuradas conforme a la normativa aplicable y, cuando
-          corresponda, a las preferencias de consentimiento del usuario.
+          Cuando el tratamiento de datos personales asociado a estas
+          tecnologías requiera consentimiento, se solicitará de acuerdo con la
+          normativa aplicable antes de utilizarlas para esa finalidad.
         </p>
       </section>
 
@@ -160,31 +157,42 @@ const Cookies = () => {
 
         <p>
           Las cookies pueden ser propias, cuando son gestionadas directamente
-          por TDR o por la infraestructura del sitio, o de terceros, cuando son
-          gestionadas por proveedores externos que prestan servicios
-          tecnológicos, de analítica, publicidad, reservas, formularios u otras
-          funcionalidades.
+          por TDR o por la infraestructura técnica del sitio, o de terceros,
+          cuando son gestionadas por proveedores externos.
         </p>
 
         <p>
-          Entre los proveedores que podrán intervenir, según la configuración
-          vigente, se encuentran:
+          Los terceros podrán prestar servicios relacionados, entre otros, con:
         </p>
 
         <ul>
+          <li>hosting e infraestructura;</li>
+          <li>analítica y medición;</li>
+          <li>formularios;</li>
+          <li>agenda y reservas;</li>
+          <li>publicidad, si se incorpora en el futuro;</li>
+          <li>otras funcionalidades necesarias para el sitio.</li>
+        </ul>
+
+        <p>
+          Entre los proveedores que TDR utiliza actualmente o podrá utilizar,
+          según la configuración efectiva del sitio, se encuentran:
+        </p>
+
+        <ul>
+          <li>Vercel;</li>
           <li>Google;</li>
           <li>Zoho;</li>
-          <li>Vercel;</li>
-          <li>Meta;</li>
+          <li>Meta, si se incorporan herramientas de su ecosistema;</li>
           <li>
-            otros proveedores tecnológicos necesarios para el funcionamiento o
-            medición del sitio.
+            otros proveedores tecnológicos necesarios para el funcionamiento
+            o medición del sitio.
           </li>
         </ul>
 
         <p>
-          La utilización efectiva de cada proveedor dependerá de las
-          herramientas que se encuentren activas en cada momento.
+          La inclusión de un proveedor en esta Política no significa que todas
+          sus tecnologías se encuentren activas en todo momento.
         </p>
       </section>
 
@@ -192,26 +200,29 @@ const Cookies = () => {
         <h2>5. Gestión del consentimiento</h2>
 
         <p>
-          Cuando corresponda, TDR pondrá a disposición del usuario un sistema
-          para gestionar sus preferencias de cookies.
+          Cuando una cookie o tecnología similar implique tratamiento de datos
+          personales que requiera consentimiento, TDR procurará obtenerlo de
+          forma previa, libre e informada conforme a la normativa aplicable.
         </p>
 
         <p>
-          El usuario podrá aceptar, rechazar o configurar determinadas
-          categorías, salvo aquellas estrictamente necesarias para el
-          funcionamiento del sitio.
+          Cuando se implemente un sistema de gestión de preferencias, el usuario
+          podrá aceptar, rechazar o configurar determinadas categorías, salvo
+          aquellas estrictamente necesarias para el funcionamiento o seguridad
+          del sitio.
         </p>
 
         <p>
           Las preferencias podrán modificarse posteriormente mediante el
-          mecanismo habilitado en el sitio.
+          mecanismo habilitado en el sitio, cuando este se encuentre
+          disponible.
         </p>
 
         <p>
-          TDR procurará que las herramientas de analítica, publicidad o
-          marketing que dependan de consentimiento no se activen antes de que
-          el usuario haya expresado su elección cuando así lo exija la normativa
-          aplicable.
+          La elección relativa a cookies analíticas, publicitarias o de
+          marketing no se utilizará para impedir el acceso a las funcionalidades
+          esenciales del sitio cuando no exista una razón técnica o legal que
+          lo justifique.
         </p>
       </section>
 
@@ -219,31 +230,31 @@ const Cookies = () => {
         <h2>6. Herramientas de medición y etiquetas</h2>
 
         <p>
-          TDR podrá utilizar herramientas de gestión de etiquetas y medición,
-          como Google Tag Manager, para administrar de forma centralizada
-          determinadas tecnologías utilizadas en el sitio.
+          TDR podrá utilizar herramientas de gestión de etiquetas o tecnologías
+          similares para administrar de manera centralizada determinados
+          scripts o servicios utilizados en el sitio.
         </p>
 
         <p>
-          La existencia de una herramienta de gestión de etiquetas no implica
-          por sí sola que todas las tecnologías disponibles se encuentren
-          activas.
+          La presencia técnica de un gestor de etiquetas no implica que todas
+          las herramientas que pueda administrar se encuentren activas.
         </p>
 
         <p>
           Las etiquetas de analítica o marketing se configurarán de acuerdo con
-          las preferencias de consentimiento y con las necesidades reales del
-          sitio.
+          la finalidad correspondiente y, cuando resulte necesario, con las
+          preferencias o el consentimiento del usuario.
         </p>
       </section>
 
       <section id="analytics">
-        <h2>7. Google Analytics</h2>
+        <h2>7. Herramientas de analítica</h2>
 
         <p>
-          Cuando Google Analytics se encuentre activo, podrá utilizarse para
-          obtener información estadística sobre el uso del sitio y medir
-          interacciones y conversiones.
+          TDR podrá utilizar herramientas de analítica, como Google Analytics u
+          otros servicios equivalentes, para obtener información estadística
+          sobre el uso del sitio cuando dichas herramientas se encuentren
+          efectivamente activas.
         </p>
 
         <p>La información tratada podrá incluir:</p>
@@ -251,25 +262,27 @@ const Cookies = () => {
         <ul>
           <li>dirección IP;</li>
           <li>dispositivo;</li>
-          <li>navegador;</li>
+          <li>navegador y sistema operativo;</li>
           <li>páginas visitadas;</li>
-          <li>eventos;</li>
+          <li>eventos e interacciones;</li>
           <li>fuente de tráfico;</li>
-          <li>parámetros UTM.</li>
+          <li>parámetros UTM;</li>
+          <li>datos de conversión.</li>
         </ul>
 
         <p>
-          La utilización de Google Analytics estará sujeta a la configuración de
-          privacidad y consentimiento adoptada por TDR.
+          La configuración concreta de estas herramientas procurará respetar
+          los principios de información, proporcionalidad y minimización
+          previstos por la normativa de protección de datos.
         </p>
       </section>
 
       <section id="marketing">
-        <h2>8. Cookies de marketing futuras</h2>
+        <h2>8. Cookies de marketing y publicidad</h2>
 
         <p>
-          TDR podrá incorporar en el futuro herramientas de medición
-          publicitaria, como:
+          TDR podrá incorporar en el futuro herramientas de medición o
+          publicidad digital, como:
         </p>
 
         <ul>
@@ -279,13 +292,13 @@ const Cookies = () => {
         </ul>
 
         <p>
-          Estas herramientas no se considerarán activas hasta que
-          efectivamente se instalen y configuren.
+          Estas herramientas no se considerarán activas hasta que se instalen y
+          configuren efectivamente.
         </p>
 
         <p>
-          Cuando se incorporen, TDR actualizará esta Política y la configuración
-          del sistema de consentimiento cuando corresponda.
+          Cuando se incorporen, esta Política y, cuando corresponda, el sistema
+          de gestión de consentimiento serán actualizados.
         </p>
       </section>
 
@@ -293,20 +306,20 @@ const Cookies = () => {
         <h2>9. Duración de las cookies</h2>
 
         <p>
-          Las cookies pueden ser de sesión, cuando se eliminan al cerrar el
-          navegador, o persistentes, cuando permanecen almacenadas durante un
-          período determinado o hasta que el usuario las elimina.
+          Las cookies pueden ser de sesión, cuando dejan de estar disponibles
+          al cerrar el navegador, o persistentes, cuando permanecen almacenadas
+          durante un período determinado o hasta que el usuario las elimina.
         </p>
 
         <p>
-          La duración concreta dependerá de la finalidad y del proveedor
-          correspondiente.
+          La duración concreta dependerá de la finalidad, configuración y
+          proveedor de cada tecnología.
         </p>
 
         <p>
-          Cuando el sistema de consentimiento lo permita, el usuario podrá
-          consultar información más detallada sobre las cookies activas y su
-          duración.
+          Cuando el sistema de gestión de preferencias lo permita, el usuario
+          podrá consultar información más detallada sobre las tecnologías
+          activas y su duración.
         </p>
       </section>
 
@@ -314,8 +327,8 @@ const Cookies = () => {
         <h2>10. Cómo modificar o eliminar cookies</h2>
 
         <p>
-          El usuario podrá gestionar sus preferencias mediante el sistema de
-          consentimiento disponible en el sitio, cuando corresponda.
+          Cuando exista un sistema de gestión de preferencias en el sitio, el
+          usuario podrá utilizarlo para modificar sus elecciones.
         </p>
 
         <p>
@@ -324,8 +337,8 @@ const Cookies = () => {
         </p>
 
         <p>
-          La desactivación de determinadas cookies puede afectar algunas
-          funcionalidades del sitio.
+          La desactivación de determinadas tecnologías estrictamente necesarias
+          puede afectar el funcionamiento de algunas características del sitio.
         </p>
       </section>
 
@@ -334,13 +347,13 @@ const Cookies = () => {
 
         <p>
           Algunos proveedores de cookies o tecnologías similares pueden
-          procesar información fuera de la República Argentina.
+          almacenar o procesar información fuera de la República Argentina.
         </p>
 
         <p>
-          Cuando esto ocurra, el tratamiento se realizará conforme a lo
-          indicado en la Política de Privacidad de TDR y a las normas
-          aplicables sobre transferencias internacionales de datos.
+          Cuando dichos tratamientos impliquen transferencias internacionales
+          de datos personales, se aplicará lo previsto en la Política de
+          Privacidad de TDR y en la normativa argentina correspondiente.
         </p>
       </section>
 
@@ -354,8 +367,15 @@ const Cookies = () => {
         </p>
 
         <p>
-          El tratamiento de esos datos se regirá además por la Política de
-          Privacidad de TDR.
+          En esos casos, su tratamiento quedará sujeto además a la Política de
+          Privacidad de TDR y a la normativa aplicable en materia de protección
+          de datos personales.
+        </p>
+
+        <p>
+          La información sobre responsable, finalidades, proveedores,
+          transferencias internacionales, conservación y ejercicio de derechos
+          puede consultarse en dicha Política.
         </p>
       </section>
 
@@ -364,9 +384,8 @@ const Cookies = () => {
 
         <p>
           TDR podrá modificar esta Política de Cookies cuando cambien las
-          herramientas utilizadas, las finalidades de medición, los
-          proveedores, la configuración del sitio o las exigencias legales o
-          regulatorias.
+          herramientas utilizadas, sus finalidades, los proveedores, la
+          configuración del sitio o las exigencias legales o regulatorias.
         </p>
 
         <p>
@@ -375,8 +394,9 @@ const Cookies = () => {
         </p>
 
         <p>
-          Cuando se produzcan cambios materiales, TDR podrá informar al usuario
-          o solicitar nuevamente su consentimiento cuando corresponda.
+          Cuando una modificación afecte de forma relevante una elección de
+          consentimiento previamente otorgada, TDR podrá solicitar una nueva
+          elección cuando corresponda.
         </p>
       </section>
 
@@ -390,7 +410,8 @@ const Cookies = () => {
         <p>
           <strong>Tunica de Realidad — TDR</strong>
           <br />
-          Correo electrónico: <strong>[EMAIL DE PRIVACIDAD]</strong>
+          Correo electrónico:{' '}
+          <strong>[EMAIL DE PRIVACIDAD / CONTACTO]</strong>
           <br />
           Domicilio: <strong>[DOMICILIO]</strong>
         </p>

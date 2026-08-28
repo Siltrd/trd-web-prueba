@@ -5,6 +5,7 @@ const sections = [
   { id: 'responsable', label: 'Responsable del tratamiento' },
   { id: 'alcance', label: 'Alcance de esta Política' },
   { id: 'datos', label: 'Datos que podemos recopilar' },
+  { id: 'informacion', label: 'Información al proporcionar datos' },
   { id: 'finalidades', label: 'Finalidades del tratamiento' },
   { id: 'base-legal', label: 'Base legal del tratamiento' },
   { id: 'obligatorios', label: 'Datos obligatorios y opcionales' },
@@ -13,7 +14,7 @@ const sections = [
   { id: 'conservacion', label: 'Conservación de los datos' },
   { id: 'seguridad', label: 'Seguridad' },
   { id: 'crm', label: 'CRM y notas internas' },
-  { id: 'comunicaciones', label: 'WhatsApp y correo electrónico' },
+  { id: 'comunicaciones', label: 'Comunicaciones' },
   { id: 'menores', label: 'Menores de edad' },
   { id: 'derechos', label: 'Derechos del titular' },
   { id: 'autoridad', label: 'Autoridad de control' },
@@ -41,7 +42,7 @@ const Privacidad = () => {
         </p>
 
         <p>
-          <strong>[NOMBRE Y APELLIDO]</strong>
+          <strong>[NOMBRE Y APELLIDO / DENOMINACIÓN LEGAL]</strong>
           <br />
           CUIT: <strong>[CUIT]</strong>
           <br />
@@ -59,15 +60,17 @@ const Privacidad = () => {
 
         <p>
           Esta Política de Privacidad describe cómo TDR recopila, utiliza,
-          almacena y protege los datos personales obtenidos a través de:
+          almacena, comunica y protege los datos personales obtenidos a través
+          de:
         </p>
 
         <ul>
           <li>el sitio web;</li>
           <li>formularios de contacto;</li>
+          <li>formularios de arrepentimiento y baja;</li>
           <li>reservas;</li>
           <li>procesos de contratación;</li>
-          <li>comunicaciones por correo electrónico o WhatsApp;</li>
+          <li>comunicaciones por correo electrónico;</li>
           <li>herramientas de analítica, cuando se encuentren activas;</li>
           <li>tests o recursos interactivos;</li>
           <li>CRM y herramientas de gestión;</li>
@@ -89,7 +92,7 @@ const Privacidad = () => {
         <ul>
           <li>nombre y apellido;</li>
           <li>correo electrónico;</li>
-          <li>teléfono;</li>
+          <li>teléfono, cuando resulte necesario y sea facilitado;</li>
           <li>datos de contacto profesional;</li>
           <li>
             empresa, estudio, hotel, spa, centro u organización cuando
@@ -106,7 +109,11 @@ const Privacidad = () => {
           <li>estado de reserva;</li>
           <li>historial operativo de servicios;</li>
           <li>sesiones contratadas y realizadas;</li>
-          <li>información necesaria para facturación.</li>
+          <li>información necesaria para facturación;</li>
+          <li>
+            códigos y comunicaciones vinculadas con solicitudes de
+            arrepentimiento, baja, cancelación o devolución.
+          </li>
         </ul>
 
         <h3>Datos de pago</h3>
@@ -131,10 +138,15 @@ const Privacidad = () => {
         </p>
 
         <p>
-          TDR no solicita datos clínicos o sensibles como requisito general
-          para realizar una consulta o contratar sus servicios. Se recomienda
-          no incluir información sensible que no resulte necesaria en campos
-          de texto libre o comunicaciones.
+          TDR no solicita datos clínicos ni otros datos sensibles como requisito
+          general para realizar una consulta o contratar sus servicios.
+        </p>
+
+        <p>
+          Se recomienda no incluir información relativa a salud, vida sexual,
+          creencias religiosas, opiniones políticas, afiliación sindical,
+          origen racial o étnico u otros datos sensibles que no resulten
+          estrictamente necesarios en campos de texto libre o comunicaciones.
         </p>
 
         <h3>Datos de uso y navegación</h3>
@@ -184,20 +196,54 @@ const Privacidad = () => {
         </p>
       </section>
 
+      <section id="informacion">
+        <h2>4. Información al proporcionar datos personales</h2>
+
+        <p>
+          Cuando TDR solicite datos personales mediante formularios u otros
+          medios, se informará, según corresponda:
+        </p>
+
+        <ul>
+          <li>la identidad del responsable del tratamiento;</li>
+          <li>la finalidad para la que se solicitan los datos;</li>
+          <li>
+            cuáles respuestas o campos son obligatorios y cuáles son
+            facultativos;
+          </li>
+          <li>
+            las consecuencias de proporcionar los datos, de no hacerlo o de
+            proporcionar información inexacta;
+          </li>
+          <li>
+            la posibilidad de ejercer los derechos reconocidos por la normativa
+            de protección de datos personales.
+          </li>
+        </ul>
+
+        <p>
+          En los formularios del sitio, los campos marcados con un asterisco
+          (*) tendrán carácter obligatorio.
+        </p>
+      </section>
+
       <section id="finalidades">
-        <h2>4. Finalidades del tratamiento</h2>
+        <h2>5. Finalidades del tratamiento</h2>
 
         <p>TDR podrá utilizar los datos personales para:</p>
 
         <ul>
           <li>responder consultas y solicitudes de información;</li>
           <li>
-            gestionar reservas, reprogramaciones, cancelaciones y servicios;
+            gestionar reservas, reprogramaciones, cancelaciones, solicitudes de
+            arrepentimiento, bajas y devoluciones;
           </li>
           <li>administrar la relación comercial;</li>
           <li>organizar contactos y clientes mediante CRM;</li>
           <li>verificar pagos y gestionar facturación;</li>
+          <li>prestar los servicios contratados;</li>
           <li>enviar comunicaciones operativas;</li>
+          <li>cumplir obligaciones legales, fiscales y administrativas;</li>
           <li>
             medir y mejorar el funcionamiento del sitio cuando se encuentren
             activas herramientas de analítica;
@@ -211,7 +257,7 @@ const Privacidad = () => {
       </section>
 
       <section id="base-legal">
-        <h2>5. Base legal del tratamiento</h2>
+        <h2>6. Base legal del tratamiento</h2>
 
         <p>
           TDR tratará datos personales cuando exista consentimiento del titular,
@@ -225,10 +271,16 @@ const Privacidad = () => {
           La contratación de un servicio no implica automáticamente el
           consentimiento para recibir comunicaciones promocionales.
         </p>
+
+        <p>
+          Cuando una comunicación comercial requiera consentimiento, este se
+          solicitará de forma diferenciada respecto de las comunicaciones
+          necesarias para prestar o administrar el servicio contratado.
+        </p>
       </section>
 
       <section id="obligatorios">
-        <h2>6. Datos obligatorios y opcionales</h2>
+        <h2>7. Datos obligatorios y opcionales</h2>
 
         <p>
           Cuando un formulario requiera determinados datos, se indicará cuáles
@@ -237,15 +289,20 @@ const Privacidad = () => {
 
         <p>
           La falta de determinados datos podrá impedir procesar una reserva,
-          emitir una factura, responder una consulta o prestar correctamente el
-          servicio solicitado.
+          identificar una contratación, emitir una factura, responder una
+          consulta o prestar correctamente el servicio solicitado.
         </p>
 
         <p>Los campos no requeridos tendrán carácter opcional.</p>
+
+        <p>
+          TDR procurará solicitar únicamente los datos adecuados, pertinentes y
+          necesarios en relación con la finalidad de cada tratamiento.
+        </p>
       </section>
 
       <section id="proveedores">
-        <h2>7. Destinatarios y proveedores</h2>
+        <h2>8. Destinatarios y proveedores</h2>
 
         <p>
           TDR podrá utilizar proveedores externos para gestionar determinadas
@@ -255,9 +312,9 @@ const Privacidad = () => {
         </p>
 
         <p>
-          Estos proveedores podrán recibir los datos necesarios para prestar
-          sus respectivos servicios, de acuerdo con sus condiciones y políticas
-          aplicables.
+          Estos proveedores podrán recibir únicamente los datos necesarios para
+          prestar sus respectivos servicios, de acuerdo con sus condiciones,
+          contratos y políticas aplicables.
         </p>
 
         <p>
@@ -270,7 +327,7 @@ const Privacidad = () => {
           <li>Google;</li>
           <li>Vercel;</li>
           <li>Resend;</li>
-          <li>WhatsApp / Meta;</li>
+          <li>proveedores de agenda o videollamadas;</li>
           <li>proveedores de pago y facturación;</li>
           <li>
             otros proveedores tecnológicos necesarios para la prestación de
@@ -285,7 +342,7 @@ const Privacidad = () => {
       </section>
 
       <section id="transferencias">
-        <h2>8. Transferencias internacionales de datos</h2>
+        <h2>9. Transferencias internacionales de datos</h2>
 
         <p>
           Algunos proveedores tecnológicos utilizados por TDR pueden almacenar
@@ -293,19 +350,28 @@ const Privacidad = () => {
         </p>
 
         <p>
-          Cuando exista una transferencia internacional de datos, TDR adoptará
-          las medidas que resulten exigibles conforme a la normativa aplicable.
+          Cuando exista una transferencia internacional de datos personales,
+          TDR procurará que se encuentre amparada por un mecanismo admitido por
+          la normativa aplicable.
+        </p>
+
+        <p>
+          Cuando el país de destino no sea considerado adecuado por la
+          autoridad competente, podrán utilizarse cláusulas contractuales
+          modelo, acuerdos contractuales u otras garantías reconocidas por la
+          normativa argentina.
         </p>
       </section>
 
       <section id="conservacion">
-        <h2>9. Conservación de los datos</h2>
+        <h2>10. Conservación de los datos</h2>
 
         <p>
           Los datos personales se conservarán durante el tiempo necesario para
-          cumplir la finalidad para la que fueron recopilados y, posteriormente,
-          durante los plazos que resulten necesarios para atender obligaciones
-          legales, fiscales, contractuales o administrativas.
+          cumplir la finalidad para la que fueron recopilados y,
+          posteriormente, durante los plazos que resulten necesarios para
+          atender obligaciones legales, fiscales, contractuales o
+          administrativas.
         </p>
 
         <p>Con carácter general:</p>
@@ -324,10 +390,15 @@ const Privacidad = () => {
             plazos exigidos por la normativa aplicable;
           </li>
           <li>
+            las constancias de arrepentimiento, baja, cancelación, devolución y
+            comunicaciones asociadas podrán conservarse durante el tiempo
+            necesario para acreditar su gestión y cumplimiento;
+          </li>
+          <li>
             los datos utilizados exclusivamente para comunicaciones
             promocionales se conservarán hasta que el titular retire su
             consentimiento o solicite la baja, sin perjuicio de los datos
-            mínimos que deban conservarse para acreditar dicha solicitud.
+            mínimos necesarios para acreditar dicha solicitud.
           </li>
         </ul>
 
@@ -338,7 +409,7 @@ const Privacidad = () => {
       </section>
 
       <section id="seguridad">
-        <h2>10. Seguridad</h2>
+        <h2>11. Seguridad</h2>
 
         <p>
           TDR adopta medidas razonables de seguridad destinadas a proteger los
@@ -366,7 +437,7 @@ const Privacidad = () => {
       </section>
 
       <section id="crm">
-        <h2>11. CRM y notas internas</h2>
+        <h2>12. CRM y notas internas</h2>
 
         <p>
           TDR podrá utilizar un sistema CRM para gestionar contactos, clientes
@@ -376,37 +447,48 @@ const Privacidad = () => {
         <p>El CRM tendrá finalidad comercial y operativa.</p>
 
         <p>
-          No se utilizará como historia clínica ni expediente terapéutico, y se
+          No se utilizará como historia clínica ni expediente terapéutico y se
           evitará registrar datos sensibles que no resulten necesarios para la
           gestión del servicio.
+        </p>
+
+        <p>
+          Las notas internas deberán limitarse a información pertinente para la
+          relación comercial, administrativa u operativa con el usuario.
         </p>
       </section>
 
       <section id="comunicaciones">
-        <h2>12. Comunicaciones por WhatsApp y correo electrónico</h2>
+        <h2>13. Comunicaciones por correo electrónico y otros medios</h2>
 
         <p>
-          Cuando el usuario contacte a TDR por WhatsApp, formularios web o
-          correo electrónico, los datos y mensajes intercambiados podrán
-          tratarse para responder la consulta, gestionar una contratación o
-          prestar un servicio.
+          Cuando el usuario contacte a TDR mediante formularios web, correo
+          electrónico u otros canales habilitados, los datos y mensajes
+          intercambiados podrán tratarse para responder la consulta, gestionar
+          una contratación o prestar un servicio.
         </p>
 
         <p>
-          El formulario de contacto del sitio puede utilizar servicios
-          tecnológicos de terceros para transmitir el mensaje al correo
-          electrónico de TDR.
+          Los formularios del sitio pueden utilizar servicios tecnológicos de
+          terceros, como Resend, para transmitir mensajes y confirmaciones al
+          correo electrónico de TDR o del usuario.
         </p>
 
         <p>
-          El uso de WhatsApp, correo electrónico y otras plataformas externas
-          queda también sujeto a las políticas de privacidad de sus respectivos
+          Las comunicaciones operativas necesarias para administrar una
+          contratación, reserva, solicitud, baja o devolución no se consideran
+          comunicaciones promocionales.
+        </p>
+
+        <p>
+          El uso de correo electrónico y demás plataformas externas queda
+          también sujeto a las políticas de privacidad de sus respectivos
           proveedores.
         </p>
       </section>
 
       <section id="menores">
-        <h2>13. Menores de edad</h2>
+        <h2>14. Menores de edad</h2>
 
         <p>
           Los servicios de TDR están dirigidos principalmente a personas
@@ -415,13 +497,13 @@ const Privacidad = () => {
 
         <p>
           Cuando un servicio pudiera estar dirigido o resultar accesible a
-          menores, se establecerán previamente las condiciones y autorizaciones
-          que correspondan.
+          menores, se establecerán previamente las condiciones, autorizaciones
+          y medidas que correspondan conforme a la normativa aplicable.
         </p>
       </section>
 
       <section id="derechos">
-        <h2>14. Derechos del titular</h2>
+        <h2>15. Derechos del titular</h2>
 
         <p>
           El titular de los datos podrá ejercer los derechos reconocidos por la
@@ -432,23 +514,39 @@ const Privacidad = () => {
 
         <p>
           Las solicitudes podrán enviarse a
-          <strong> [EMAIL DE PRIVACIDAD]</strong>.
+          <strong> [EMAIL DE PRIVACIDAD / CONTACTO]</strong>.
         </p>
 
         <p>
           TDR podrá solicitar información razonable para verificar la identidad
-          del solicitante y evitar el acceso o modificación de datos por
-          terceros no autorizados.
+          del solicitante y evitar el acceso, modificación o supresión de datos
+          por terceros no autorizados.
+        </p>
+
+        <p>
+          Las solicitudes de acceso serán respondidas dentro del plazo legal
+          aplicable, actualmente de diez (10) días corridos desde su recepción.
+        </p>
+
+        <p>
+          Las solicitudes de rectificación, actualización o supresión serán
+          atendidas dentro del plazo legal aplicable, actualmente de cinco (5)
+          días hábiles.
+        </p>
+
+        <p>
+          El ejercicio de estos derechos será gratuito en los términos
+          previstos por la normativa vigente.
         </p>
       </section>
 
       <section id="autoridad">
-        <h2>15. Autoridad de control</h2>
+        <h2>16. Autoridad de control</h2>
 
         <p>
           En Argentina, la autoridad de aplicación en materia de protección de
-          datos personales es la Agencia de Acceso a la Información Pública
-          (AAIP).
+          datos personales es la
+          <strong> Agencia de Acceso a la Información Pública (AAIP)</strong>.
         </p>
 
         <p>
@@ -458,7 +556,7 @@ const Privacidad = () => {
       </section>
 
       <section id="cookies">
-        <h2>16. Cookies y tecnologías similares</h2>
+        <h2>17. Cookies y tecnologías similares</h2>
 
         <p>
           El uso de cookies, etiquetas, píxeles y tecnologías similares se
@@ -472,7 +570,7 @@ const Privacidad = () => {
       </section>
 
       <section id="terceros">
-        <h2>17. Enlaces y servicios de terceros</h2>
+        <h2>18. Enlaces y servicios de terceros</h2>
 
         <p>
           El sitio puede contener enlaces hacia plataformas o servicios de
@@ -487,7 +585,7 @@ const Privacidad = () => {
       </section>
 
       <section id="modificaciones">
-        <h2>18. Modificaciones de esta Política</h2>
+        <h2>19. Modificaciones de esta Política</h2>
 
         <p>
           TDR podrá actualizar esta Política de Privacidad cuando existan
@@ -508,12 +606,17 @@ const Privacidad = () => {
       </section>
 
       <section id="contacto">
-        <h2>19. Contacto</h2>
+        <h2>20. Contacto</h2>
+
+        <p>
+          Para consultas relacionadas con privacidad o protección de datos:
+        </p>
 
         <p>
           <strong>Tunica de Realidad — TDR</strong>
           <br />
-          Correo: <strong>[EMAIL DE PRIVACIDAD]</strong>
+          Correo electrónico:{' '}
+          <strong>[EMAIL DE PRIVACIDAD / CONTACTO]</strong>
           <br />
           Domicilio: <strong>[DOMICILIO]</strong>
         </p>
