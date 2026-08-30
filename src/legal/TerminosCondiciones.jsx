@@ -45,7 +45,7 @@ const TerminosCondiciones = () => {
           <strong> [NOMBRE Y APELLIDO / DENOMINACIÓN LEGAL]</strong>, CUIT{' '}
           <strong>[CUIT]</strong>, con domicilio en{' '}
           <strong>[DOMICILIO]</strong> y correo electrónico de atención al
-          consumidor <strong>[EMAIL DE CONTACTO]</strong>, quien opera
+          consumidor <strong> contacto@tunicaderealidad.com </strong>, quien opera
           comercialmente bajo el nombre <strong>Tunica de Realidad</strong>,
           en adelante <strong>“TDR”</strong>.
         </p>
@@ -731,7 +731,7 @@ const TerminosCondiciones = () => {
         <p>
           <strong>Área responsable:</strong> Atención al Cliente — TDR
           <br />
-          <strong>Correo electrónico:</strong> [EMAIL DE CONTACTO]
+          <strong>Correo electrónico:</strong> contacto@tunicaderealidad.com
           <br />
           <strong>Horario de atención:</strong> lunes a viernes de 10:00 a
           18:00, excepto feriados nacionales.

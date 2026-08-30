@@ -224,4 +224,25 @@ Cuando se haga una modificación temporal o se deje una decisión para más adel
 - DÓNDE SE CORRIGE
 - QUÉ HAY QUE PROBAR DESPUÉS
 
+## Datos legales pendientes de contador
+
+Los únicos placeholders legales que deben quedar pendientes son:
+
+- [NOMBRE Y APELLIDO / DENOMINACIÓN LEGAL]
+- [CUIT]
+- [DOMICILIO]
+
+Aparecen en:
+- src/legal/TerminosCondiciones.jsx
+- src/legal/Privacidad.jsx
+- src/legal/Cookies.jsx
+
+No publicar la oferta comercial definitiva sin completar estos datos.
+
+Cuando el contador confirme la información:
+1. Reemplazar los placeholders.
+2. Ejecutar búsqueda global de corchetes/placeholders.
+3. Revisar visualmente los tres documentos.
+4. Hacer build y deploy.
+
 Este archivo debe actualizarse junto con el cambio correspondiente.

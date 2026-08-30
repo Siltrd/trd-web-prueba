@@ -49,7 +49,7 @@ const Privacidad = () => {
           Domicilio: <strong>[DOMICILIO]</strong>
           <br />
           Correo electrónico:{' '}
-          <strong>[EMAIL DE PRIVACIDAD / CONTACTO]</strong>
+          <strong>contacto@tunicaderealidad.com</strong>
         </p>
 
         <p>TDR opera desde la República Argentina.</p>
@@ -514,7 +514,7 @@ const Privacidad = () => {
 
         <p>
           Las solicitudes podrán enviarse a
-          <strong> [EMAIL DE PRIVACIDAD / CONTACTO]</strong>.
+          <strong> contacto@tunicaderealidad.com</strong>.
         </p>
 
         <p>
@@ -616,7 +616,7 @@ const Privacidad = () => {
           <strong>Tunica de Realidad — TDR</strong>
           <br />
           Correo electrónico:{' '}
-          <strong>[EMAIL DE PRIVACIDAD / CONTACTO]</strong>
+          <strong>contacto@tunicaderealidad.com</strong>
           <br />
           Domicilio: <strong>[DOMICILIO]</strong>
         </p>

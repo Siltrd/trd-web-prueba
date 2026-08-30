@@ -63,7 +63,7 @@ const Cookies = () => {
           Domicilio: <strong>[DOMICILIO]</strong>
           <br />
           Correo electrónico:{' '}
-          <strong>[EMAIL DE PRIVACIDAD / CONTACTO]</strong>
+          <strong>contacto@tunicaderealidad.com</strong>
         </p>
       </section>
 
@@ -411,7 +411,7 @@ const Cookies = () => {
           <strong>Tunica de Realidad — TDR</strong>
           <br />
           Correo electrónico:{' '}
-          <strong>[EMAIL DE PRIVACIDAD / CONTACTO]</strong>
+          <strong>contacto@tunicaderealidad.com</strong>
           <br />
           Domicilio: <strong>[DOMICILIO]</strong>
         </p>

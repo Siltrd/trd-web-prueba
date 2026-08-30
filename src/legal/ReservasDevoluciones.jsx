@@ -377,7 +377,7 @@ const ReservasDevoluciones = () => {
         <p>
           <strong>Tunica de Realidad — TDR</strong>
           <br />
-          Correo electrónico: <strong>[EMAIL DE CONTACTO]</strong>
+          Correo electrónico: <strong>contacto@tunicaderealidad.com</strong>
           <br />
           Horario de atención: <strong>lunes a viernes de 10:00 a 18:00, excepto feriados nacionales</strong>
         </p>

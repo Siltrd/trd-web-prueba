@@ -64,10 +64,12 @@ const ContactPage = () => {
       <div className={styles.contactContainer}>
         <h1>Contacto</h1>
 
-        <p>
-          Si tienes una consulta sobre TDR, sus servicios o una contratación,
-          puedes escribirnos mediante este formulario.
-        </p>
+        {!submitted && (
+          <p>
+            Si tienes una consulta sobre TDR, sus servicios o una contratación,
+            puedes escribirnos mediante este formulario.
+          </p>
+        )}
 
         {!submitted ? (
           <form
