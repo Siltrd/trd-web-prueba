@@ -1,134 +1,76 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import questions from '../data/questions_discurso';
-import * as disc from '../utils/calculateResultDiscurso';
-import styles from '../styles/testStyles/quiz_discurso.module.css';
+import React from 'react';
+import '../styles/home.css';
+import { Link } from 'react-router-dom';
 
-const calculateResultDiscurso =
-  disc.default ?? disc.calculateResultDiscurso;
-
-const QuizDiscurso = () => {
-  const navigate = useNavigate();
-  const totalQuestions = questions.length;
-
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState([]);
-  const [fade, setFade] = useState(true);
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [selectedIdx, setSelectedIdx] = useState(null);
-
-  const clickingRef = useRef(false);
-
-  useEffect(() => {
-    setSelectedIdx(null);
-
-    setTimeout(() => {
-      const activeElement = document.activeElement;
-
-      if (activeElement instanceof HTMLElement) {
-        activeElement.blur();
-      }
-    }, 0);
-  }, [currentQuestion]);
-
-  useEffect(() => {
-    if (!isCompleted) return;
-
-    const result = calculateResultDiscurso(answers);
-
-    navigate('/test-discurso/result', {
-      state: { result },
-      replace: true,
-    });
-  }, [isCompleted, answers, navigate]);
-
-  const handleAnswer = (tags, idx) => {
-    if (clickingRef.current) return;
-
-    clickingRef.current = true;
-    setSelectedIdx(idx);
-    setFade(false);
-
-    setTimeout(() => {
-      const activeElement = document.activeElement;
-
-      if (activeElement instanceof HTMLElement) {
-        activeElement.blur();
-      }
-
-      setAnswers((prev) => [...prev, ...tags]);
-
-      if (currentQuestion + 1 >= totalQuestions) {
-        setIsCompleted(true);
-      } else {
-        setCurrentQuestion((prev) => prev + 1);
-        setFade(true);
-      }
-
-      setSelectedIdx(null);
-      clickingRef.current = false;
-    }, 260);
-  };
-
-  const q = questions[currentQuestion];
-  const progress = ((currentQuestion + 1) / totalQuestions) * 100;
-
+const Friccion = () => {
   return (
-    <div className={styles.container}>
-      <div
-        key={`q-${currentQuestion}`}
-        className={styles.card}
-        style={{
-          opacity: fade ? 1 : 0,
-          transform: fade
-            ? 'translateY(0) scale(1)'
-            : 'translateY(5px) scale(0.98)',
-          transition: 'opacity .2s ease, transform .2s ease',
-        }}
-      >
-        <h2 className={styles.question}>{q.question}</h2>
+    <main className="home-container" style={{ padding: '3rem 2rem' }}>
+      <section className="producto-landing" style={{ maxWidth: '720px', margin: '0 auto' }}>
+        <h1
+  style={{
+    fontSize: '2rem',
+    color: '...', // lo que ya tengas
+    fontWeight: '700',
+    fontFamily: 'Inter, sans-serif',
+  }}
+>
 
-        <div
-          className={styles.progressBarWrap}
-          aria-hidden="true"
-        >
-          <div className={styles.progressBarTrack}>
-            <div
-              className={styles.progressBarFill}
-              style={{ width: `${progress}%` }}
-            />
-          </div>
+          Guía TDR · Aprovecha tu fricción
+        </h1>
 
-          <span className={styles.progressLabel}>
-            {currentQuestion + 1} / {totalQuestions}
-          </span>
+        <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem' }}>
+          Cuando algo en ti quiere avanzar, pero otra parte tira del freno.
+        </p>
+
+        <hr style={{ border: 'none', borderTop: '1px solid #ccc', marginBottom: '2rem' }} />
+
+        <div style={{ lineHeight: '1.7' }}>
+          <p><strong>Diagnóstico:</strong> Hay algo en ti que quiere avanzar, y otra parte que tira del freno. No estás inmóvil, pero tampoco en marcha plena. Vives en un diálogo interno constante, una especie de ruido de fondo que te acompaña aunque no lo nombres. Esa tensión que te incomoda… también contiene energía. Tienes una chispa encendida. Solo falta dirigirla.</p>
+
+          <p><strong>Imagen simbólica:</strong> Eres como un arco cargado: si no sueltas, te vas a desgastar. Pero si apuntas con claridad, vas a generar dirección real.</p>
+
+          <p><strong>Coste de no actuar:</strong> El conflicto no resuelto te hace girar en círculos. Gastas energía vital en sostener una posición ambigua. Y mientras tanto, la claridad no llega sola.</p>
         </div>
 
-        <div className={styles.optionsWrapper}>
-          {q.options.map((option, index) => (
-            <button
-              key={index}
-              type="button"
-              onMouseDown={(e) => e.preventDefault()}
-              onTouchStart={(e) => e.currentTarget.blur()}
-              onClick={(e) => {
-                e.currentTarget.blur();
-                handleAnswer(option.tags, index);
-              }}
-              onTouchEnd={(e) => e.currentTarget.blur()}
-              className={`${styles.button} ${
-                index === selectedIdx ? styles.selected : ''
-              }`}
-              aria-pressed={index === selectedIdx}
-              tabIndex={-1}
-            >
-              {option.text}
-            </button>
-          ))}
+        <hr style={{ border: 'none', borderTop: '1px solid #ccc', margin: '2rem 0' }} />
+
+        <section>
+          <h2 style={{ fontSize: '1.3rem', color: '#3c5a46' }}>
+            ¿Qué incluye esta guía?
+          </h2>
+          <ul style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>
+            <li>✔️ Hoja editable con 3 focos</li>
+            <li>✔️ Un ejemplo real de uso</li>
+            <li>✔️ Bonus: Audio “la pregunta que cambia el eje”</li>
+          </ul>
+
+          <p style={{ fontStyle: 'italic', color: '#3c5a46' }}>
+            No se trata de elegir entre impulso o duda. Se trata de convertir esa fricción en dirección.
+          </p>
+
+          <p style={{ marginTop: '1rem' }}><strong>Precio:</strong> $9</p>
+          <p><strong>Acceso:</strong> Descarga inmediata + audio extra</p>
+        </section>
+
+        <div style={{ marginTop: '2rem' }}>
+          <a
+            href={`https://wa.me/5491157041750?text=${encodeURIComponent(
+              'Hola TDR, quiero acceder a la guía "Fricción productiva". ¿Cómo seguimos?'
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="boton-tdr"
+          >
+            Quiero acceder a esta guía
+          </a>
         </div>
-      </div>
-    </div>
+
+        <div style={{ marginTop: '2rem' }}>
+          <Link to="/productos" className="volver-link">← Volver a todos los productos</Link>
+        </div>
+      </section>
+    </main>
   );
 };
 
-export default QuizDiscurso;
+export default Friccion;

@@ -26,8 +26,8 @@ const Ayuda = () => {
 
           <p>
             Para consultas generales, información sobre servicios,
-            contrataciones o una reserva, puedes utilizar nuestros canales de
-            contacto.
+            contrataciones o reservas, puedes utilizar el formulario de
+            contacto o escribir por correo electrónico.
           </p>
 
           <div className={styles.actions}>
@@ -39,21 +39,26 @@ const Ayuda = () => {
             </Link>
 
             <a
-              href="https://wa.me/5491157041750?text=Hola,%20quisiera%20realizar%20una%20consulta%20a%20TDR"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:contacto@tunicaderealidad.com"
               className={styles.secondaryLink}
             >
-              Escribir por WhatsApp
+              contacto@tunicaderealidad.com
             </a>
           </div>
+
+          <p className={styles.note}>
+            Horario de atención: lunes a viernes de 10:00 a 18:00,
+            excepto feriados nacionales.
+          </p>
         </section>
 
         <section
           className={styles.section}
           aria-labelledby="reservas"
         >
-          <h2 id="reservas">Reservas, cancelaciones y devoluciones</h2>
+          <h2 id="reservas">
+            Reservas, cancelaciones y devoluciones
+          </h2>
 
           <p>
             Consulta las condiciones aplicables a reservas,
@@ -72,7 +77,9 @@ const Ayuda = () => {
           className={styles.section}
           aria-labelledby="derechos"
         >
-          <h2 id="derechos">Arrepentimiento y baja de servicio</h2>
+          <h2 id="derechos">
+            Arrepentimiento y baja de servicio
+          </h2>
 
           <p>
             Estos procedimientos permiten iniciar las solicitudes
@@ -85,14 +92,14 @@ const Ayuda = () => {
               to="/arrepentimiento"
               className={styles.legalButton}
             >
-              Arrepentimiento
+              Botón de Arrepentimiento
             </Link>
 
             <Link
               to="/baja-de-servicio"
               className={styles.legalButton}
             >
-              Baja de servicio
+              Botón de Baja de Servicio
             </Link>
           </div>
         </section>
@@ -101,22 +108,21 @@ const Ayuda = () => {
           className={styles.section}
           aria-labelledby="reclamos"
         >
-          <h2 id="reclamos">Reclamos</h2>
+          <h2 id="reclamos">Consultas, solicitudes y reclamos</h2>
 
           <p>
-            Las consultas, solicitudes y reclamos pueden dirigirse a los
-            canales de atención de TDR.
+            Las consultas, solicitudes y reclamos pueden dirigirse al
+            canal de atención de TDR.
           </p>
 
           <p className={styles.pendingData}>
-            Correo electrónico: <strong>[EMAIL DE ATENCIÓN]</strong>
+            Correo electrónico:{' '}
+            <strong>contacto@tunicaderealidad.com</strong>
             <br />
-            Horario de atención: <strong>[HORARIO A DEFINIR]</strong>
-          </p>
-
-          <p className={styles.note}>
-            Estos datos se completarán antes de la publicación definitiva de
-            los servicios contratables.
+            Horario de atención:{' '}
+            <strong>
+              lunes a viernes de 10:00 a 18:00, excepto feriados nacionales
+            </strong>
           </p>
         </section>
 

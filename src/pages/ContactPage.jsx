@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../styles/contact.module.css';
 
 const ContactPage = () => {
@@ -43,9 +44,15 @@ const ContactPage = () => {
       }
 
       setSubmitted(true);
+
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+      });
     } catch {
       setError(
-        'No se pudo enviar el mensaje en este momento. Puedes escribirnos por WhatsApp o intentarlo nuevamente.'
+        'No se pudo enviar el mensaje en este momento. Intenta nuevamente o escribe a contacto@tunicaderealidad.com.'
       );
     } finally {
       setLoading(false);
@@ -55,16 +62,21 @@ const ContactPage = () => {
   return (
     <section className={styles.contactPage}>
       <div className={styles.contactContainer}>
-        <h1>Comienza tu camino con TDR</h1>
+        <h1>Contacto</h1>
 
         <p>
-          Gracias por dar el primer paso hacia tu transformación. Déjanos tus
-          datos y comparte cómo podemos ayudarte.
+          Si tienes una consulta sobre TDR, sus servicios o una contratación,
+          puedes escribirnos mediante este formulario.
         </p>
 
         {!submitted ? (
-          <form className={styles.contactForm} onSubmit={handleSubmit}>
-            <label htmlFor="name">¿Qué te trae a TDR?</label>
+          <form
+            className={styles.contactForm}
+            onSubmit={handleSubmit}
+          >
+            <label htmlFor="name">
+              Nombre y apellido *
+            </label>
 
             <input
               type="text"
@@ -72,11 +84,13 @@ const ContactPage = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Compártenos tu motivo"
+              placeholder="Nombre y apellido"
               required
             />
 
-            <label htmlFor="email">¿Cómo te podemos contactar?</label>
+            <label htmlFor="email">
+              Correo electrónico *
+            </label>
 
             <input
               type="email"
@@ -89,7 +103,7 @@ const ContactPage = () => {
             />
 
             <label htmlFor="message">
-              ¿En qué área deseas hacer un cambio?
+              Mensaje *
             </label>
 
             <textarea
@@ -98,12 +112,29 @@ const ContactPage = () => {
               rows="6"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Escribe tu mensaje"
+              placeholder="Escribe tu consulta"
               required
             />
 
+            <p>
+              No incluyas datos sensibles que no sean necesarios para
+              responder tu consulta.
+            </p>
+
+            <p>
+              Los datos enviados mediante este formulario se utilizarán para
+              gestionar y responder tu consulta. Los campos marcados con * son
+              necesarios. Puedes consultar más información sobre el tratamiento
+              de tus datos y el ejercicio de tus derechos en nuestra{' '}
+              <Link to="/privacidad">
+                Política de Privacidad
+              </Link>.
+            </p>
+
             {error && (
-              <p className={styles.errorMessage}>{error}</p>
+              <p className={styles.errorMessage}>
+                {error}
+              </p>
             )}
 
             <button
@@ -111,31 +142,29 @@ const ContactPage = () => {
               className={styles.btnPrincipal}
               disabled={loading}
             >
-              {loading ? 'Enviando…' : 'Inicia tu transformación'}
+              {loading ? 'Enviando…' : 'Enviar consulta'}
             </button>
           </form>
         ) : (
           <div className={styles.thankYouMessage}>
-            <h2>Gracias por ponerte en contacto con TDR</h2>
+            <h2>Mensaje enviado</h2>
 
             <p>
-              Estás comenzando tu viaje hacia un cambio real. Te responderemos
-              pronto y estaremos aquí para apoyarte en cada paso del camino.
+              Hemos recibido tu consulta. Te responderemos por correo
+              electrónico dentro del horario de atención.
             </p>
 
             <p>
-              Si lo prefieres, también puedes escribirnos directamente por
-              WhatsApp.
+              Horario de atención: lunes a viernes de 10:00 a 18:00,
+              excepto feriados nacionales.
             </p>
 
-            <a
-              href="https://wa.me/5491157041750?text=Hola,%20me%20contact%C3%A9%20desde%20la%20web%20TDR"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.whatsappLink}
-            >
-              💬 Escribir por WhatsApp
-            </a>
+            <p>
+              También puedes escribir directamente a{' '}
+              <a href="mailto:contacto@tunicaderealidad.com">
+                contacto@tunicaderealidad.com
+              </a>.
+            </p>
           </div>
         )}
       </div>
